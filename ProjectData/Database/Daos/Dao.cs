@@ -24,6 +24,7 @@ namespace ProjectData.Database.Daos
 
         private List<T> ExecuteQuery(MySqlCommand command)
         {
+            Console.Write("Query Executed | " + command.CommandText + "\n");
             database.OpenConnection();
             MySqlDataReader reader = command.ExecuteReader();
             List<T> result = DatabaseUtil.GetDataFromDataReader<T>(reader);
@@ -39,6 +40,7 @@ namespace ProjectData.Database.Daos
 
         private void ExecuteQueryNoResult(MySqlCommand command)
         {
+            Console.Write("Query Executed | " + command.CommandText + "\n");
             database.OpenConnection();
             command.ExecuteNonQuery();
             database.CloseConnection();

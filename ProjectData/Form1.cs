@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using ProjectData.Converter;
 using ProjectData.Database.Criterias;
 using ProjectData.Database.Daos;
 using ProjectData.Database.Entities;
@@ -25,9 +26,10 @@ namespace ProjectData
                 regioDao.Save(regio);
             }
 
-
             var regioCriteria = new RegioCriteria {Code = "TEST01"};
             var regios2 = regioDao.FindByCriteria(regioCriteria);
+
+            RegioConverter.Convert();
         }
     }
 }

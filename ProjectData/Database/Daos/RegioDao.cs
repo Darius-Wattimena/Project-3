@@ -11,7 +11,8 @@ namespace ProjectData.Database.Daos
             query.Append("(Code, Name) ");
             query.Append("VALUES (");
             query.Append("'" + instance.Code + "', ");
-            query.Append("'" + instance.Name + "'");
+            query.Append("'" + instance.Name + "', ");
+            query.Append("'" + instance.Description + "'");
             query.Append(")");
         }
 

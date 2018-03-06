@@ -26,6 +26,8 @@ namespace ProjectData
                 regioDao.Save(regio);
             }
 
+            //Hallo
+
             var regioCriteria = new RegioCriteria {Code = "TEST01"};
             var regios2 = regioDao.FindByCriteria(regioCriteria);
 

@@ -7,6 +7,11 @@ namespace ProjectData.Database
 {
     public class DatabaseUtil
     {
+        public static Database GetInstance()
+        {
+            return Database.GetInstance();
+        }
+
         public static List<T> GetDataFromDataReader<T>(MySqlDataReader dr)
         {
             if (typeof(T) == typeof(Regio))

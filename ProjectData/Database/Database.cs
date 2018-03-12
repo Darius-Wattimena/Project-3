@@ -45,6 +45,14 @@ namespace ProjectData.Database
             return result;
         }
 
+        public void TestConnection()
+        {
+            OpenConnection();
+            MySqlCommand command = new MySqlCommand("SHOW STATUS LIKE 'Conn%';", _connection);
+            command.ExecuteNonQuery();
+            CloseConnection();
+        }
+
         public void OpenConnection()
         {
             _connection.Open();

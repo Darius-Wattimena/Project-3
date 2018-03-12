@@ -12,13 +12,20 @@ namespace ProjectData.Converter
         public static void Convert()
         {
             var lines = File.ReadAllLines("../../Resource/Dataset/83651NED_metadata.csv").Select(a => a.Split(';'));
-            var csv = from line in lines
-                      select (from piece in line
-                              select piece);
             var linesList = lines.ToList();
-            var i = 0;
-            RegioDao dao = new RegioDao();
 
+            linesList = RemoveUnneededLines(lines, linesList);
+            lines = linesList.ToArray();
+
+            var replacableDirectory = FindAllReplacableLines(linesList);
+
+            linesList = ReplaceLines(lines, linesList, replacableDirectory);
+            ReadData(linesList);
+        }
+
+        private static List<string[]> RemoveUnneededLines(IEnumerable<string[]> lines, List<string[]> linesList)
+        {
+            var i = 0;
             foreach (var line in lines)
             {
                 if (string.IsNullOrEmpty(line[0]))
@@ -29,12 +36,13 @@ namespace ProjectData.Converter
                 i++;
             }
 
-            i = 0;
-            lines = linesList.ToArray();
+            return linesList;
+        }
 
+        private static Dictionary<int, string[]> FindAllReplacableLines(List<string[]> lines)
+        {
+            var i = 0;
             var replacableDirectory = new Dictionary<int, string[]>();
-
-            //Als de string niet begint met \" voeg hem dan toe aan de vorige
 
             foreach (var line in lines)
             {
@@ -44,6 +52,13 @@ namespace ProjectData.Converter
                 }
                 i++;
             }
+
+            return replacableDirectory;
+        }
+
+        private static List<string[]> ReplaceLines(IEnumerable<string[]> lines, List<string[]> linesList, Dictionary<int, string[]> replacableDirectory)
+        {
+            var i = lines.Count();
 
             foreach (var line in lines.Reverse())
             {
@@ -73,16 +88,24 @@ namespace ProjectData.Converter
                 i--;
             }
 
+            return linesList;
+        }
+
+        private static void ReadData(List<string[]> linesList)
+        {
+
+            var dao = new RegioDao();
+            var i = 0;
             foreach (var line in linesList)
             {
-                if (i >= 52 && i <= 527)
+                if (i >= 51 && i <= 526)
                 {
                     var lineArray = line.ToArray();
                     Regio regio = new Regio
                     {
-                        Code = lineArray[0],
-                        Name = lineArray[1],
-                        Description = lineArray[2]
+                        Code = lineArray[0].Replace("\"", string.Empty),
+                        Name = lineArray[1].Replace("\"", string.Empty),
+                        Description = lineArray[2].Replace("\"", string.Empty)
                     };
                     dao.Save(regio);
                 }

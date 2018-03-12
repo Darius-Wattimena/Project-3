@@ -8,7 +8,7 @@ namespace ProjectData.Database.Daos
     {
         protected override void Create(StringBuilder query, Regio instance)
         {
-            query.Append("(Code, Name) ");
+            query.Append("(Code, Name, Description) ");
             query.Append("VALUES (");
             query.Append("'" + instance.Code + "', ");
             query.Append("'" + instance.Name + "', ");

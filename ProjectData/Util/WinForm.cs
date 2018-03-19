@@ -14,16 +14,16 @@ namespace ProjectData.Util
         /// <typeparam name="T">Instance of Form</typeparam>
         /// <param name="currentForm">The current form that is open</param>
         /// <returns>The new open form</returns>
-        public static T OpenForm<T>(Form currentForm) where T : Form, new()
+        public static T OpenForm<T>() where T : Form, new()
         {
             T result = new T
             {
-                Location = currentForm.Location,
+                Location = current.Location,
                 StartPosition = FormStartPosition.Manual
             };
 
             result.Show();
-            currentForm.Hide();
+            current.Hide();
 
             current = result;
 
@@ -36,6 +36,7 @@ namespace ProjectData.Util
         /// <param name="methods">Methods that need to be executed on the main thread</param>
         public static void Execute(params Action[] methods)
         {
+            // Check if we are not on the main thread
             if (current.InvokeRequired)
             {
                 current.Invoke((MethodInvoker)delegate ()
@@ -46,6 +47,13 @@ namespace ProjectData.Util
                         method();
                     }
                 });
+            }
+            else
+            {
+                foreach (Action method in methods)
+                {
+                    method();
+                }
             }
         }
     }

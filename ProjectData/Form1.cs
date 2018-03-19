@@ -126,7 +126,7 @@ namespace ProjectData
 
         private void OpenMainMenu()
         {
-            WinForm.OpenForm<Form2>(this);
+            WinForm.OpenForm<Form2>();
         }
 
         private void FlipRetryButton()

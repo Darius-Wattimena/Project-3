@@ -7,9 +7,9 @@ namespace ProjectData.Database
 {
     public class DatabaseUtil
     {
-        public static Database GetInstance()
+        public static void TestConnection()
         {
-            return Database.GetInstance();
+            Database.GetInstance().TestConnection();
         }
 
         public static List<T> GetDataFromDataReader<T>(MySqlDataReader dr)

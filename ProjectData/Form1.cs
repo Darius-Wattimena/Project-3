@@ -5,11 +5,9 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using ProjectData.Converter;
 using ProjectData.Database;
-using ProjectData.Database.Criterias;
 using ProjectData.Database.Daos;
-using ProjectData.Database.Entities;
+using ProjectData.Util;
 
 namespace ProjectData
 {
@@ -38,22 +36,41 @@ namespace ProjectData
 
             if (result == SUCCESS)
             {
-                SetSubLabelText("Loading finished, now redirecting to MainMenu");
-                UpdateProgressBar(100);
-                OpenMainMenu();
+                WinForm.Execute(() =>
+                {
+                    SetSubLabelText("Loading finished, now redirecting to MainMenu");
+                    UpdateProgressBar(100);
+                    OpenMainMenu();
+                });
             }
             else if (result == MYSQL_ERROR)
             {
-                SetSubLabelColor(Color.Red);
-                SetSubLabelText("MySQL Error please check your database server!");
-                UpdateProgressBarColor(2);
+                WinForm.Execute(() =>
+                {
+                    SetSubLabelColor(Color.Red);
+                    SetSubLabelText("MySQL Error please check your database server!");
+                    UpdateProgressBarColor(2);
+                });
             }
 
             if (bw.CancellationPending)
             {
+                WinForm.Execute(() => FlipRetryButton());
                 e.Cancel = true;
             }
             
+        }
+
+        private void retryButton_Click(object sender, EventArgs e)
+        {
+            WinForm.Execute(() =>
+            {
+                UpdateProgressBar(0);
+                UpdateProgressBarColor(1);
+                SetSubLabelText("Retrying");
+                backgroundWorker1.RunWorkerAsync();
+                FlipRetryButton();
+            });
         }
 
         private int BackgroundOperation(BackgroundWorker bw)
@@ -65,43 +82,34 @@ namespace ProjectData
             {
                 try
                 {
-                    SetSubLabelText("Testing connection");
-                    UpdateProgressBar(5);
-                    DatabaseUtil.GetInstance().TestConnection();
+                    WinForm.Execute(() =>
+                    {
+                        SetSubLabelText("Testing connection");
+                        UpdateProgressBar(5);
+                    });
+                    DatabaseUtil.TestConnection();
                     Thread.Sleep(200);
-
-                    SetSubLabelText("Check the current data");
+                    
                     //TODO check current data in database and insert new records if needed.
-                    UpdateProgressBar(20);
-                    RegioDao regioDao = new RegioDao();
-                    regioDao.FindAll();
-
-                    UpdateProgressBar(30);
-                    Thread.Sleep(1000);
-
-                    SetSubLabelText("Still checking the data");
-                    UpdateProgressBar(50);
-                    Thread.Sleep(1000);
-
-                    UpdateProgressBar(52);
-                    Thread.Sleep(1000);
+                    WinForm.Execute(() => 
+                    {
+                        SetSubLabelText("Check the current data");
+                        UpdateProgressBar(20);
+                    });
                 }
-                catch (MySqlException)
+                catch (MySqlException ex)
                 {
                     result = MYSQL_ERROR;
-                    exit = true;
+                    Log.Error(ex.Message);
+                    bw.CancelAsync();
                     break;
                 }
 
-                SetSubLabelText("Getting closer");
-                UpdateProgressBar(55);
-                Thread.Sleep(1000);
-
-                UpdateProgressBar(75);
-                Thread.Sleep(1000);
-
-                SetSubLabelText("Almost done");
-                UpdateProgressBar(90);
+                WinForm.Execute(() =>
+                {
+                    SetSubLabelText("Almost done");
+                    UpdateProgressBar(90);
+                });
                 Thread.Sleep(1000);
 
                 result = SUCCESS;
@@ -118,83 +126,32 @@ namespace ProjectData
 
         private void OpenMainMenu()
         {
-            if (InvokeRequired)
-            {
-                Invoke((MethodInvoker)delegate ()
-                {
-                    //Execute on main thread
-                    OpenMainMenu();
-                });
-                return;
-            }
+            WinForm.OpenForm<Form2>(this);
+        }
 
-            Form2 frm = new Form2();
-            frm.Location = this.Location;
-            frm.StartPosition = FormStartPosition.Manual;
-            frm.Show();
-            this.Hide();
+        private void FlipRetryButton()
+        {
+            retryButton.Enabled = !retryButton.Enabled;
+            retryButton.Visible = !retryButton.Visible;
         }
 
         private void UpdateProgressBarColor(int color)
         {
-            if (InvokeRequired)
-            {
-                Invoke((MethodInvoker)delegate ()
-                {
-                    //Execute on main thread
-                    UpdateProgressBarColor(color);
-                });
-                return;
-            }
-
             SendMessage(progressBar.Handle, 1040, (IntPtr)color, IntPtr.Zero);
         }
 
         private void UpdateProgressBar(int progress)
         {
-            //Check if we are not on the main thread
-            if (InvokeRequired)
-            {
-                Invoke((MethodInvoker)delegate ()
-                {
-                    //Execute on main thread
-                    UpdateProgressBar(progress);
-                });
-                return;
-            }
-
             progressBar.Value = progress;
         }
 
         private void SetSubLabelText(string text)
         {
-            //Check if we are not on the main thread
-            if (InvokeRequired)
-            {
-                Invoke((MethodInvoker) delegate() 
-                {
-                    //Execute on main thread
-                    SetSubLabelText(text);
-                });
-                return;
-            }
-
             subLabel.Text = text;
         }
 
         private void SetSubLabelColor(Color color)
         {
-            //Check if we are not on the main thread
-            if (InvokeRequired)
-            {
-                Invoke((MethodInvoker)delegate ()
-                {
-                    //Execute on main thread
-                    SetSubLabelColor(color);
-                });
-                return;
-            }
-
             subLabel.ForeColor = color;
         }
     }

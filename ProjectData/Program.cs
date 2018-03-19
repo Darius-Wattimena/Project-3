@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectData.Util;
+using System;
 using System.Windows.Forms;
 
 namespace ProjectData
@@ -13,7 +14,10 @@ namespace ProjectData
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            Form1 form = new Form1();
+            WinForm.current = form;
+            Application.Run(form);
         }
     }
 }

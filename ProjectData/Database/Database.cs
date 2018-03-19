@@ -4,10 +4,11 @@ using MySql.Data.MySqlClient;
 using ProjectData.Database.Criterias;
 using ProjectData.Database.Daos;
 using ProjectData.Database.Entities;
+using ProjectData.Util;
 
 namespace ProjectData.Database
 {
-    public class Database
+    class Database
     {
         private static Database _instance;
 
@@ -30,6 +31,8 @@ namespace ProjectData.Database
             connectionString.Append("DATABASE=" + DATABASE + ";");
             connectionString.Append("UID=" + USER + ";");
             connectionString.Append("PASSWORD=" + PASSWORD + ";");
+
+            Log.Info(connectionString.ToString());
 
             _connection = new MySqlConnection(connectionString.ToString());
         }

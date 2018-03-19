@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using ProjectData.Database.Entities;
 using ProjectData.Database.Criterias;
+using ProjectData.Util;
 
 namespace ProjectData.Database.Daos
 {
@@ -24,7 +22,7 @@ namespace ProjectData.Database.Daos
 
         private List<T> ExecuteQuery(MySqlCommand command)
         {
-            Console.Write("Query Executed | " + command.CommandText + "\n");
+            Log.Info("Query Executed | " + command.CommandText);
             database.OpenConnection();
             MySqlDataReader reader = command.ExecuteReader();
             List<T> result = DatabaseUtil.GetDataFromDataReader<T>(reader);
@@ -40,7 +38,7 @@ namespace ProjectData.Database.Daos
 
         private void ExecuteQueryNoResult(MySqlCommand command)
         {
-            Console.Write("Query Executed | " + command.CommandText + "\n");
+            Log.Info("Query Executed | " + command.CommandText);
             database.OpenConnection();
             command.ExecuteNonQuery();
             database.CloseConnection();

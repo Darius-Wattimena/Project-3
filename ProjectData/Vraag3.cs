@@ -15,7 +15,7 @@ using ProjectData.Database;
 using ProjectData.Database.Criterias;
 using ProjectData.Database.Daos;
 using ProjectData.Database.Entities;
-
+using ProjectData.Util;
 
 namespace ProjectData
 {
@@ -24,6 +24,21 @@ namespace ProjectData
         public Vraag3()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            WinForm.OpenForm<Vraag1>();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            WinForm.OpenForm<Form2>();
         }
     }
 }

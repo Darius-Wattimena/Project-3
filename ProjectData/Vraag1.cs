@@ -32,5 +32,10 @@ namespace ProjectData
         {
             WinForm.OpenForm<Form2>();
         }
+
+        private void Vraag1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

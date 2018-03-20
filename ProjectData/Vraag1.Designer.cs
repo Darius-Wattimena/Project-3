@@ -54,6 +54,7 @@
             this.checkBoxZeeland = new System.Windows.Forms.CheckBox();
             this.labelPerjaartal = new System.Windows.Forms.Label();
             this.labelPerprovincie = new System.Windows.Forms.Label();
+            this.labelNoordholland = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -208,11 +209,11 @@
             this.checkBoxNoordholland.AutoSize = true;
             this.checkBoxNoordholland.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxNoordholland.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
-            this.checkBoxNoordholland.Location = new System.Drawing.Point(885, 249);
+            this.checkBoxNoordholland.Location = new System.Drawing.Point(899, 220);
             this.checkBoxNoordholland.Name = "checkBoxNoordholland";
-            this.checkBoxNoordholland.Size = new System.Drawing.Size(107, 19);
+            this.checkBoxNoordholland.Size = new System.Drawing.Size(69, 34);
             this.checkBoxNoordholland.TabIndex = 16;
-            this.checkBoxNoordholland.Text = "Noord-Holland";
+            this.checkBoxNoordholland.Text = "Noord\r\nHolland\r\n";
             this.checkBoxNoordholland.UseVisualStyleBackColor = false;
             // 
             // checkBoxUtrecht
@@ -244,11 +245,11 @@
             this.checkBoxFlevoland.AutoSize = true;
             this.checkBoxFlevoland.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxFlevoland.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
-            this.checkBoxFlevoland.Location = new System.Drawing.Point(966, 299);
+            this.checkBoxFlevoland.Location = new System.Drawing.Point(988, 274);
             this.checkBoxFlevoland.Name = "checkBoxFlevoland";
-            this.checkBoxFlevoland.Size = new System.Drawing.Size(79, 19);
+            this.checkBoxFlevoland.Size = new System.Drawing.Size(59, 34);
             this.checkBoxFlevoland.TabIndex = 19;
-            this.checkBoxFlevoland.Text = "Flevoland";
+            this.checkBoxFlevoland.Text = "Flevo-\r\nland";
             this.checkBoxFlevoland.UseVisualStyleBackColor = false;
             // 
             // checkBoxGelderland
@@ -304,7 +305,7 @@
             this.checkBoxZeeland.AutoSize = true;
             this.checkBoxZeeland.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxZeeland.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
-            this.checkBoxZeeland.Location = new System.Drawing.Point(748, 485);
+            this.checkBoxZeeland.Location = new System.Drawing.Point(748, 490);
             this.checkBoxZeeland.Name = "checkBoxZeeland";
             this.checkBoxZeeland.Size = new System.Drawing.Size(71, 19);
             this.checkBoxZeeland.TabIndex = 24;
@@ -333,12 +334,23 @@
             this.labelPerprovincie.TabIndex = 26;
             this.labelPerprovincie.Text = "*Per provincie";
             // 
+            // labelNoordholland
+            // 
+            this.labelNoordholland.AutoSize = true;
+            this.labelNoordholland.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(103)))), ((int)(((byte)(92)))));
+            this.labelNoordholland.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
+            this.labelNoordholland.Location = new System.Drawing.Point(896, 257);
+            this.labelNoordholland.Name = "labelNoordholland";
+            this.labelNoordholland.Size = new System.Drawing.Size(0, 15);
+            this.labelNoordholland.TabIndex = 27;
+            // 
             // Vraag1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1386, 788);
+            this.Controls.Add(this.labelNoordholland);
             this.Controls.Add(this.labelPerprovincie);
             this.Controls.Add(this.labelPerjaartal);
             this.Controls.Add(this.checkBoxZeeland);
@@ -395,5 +407,6 @@
         private System.Windows.Forms.CheckBox checkBoxZeeland;
         private System.Windows.Forms.Label labelPerjaartal;
         private System.Windows.Forms.Label labelPerprovincie;
+        private System.Windows.Forms.Label labelNoordholland;
     }
 }

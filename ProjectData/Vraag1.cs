@@ -37,5 +37,10 @@ namespace ProjectData
         {
 
         }
+
+        private void buttonNoordholland_Click(object sender, EventArgs e)
+        {
+            checkBoxNoordholland.Checked = !checkBoxNoordholland.Checked;
+        }
     }
 }

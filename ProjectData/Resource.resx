@@ -121,6 +121,12 @@
   <data name="Dataset_Diefstallen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Dataset_Diefstallen.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="MainMenuBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\MainMenuBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MainMenuBackgroundNoText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\MainMenuBackgroundNoText.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Metadata" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Metadata.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>

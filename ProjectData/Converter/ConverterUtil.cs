@@ -4,14 +4,34 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Text;
+using ProjectData.Util;
 
 namespace ProjectData.Converter
 {
-    public class RegioConverter
+    public class ConverterUtil
     {
-        public static void Convert()
+        public static IEnumerable<string> ReadLines(Func<Stream> streamProvider, Encoding encoding)
         {
-            var lines = File.ReadAllLines("../../Resource/Dataset/83651NED_metadata.csv").Select(a => a.Split(';'));
+            using (var stream = streamProvider())
+            using (var reader = new StreamReader(stream, encoding))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    yield return line;
+                }
+            }
+        }
+
+        public static void ConvertRegio()
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+            var stream = assembly.GetManifestResourceStream("ProjectData.Resources.Metadata.csv");
+
+            //var lines = File.ReadAllLines("../../Resource/Dataset/83651NED_metadata.csv").Select(a => a.Split(';'));
+            var lines = ReadLines(() => stream, Encoding.UTF8).ToList().Select(a => a.Split(';'));
             var linesList = lines.ToList();
 
             linesList = RemoveUnneededLines(lines, linesList);
@@ -104,7 +124,7 @@ namespace ProjectData.Converter
                     Regio regio = new Regio
                     {
                         Code = lineArray[0].Replace("\"", string.Empty),
-                        Name = lineArray[1].Replace("\"", string.Empty),
+                        Name = lineArray[1].Replace("\"", string.Empty).Replace("\'", string.Empty),
                         Description = lineArray[2].Replace("\"", string.Empty)
                     };
                     dao.Save(regio);

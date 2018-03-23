@@ -5,6 +5,7 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using ProjectData.Converter;
 using ProjectData.Database;
 using ProjectData.Database.Daos;
 using ProjectData.Util;
@@ -15,6 +16,8 @@ namespace ProjectData
     {
         private static readonly int SUCCESS = 0;
         private static readonly int MYSQL_ERROR = 101;
+
+        private RegioDao regioDao = new RegioDao();
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = false)]
         private static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr w, IntPtr l);
@@ -90,12 +93,16 @@ namespace ProjectData
                     DatabaseUtil.TestConnection();
                     Thread.Sleep(200);
                     
-                    //TODO check current data in database and insert new records if needed.
                     WinForm.Execute(() => 
                     {
                         SetSubLabelText("Check the current data");
                         UpdateProgressBar(20);
                     });
+
+                    if (regioDao.FindAll().Count == 0)
+                    {
+                        ConverterUtil.ConvertRegio();
+                    }
                 }
                 catch (MySqlException ex)
                 {

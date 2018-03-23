@@ -18,6 +18,10 @@ namespace ProjectData.Database
             {
                 return DataReaderToRegio(dr) as List<T>;
             }
+            else if (typeof(T) == typeof(Preventie))
+            {
+                return DataReaderToPreventie(dr) as List<T>;
+            }
             return new List<T>();
         }
 
@@ -37,6 +41,24 @@ namespace ProjectData.Database
             }
 
             return regios;
+        }
+
+        private static List<Preventie> DataReaderToPreventie(IDataReader dr)
+        {
+            var preventies = new List<Preventie>();
+
+            while (dr.Read())
+            {
+                var preventie = new Preventie
+                {
+                    Regios = dr.GetString(0),
+                    Perioden = dr.GetString(1),
+                    LichtAfwezig = dr.GetString(2)
+                };
+                preventies.Add(preventie);
+            }
+
+            return preventies;
         }
     }
 }

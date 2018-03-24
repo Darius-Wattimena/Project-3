@@ -20,7 +20,7 @@ namespace ProjectData
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            WinForm.OpenForm<Vraag2>();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -36,11 +36,6 @@ namespace ProjectData
         private void Vraag1_Load(object sender, EventArgs e)
         {
 
-        }
-
-        private void buttonNoordholland_Click(object sender, EventArgs e)
-        {
-            checkBoxNoordholland.Checked = !checkBoxNoordholland.Checked;
         }
     }
 }

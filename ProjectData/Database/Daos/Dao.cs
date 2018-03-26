@@ -11,42 +11,39 @@ namespace ProjectData.Database.Daos
         where T : IEntity
         where U : ICriteria<T>
     {
-        private readonly string tableName;
+        private readonly string _tableName;
 
-        private readonly Database database = Database.GetInstance();
+        private readonly Database _database = Database.GetInstance();
 
-        protected Dao()
-        {
-            tableName = SetTableName();
-        }
+        protected Dao() => _tableName = SetTableName();
 
         private List<T> ExecuteQuery(MySqlCommand command)
         {
             Log.Info("Query Executed | " + command.CommandText);
-            database.OpenConnection();
+            _database.OpenConnection();
             MySqlDataReader reader = command.ExecuteReader();
             List<T> result = DatabaseUtil.GetDataFromDataReader<T>(reader);
-            database.CloseConnection();
+            _database.CloseConnection();
             return result;
         }
 
         public List<T> ExecuteQuery(string query)
         {
-            MySqlCommand command = new MySqlCommand(query, database.GetConnection());
+            MySqlCommand command = new MySqlCommand(query, _database.GetConnection());
             return ExecuteQuery(command);
         }
 
         private void ExecuteQueryNoResult(MySqlCommand command)
         {
             Log.Info("Query Executed | " + command.CommandText);
-            database.OpenConnection();
+            _database.OpenConnection();
             command.ExecuteNonQuery();
-            database.CloseConnection();
+            _database.CloseConnection();
         }
 
         public void ExecuteQueryNoResult(string query)
         {
-            MySqlCommand command = new MySqlCommand(query, database.GetConnection());
+            MySqlCommand command = new MySqlCommand(query, _database.GetConnection());
             ExecuteQueryNoResult(command);
         }
 
@@ -56,15 +53,11 @@ namespace ProjectData.Database.Daos
             {
                 Create(instance);
             }
-            else
-            {
-                //Update(instance);
-            }
         }
 
         public List<T> Find(Dictionary<string, object> parameters)
         {
-            StringBuilder query = new StringBuilder("SELECT * FROM " + tableName + " \n");
+            StringBuilder query = new StringBuilder("SELECT * FROM " + _tableName + " \n");
             MySqlCommand command = new MySqlCommand();
             query.Append("WHERE 1=1 \n");
 
@@ -80,13 +73,13 @@ namespace ProjectData.Database.Daos
 
         public List<T> FindAll()
         {
-            string query = "SELECT * FROM " + tableName;
+            string query = "SELECT * FROM " + _tableName;
             return ExecuteQuery(query);
         }
 
         public List<T> FindByCriteria(U criteria)
         {
-            StringBuilder query = new StringBuilder("SELECT * FROM " + tableName);
+            StringBuilder query = new StringBuilder("SELECT * FROM " + _tableName);
             query.Append(" WHERE 1=1 ");
             criteria.Build(query);
             return ExecuteQuery(query.ToString());
@@ -95,7 +88,7 @@ namespace ProjectData.Database.Daos
         private void Create(T instance)
         {
             StringBuilder query = new StringBuilder("INSERT INTO ");
-            query.Append(tableName);
+            query.Append(_tableName);
             query.Append(" ");
             Create(query, instance);
             ExecuteQueryNoResult(query.ToString());

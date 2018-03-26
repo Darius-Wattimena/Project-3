@@ -14,14 +14,28 @@ namespace ProjectData.Database
 
         public static List<T> GetDataFromDataReader<T>(MySqlDataReader dr)
         {
-            if (typeof(T) == typeof(Regio))
+            var type = typeof(T);
+
+            if (type == typeof(Regio))
             {
                 return DataReaderToRegio(dr) as List<T>;
             }
-            else if (typeof(T) == typeof(Preventie))
+
+            if (type == typeof(Diefstal))
+            {
+                return DataReaderToDiefstal(dr) as List<T>;
+            }
+
+            if (type == typeof(Preventie))
             {
                 return DataReaderToPreventie(dr) as List<T>;
             }
+
+            if (type == typeof(GemiddeldInkomen))
+            {
+
+            }
+
             return new List<T>();
         }
 
@@ -41,6 +55,61 @@ namespace ProjectData.Database
             }
 
             return regios;
+        }
+
+        private static List<Diefstal> DataReaderToDiefstal(IDataReader dr)
+        {
+            var diefstallen = new List<Diefstal>();
+
+            while (dr.Read())
+            {
+                var diefstal = new Diefstal
+                {
+                    DiefstalId = dr.GetInt32(0),
+                    GebruikVanGeweld = dr.GetString(1),
+                    SoortDiefstal = dr.GetString(2),
+                    RegioCode = dr.GetString(3),
+                    Perioden = dr.GetString(4),
+                    TotaalGeregistreerdeDiefstallen = dr.GetString(5),
+                    GeregistreerdeDiefstallenRelatief = dr.GetString(6),
+                    GeregistreerdeDiefstallenPer1000Inw = dr.GetDecimal(7),
+                    TotaalOpgehelderdeDiefstallen = dr.GetString(8),
+                    OpgehelderdeDiefstallenRelatief = dr.GetDecimal(9),
+                    RegistratiesVanVerdachten = dr.GetString(10)
+                };
+                diefstallen.Add(diefstal);
+            }
+
+            return diefstallen;
+        }
+
+        private static List<GemiddeldInkomen> DataReaderToGemiddeldInkomen(IDataReader dr)
+        {
+            var gemiddeldInkomens = new List<GemiddeldInkomen>();
+
+            while (dr.Read())
+            {
+                var gemiddeldInkomen = new GemiddeldInkomen
+                {
+                    GemiddeldInkomenId = dr.GetInt32(0),
+                    RegioCode = dr.GetString(1),
+                    Perioden = dr.GetString(2),
+                    AantalPersonen = dr.GetDecimal(3),
+                    GemiddeldBesteedbaarInkomen = dr.GetDecimal(4),
+                    RangnummerBesteedbaarInkomen = dr.GetInt32(5),
+                    GemiddeldGestandaardiseerdInkomen = dr.GetDecimal(6),
+                    RangnummerGestandaardiseerdInkomen = dr.GetInt32(7),
+                    AantalPersonen_2 = dr.GetDecimal(8),
+                    InVanPersonenMetEnZonderInkomen = dr.GetInt32(9),
+                    GemiddeldPersoonlijkInkomen = dr.GetDecimal(10),
+                    RangnummerPersoonlijkInkomen = dr.GetInt32(11),
+                    GemiddeldBesteedbaarInkomen_2 = dr.GetDecimal(12),
+                    RangnummerBesteedbaarInkomen_2 = dr.GetInt32(13)
+                };
+                gemiddeldInkomens.Add(gemiddeldInkomen);
+            }
+
+            return gemiddeldInkomens;
         }
 
         private static List<Preventie> DataReaderToPreventie(IDataReader dr)

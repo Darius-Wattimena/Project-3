@@ -114,7 +114,7 @@
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(72)))), ((int)(((byte)(81)))));
             this.label2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(233, 24);
+            this.label2.Location = new System.Drawing.Point(283, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(629, 14);
             this.label2.TabIndex = 9;
@@ -147,10 +147,12 @@
             // 
             this.chart1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(72)))), ((int)(((byte)(81)))));
             this.chart1.BorderlineColor = System.Drawing.Color.Empty;
+            chartArea1.BorderColor = System.Drawing.Color.White;
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.BackColor = System.Drawing.Color.Transparent;
             legend1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend1.ForeColor = System.Drawing.Color.White;
             legend1.IsTextAutoFit = false;
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
@@ -158,9 +160,13 @@
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
             series1.ChartArea = "ChartArea1";
+            series1.EmptyPointStyle.LabelForeColor = System.Drawing.Color.White;
+            series1.LabelBackColor = System.Drawing.Color.Black;
             series1.Legend = "Legend1";
             series1.Name = "Diefstal";
+            series1.SmartLabelStyle.CalloutLineColor = System.Drawing.Color.White;
             series2.ChartArea = "ChartArea1";
+            series2.EmptyPointStyle.LabelForeColor = System.Drawing.Color.White;
             series2.Legend = "Legend1";
             series2.Name = "Gemiddeld inkomen";
             this.chart1.Series.Add(series1);
@@ -340,7 +346,7 @@
             this.panel1.Controls.Add(this.comboBoxSoortDiefstal);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(249, 64);
+            this.panel1.Location = new System.Drawing.Point(442, 74);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(355, 168);
             this.panel1.TabIndex = 28;

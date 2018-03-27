@@ -22,6 +22,10 @@ namespace ProjectData.Database
             {
                 return DataReaderToPreventie(dr) as List<T>;
             }
+            else if (typeof(T) == typeof(Diefstal))
+            {
+                return DataReaderToDiefstal(dr) as List<T>;
+            }
             return new List<T>();
         }
 
@@ -53,12 +57,32 @@ namespace ProjectData.Database
                 {
                     Regios = dr.GetString(0),
                     Perioden = dr.GetString(1),
-                    LichtAfwezig = dr.GetString(2)
+                    LichtAfwezig = dr.GetFloat(2)
                 };
                 preventies.Add(preventie);
             }
 
             return preventies;
+        }
+
+        private static List<Diefstal> DataReaderToDiefstal(IDataReader dr)
+        {
+            var diefstallen = new List<Diefstal>();
+
+            while (dr.Read())
+            {
+                var diefstal = new Diefstal
+                {
+                    Gebruikgeweld = dr.GetInt32(0),
+                    Soortdiefstal = dr.GetInt32(0),
+                    Regios = dr.GetString(2),
+                    Perioden = dr.GetString(3),
+                    Totaaldiefstal = dr.GetFloat(4)
+                };
+                diefstallen.Add(diefstal);
+            }
+
+            return diefstallen;
         }
     }
 }

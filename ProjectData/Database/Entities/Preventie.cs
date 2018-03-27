@@ -8,7 +8,7 @@
 
         public string Perioden { get; set; }
 
-        public string LichtAfwezig { get; set; }
+        public float LichtAfwezig { get; set; }
 
         public int GetId()
         {

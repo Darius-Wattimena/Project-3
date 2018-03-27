@@ -52,14 +52,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Converter\ConverterUtil.cs" />
+    <Compile Include="Database\Criterias\DiefstalCriteria.cs" />
     <Compile Include="Database\Criterias\ICriteria.cs" />
     <Compile Include="Database\Criterias\PreventieCriteria.cs" />
     <Compile Include="Database\Criterias\RegioCriteria.cs" />
     <Compile Include="Database\Daos\Dao.cs" />
+    <Compile Include="Database\Daos\DiefstalDao.cs" />
     <Compile Include="Database\Daos\PreventieDao.cs" />
     <Compile Include="Database\Daos\RegioDao.cs" />
     <Compile Include="Database\Database.cs" />
     <Compile Include="Database\DatabaseUtil.cs" />
+    <Compile Include="Database\Entities\Diefstal.cs" />
     <Compile Include="Database\Entities\IEntity.cs" />
     <Compile Include="Database\Entities\Preventie.cs" />
     <Compile Include="Database\Entities\Regio.cs" />

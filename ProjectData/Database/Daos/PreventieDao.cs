@@ -8,7 +8,7 @@ namespace ProjectData.Database.Daos
     {
         protected override void Create(StringBuilder query, Preventie instance)
         {
-            query.Append("(Regios, Perioden, LichtAfwezig) ");
+            query.Append("(Regios, Perioden, SAvondsLichtBrandenBijAfwezigheid_1) ");
             query.Append("VALUES (");
             query.Append("'" + instance.Regios + "', ");
             query.Append("'" + instance.Perioden + "', ");

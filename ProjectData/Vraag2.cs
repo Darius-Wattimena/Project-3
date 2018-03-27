@@ -8,11 +8,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProjectData.Database.Criterias;
+using ProjectData.Database.Daos;
+using ProjectData.Database.Entities;
+using System.Diagnostics;
 
 namespace ProjectData
 {
     public partial class Vraag2 : Form
     {
+        private PreventieCriteria pcriteria = new PreventieCriteria();
+        private DiefstalCriteria dcriteria = new DiefstalCriteria();
+        private List<string> perioden = new List<string>();
+
         public Vraag2()
         {
             InitializeComponent();
@@ -35,12 +43,18 @@ namespace ProjectData
 
         private void chart1_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (yearone.Checked == true)
+            {
+                perioden.Add("2012JJ00");
+            }
+            else {
+                perioden.Remove("2012JJ00");
+            }
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -49,17 +63,120 @@ namespace ProjectData
             {
                 yearone.Checked = true;
                 yeartwo.Checked = true;
+                yearthree.Checked = true;
+                yearfour.Checked = true;
+                yearfive.Checked = true;
+                yearsix.Checked = true;
             }
             else
             {
                 yearone.Checked = false;
                 yeartwo.Checked = false;
+                yearthree.Checked = false;
+                yearfour.Checked = false;
+                yearfive.Checked = false;
+                yearsix.Checked = false;
             }
         }
 
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
+            if (yeartwo.Checked == true)
+            {
+                perioden.Add("2013JJ00");
+            }
+            else
+            {
+                perioden.Remove("2013JJ00");
+            }
+        }
 
+        private void updatechart_Click(object sender, EventArgs e)
+        {
+            if (yearone.Checked == false && yeartwo.Checked == false && yearthree.Checked == false && yearfour.Checked == false && yearfive.Checked == false && yearsix.Checked == false)
+            {
+                string message = "You didn't check any years. Please check at least one year.";
+                string caption = "Error Detected in Input";
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                DialogResult result;
+
+                // Displays the MessageBox.
+
+                result = MessageBox.Show(message, caption, buttons);
+
+
+            }
+            else
+            {
+                this.preventie.Series["Series1"].Points.Clear();
+                var pdao = new PreventieDao();
+                pcriteria.Perioden = perioden;
+                List<Preventie> lijstp = pdao.FindByCriteria(pcriteria);
+                var ddao = new DiefstalDao();
+                dcriteria.Perioden = perioden;
+                dcriteria.Soortdiefstal = "00";
+                dcriteria.Gebruikgeweld = "0";
+                List<Diefstal> lijstd = ddao.FindByCriteria(dcriteria);
+                List<Diefstal> slijstd = lijstd.OrderBy(o => o.Totaaldiefstal).ToList();
+                foreach (Diefstal element in slijstd)
+                {
+                    foreach (Preventie pelement in lijstp)
+                    {
+                        if (element.Perioden == pelement.Perioden && element.Regios.Trim() == pelement.Regios.Trim())
+                        {
+                            this.preventie.Series["Series1"].Points.AddXY(element.Totaaldiefstal, pelement.LichtAfwezig);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void yearthree_CheckedChanged(object sender, EventArgs e)
+        {
+            if (yearthree.Checked == true)
+            {
+                perioden.Add("2014JJ00");
+            }
+            else
+            {
+                perioden.Remove("2014JJ00");
+            }
+        }
+
+        private void yearfour_CheckedChanged(object sender, EventArgs e)
+        {
+            if (yearfour.Checked == true)
+            {
+                perioden.Add("2015JJ00");
+            }
+            else
+            {
+                perioden.Remove("2015JJ00");
+            }
+        }
+
+        private void yearfive_CheckedChanged(object sender, EventArgs e)
+        {
+            if (yearfive.Checked == true)
+            {
+                perioden.Add("2016JJ00");
+            }
+            else
+            {
+                perioden.Remove("2016JJ00");
+            }
+        }
+
+        private void yearsix_CheckedChanged(object sender, EventArgs e)
+        {
+            if (yearsix.Checked == true)
+            {
+                perioden.Add("2017JJ00");
+            }
+            else
+            {
+                perioden.Remove("2017JJ00");
+            }
         }
     }
 }

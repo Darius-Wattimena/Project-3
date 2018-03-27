@@ -52,16 +52,12 @@
             this.checkBoxDrenthe = new System.Windows.Forms.CheckBox();
             this.checkBoxZeeland = new System.Windows.Forms.CheckBox();
             this.labelNoordholland = new System.Windows.Forms.Label();
-            this.checkBox2010 = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkBox2011 = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.checkBox2014 = new System.Windows.Forms.CheckBox();
-            this.checkBox2013 = new System.Windows.Forms.CheckBox();
-            this.checkBox2012 = new System.Windows.Forms.CheckBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.comboBoxSoortDiefstal = new System.Windows.Forms.ComboBox();
             this.button4 = new System.Windows.Forms.Button();
+            this.comboBoxSoortDiefstal = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -159,11 +155,11 @@
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
-            series1.Name = "Series1";
+            series1.Name = "Diefstal";
             this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(350, 346);
             this.chart1.TabIndex = 12;
-            this.chart1.Text = "chart1";
+            this.chart1.Text = "Vraag 1";
             // 
             // checkBoxFriesland
             // 
@@ -319,90 +315,42 @@
             this.labelNoordholland.Size = new System.Drawing.Size(0, 15);
             this.labelNoordholland.TabIndex = 27;
             // 
-            // checkBox2010
-            // 
-            this.checkBox2010.AutoSize = true;
-            this.checkBox2010.Location = new System.Drawing.Point(13, 23);
-            this.checkBox2010.Name = "checkBox2010";
-            this.checkBox2010.Size = new System.Drawing.Size(54, 19);
-            this.checkBox2010.TabIndex = 0;
-            this.checkBox2010.Text = "2010";
-            this.checkBox2010.UseVisualStyleBackColor = true;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 5);
+            this.label1.Location = new System.Drawing.Point(11, 54);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 15);
             this.label1.TabIndex = 1;
             this.label1.Text = "Jaartal";
             // 
-            // checkBox2011
-            // 
-            this.checkBox2011.AutoSize = true;
-            this.checkBox2011.Location = new System.Drawing.Point(13, 48);
-            this.checkBox2011.Name = "checkBox2011";
-            this.checkBox2011.Size = new System.Drawing.Size(53, 19);
-            this.checkBox2011.TabIndex = 2;
-            this.checkBox2011.Text = "2011";
-            this.checkBox2011.UseVisualStyleBackColor = true;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.comboBoxSoortDiefstal);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.checkBox2014);
-            this.panel1.Controls.Add(this.checkBox2013);
-            this.panel1.Controls.Add(this.checkBox2012);
-            this.panel1.Controls.Add(this.checkBox2011);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.checkBox2010);
-            this.panel1.Location = new System.Drawing.Point(236, 54);
+            this.panel1.Location = new System.Drawing.Point(455, 76);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(333, 178);
+            this.panel1.Size = new System.Drawing.Size(355, 168);
             this.panel1.TabIndex = 28;
             // 
-            // checkBox2014
+            // button4
             // 
-            this.checkBox2014.AutoSize = true;
-            this.checkBox2014.Location = new System.Drawing.Point(13, 123);
-            this.checkBox2014.Name = "checkBox2014";
-            this.checkBox2014.Size = new System.Drawing.Size(54, 19);
-            this.checkBox2014.TabIndex = 5;
-            this.checkBox2014.Text = "2014";
-            this.checkBox2014.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2013
-            // 
-            this.checkBox2013.AutoSize = true;
-            this.checkBox2013.Location = new System.Drawing.Point(13, 98);
-            this.checkBox2013.Name = "checkBox2013";
-            this.checkBox2013.Size = new System.Drawing.Size(54, 19);
-            this.checkBox2013.TabIndex = 4;
-            this.checkBox2013.Text = "2013";
-            this.checkBox2013.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2012
-            // 
-            this.checkBox2012.AutoSize = true;
-            this.checkBox2012.Location = new System.Drawing.Point(13, 73);
-            this.checkBox2012.Name = "checkBox2012";
-            this.checkBox2012.Size = new System.Drawing.Size(54, 19);
-            this.checkBox2012.TabIndex = 3;
-            this.checkBox2012.Text = "2012";
-            this.checkBox2012.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(88, 6);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(81, 15);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Soort Diefstal";
+            this.button4.BackColor = System.Drawing.Color.DarkGray;
+            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.Location = new System.Drawing.Point(228, 120);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(104, 30);
+            this.button4.TabIndex = 29;
+            this.button4.Text = "Zoek filter\r\n";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // comboBoxSoortDiefstal
             // 
@@ -432,25 +380,33 @@
             "Diefstal/inbraak uit gebouw (overig)",
             "Overval",
             "Diefstal en inbraak (overig)"});
-            this.comboBoxSoortDiefstal.Location = new System.Drawing.Point(91, 24);
+            this.comboBoxSoortDiefstal.Location = new System.Drawing.Point(14, 24);
             this.comboBoxSoortDiefstal.Name = "comboBoxSoortDiefstal";
-            this.comboBoxSoortDiefstal.Size = new System.Drawing.Size(229, 23);
+            this.comboBoxSoortDiefstal.Size = new System.Drawing.Size(318, 23);
             this.comboBoxSoortDiefstal.TabIndex = 7;
             // 
-            // button4
+            // label5
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(103)))), ((int)(((byte)(92)))));
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
-            this.button4.Location = new System.Drawing.Point(115, 80);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(160, 62);
-            this.button4.TabIndex = 29;
-            this.button4.Text = "Apply Filter";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(11, 6);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(81, 15);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Soort Diefstal";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "2010",
+            "2011",
+            "2012",
+            "2013",
+            "2014"});
+            this.comboBox1.Location = new System.Drawing.Point(14, 72);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(318, 23);
+            this.comboBox1.TabIndex = 30;
             // 
             // Vraag1
             // 
@@ -513,15 +469,11 @@
         private System.Windows.Forms.CheckBox checkBoxDrenthe;
         private System.Windows.Forms.CheckBox checkBoxZeeland;
         private System.Windows.Forms.Label labelNoordholland;
-        private System.Windows.Forms.CheckBox checkBox2010;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox checkBox2011;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.CheckBox checkBox2014;
-        private System.Windows.Forms.CheckBox checkBox2013;
-        private System.Windows.Forms.CheckBox checkBox2012;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBoxSoortDiefstal;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

@@ -37,5 +37,11 @@ namespace ProjectData
         {
 
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var SoortDiefstal = comboBoxSoortDiefstal.GetItemText(comboBoxSoortDiefstal.SelectedItem);
+
+        }
     }
 }

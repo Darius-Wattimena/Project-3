@@ -65,9 +65,19 @@ namespace ProjectData.Database
             {
                 var preventie = new Preventie
                 {
-                    Regios = dr.GetString(0),
-                    Perioden = dr.GetString(1),
-                    LichtAfwezig = dr.GetFloat(2)
+                    PreventieId = dr.GetInt32(0),
+                    RegioCode = dr.GetString(1),
+                    Perioden = dr.GetString(2),
+                    LichtBijAfwezigheid = dr.GetDecimal(3),
+                    FietsInStalling = dr.GetDecimal(4),
+                    SpullenUitAuto = dr.GetDecimal(5),
+                    SpullenThuisLaten = dr.GetDecimal(6),
+                    SociaalPreventiefGedragscore = dr.GetDecimal(7),
+                    ExtraSlotenDeur = dr.GetDecimal(8),
+                    Rolluiken = dr.GetDecimal(9),
+                    Buitenverlichting = dr.GetDecimal(10),
+                    Alarm = dr.GetDecimal(11),
+                    PreventieSomscore = dr.GetDecimal(12)
                 };
                 preventies.Add(preventie);
             }

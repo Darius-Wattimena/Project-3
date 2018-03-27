@@ -148,6 +148,7 @@
     </Compile>
     <EmbeddedResource Include="Resources\Dataset_Diefstallen.csv" />
     <EmbeddedResource Include="Resources\Metadata.csv" />
+    <EmbeddedResource Include="Resources\preventie.csv" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

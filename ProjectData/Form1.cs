@@ -19,6 +19,7 @@ namespace ProjectData
 
         private RegioDao regioDao = new RegioDao();
         private DiefstalDao diefstalDao = new DiefstalDao();
+        private PreventieDao preventieDao = new PreventieDao();
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = false)]
         private static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr w, IntPtr l);
@@ -114,6 +115,17 @@ namespace ProjectData
                     if (diefstalDao.FindAll().Count == 0)
                     {
                         ConverterUtil.ConvertDiefstal();
+                    }
+
+                    WinForm.Execute(() =>
+                    {
+                        SetSubLabelText("Loading preventiedata");
+                        UpdateProgressBar(32);
+                    });
+
+                    if (preventieDao.FindAll().Count == 0)
+                    {
+                        ConverterUtil.ConvertPreventie();
                     }
                 }
                 catch (MySqlException ex)

@@ -7,6 +7,7 @@ namespace ProjectData.Database.Criterias
     public class DiefstalCriteria : ICriteria<Diefstal>
     {
         public string Regios { get; set; }
+        public List<string> RegioList { get; set; }
         public List<string> Perioden { get; set; }
         public string Gebruikgeweld { get; set; }
         public string Soortdiefstal { get; set; }
@@ -19,7 +20,27 @@ namespace ProjectData.Database.Criterias
                 query.Append("AND Regio_Code = '" + Regios + "' ");
             }
 
-            if (!(Perioden.Count == 0))
+            if (RegioList != null && !(RegioList.Count == 0))
+            {
+                string MySqlQuery = "";
+                for (int i = 0; i < RegioList.Count; i++)
+                {
+                    if (i == 0)
+                    {
+                        MySqlQuery = "AND (Regio_Code = '" + RegioList[i] + "' ";
+                    }
+                    else
+                    {
+                        MySqlQuery += "OR Regio_Code = '" + RegioList[i] + "' ";
+                    }
+
+                }
+                MySqlQuery += ")";
+
+                query.Append(MySqlQuery);
+            }
+
+            if (Perioden != null && !(Perioden.Count == 0))
             {
                 string MySqlQuery = "";
                 for (int i = 0; i < Perioden.Count; i++)

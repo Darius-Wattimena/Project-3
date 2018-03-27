@@ -1,4 +1,6 @@
-﻿using ProjectData.Util;
+﻿using ProjectData.Database.Criterias;
+using ProjectData.Database.Daos;
+using ProjectData.Util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,12 +43,43 @@ namespace ProjectData
         private void button4_Click(object sender, EventArgs e)
         {
             var SoortDiefstal = comboBoxSoortDiefstal.GetItemText(comboBoxSoortDiefstal.SelectedItem);
+            var regios = new List<String>();
+
+            if (checkBoxZeeland.Checked)
+            {
+                regios.Add("PV29");
+            }
+
+            var diefstalCriteria = new DiefstalCriteria();
+            diefstalCriteria.RegioList = regios;
+
+            var gemiddeldInkomenCriteria = new GemiddeldInkomenCriteria();
 
             chart1.Series[0].Points.Clear();
             chart1.Series[1].Points.Clear();
 
-            chart1.Series[0].Points.Add(100);
-            chart1.Series[1].Points.Add(200);
+            var diefstalDao = new DiefstalDao();
+            var gemiddeldInkomenDao = new GemiddeldInkomenDao();
+
+            var diefstallen = diefstalDao.FindByCriteria(diefstalCriteria);
+            var gemiddeldInkomens = gemiddeldInkomenDao.FindByCriteria(gemiddeldInkomenCriteria);
+
+            foreach (var diefstal in diefstallen)
+            {
+                if (!string.IsNullOrEmpty(diefstal.TotaalGeregistreerdeDiefstallen))
+                {
+                    chart1.Series[0].Points.Add(int.Parse(diefstal.TotaalGeregistreerdeDiefstallen));
+                }
+                else
+                {
+                    chart1.Series[0].Points.Add(0);
+                }
+            }
+
+            foreach (var gemiddeldInkomen in gemiddeldInkomens)
+            {
+                chart1.Series[1].Points.Add((int) Math.Truncate(gemiddeldInkomen.GemiddeldBesteedbaarInkomen));
+            }
         }
     }
 }

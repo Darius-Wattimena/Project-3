@@ -63,6 +63,7 @@
     <Compile Include="Database\Daos\GemiddeldInkomenDao.cs" />
     <Compile Include="Database\Daos\PreventieDao.cs" />
     <Compile Include="Database\Daos\RegioDao.cs" />
+    <Compile Include="Database\Daos\VeiligheidDao.cs" />
     <Compile Include="Database\Database.cs" />
     <Compile Include="Database\DatabaseUtil.cs" />
     <Compile Include="Database\Entities\Diefstal.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Database\Entities\IEntity.cs" />
     <Compile Include="Database\Entities\Preventie.cs" />
     <Compile Include="Database\Entities\Regio.cs" />
+    <Compile Include="Database\Entities\Veiligheid.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

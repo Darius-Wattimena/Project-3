@@ -40,12 +40,6 @@ namespace ProjectData
 
         private void button4_Click(object sender, EventArgs e)
         {
-            var Jaar2010 = checkBox2010.Checked;
-            var Jaar2011 = checkBox2011.Checked;
-            var Jaar2012 = checkBox2012.Checked;
-            var Jaar2013 = checkBox2013.Checked;
-            var Jaar2014 = checkBox2014.Checked;
-
             var SoortDiefstal = comboBoxSoortDiefstal.GetItemText(comboBoxSoortDiefstal.SelectedItem);
 
         }

@@ -9,7 +9,7 @@ namespace ProjectData.Database.Daos
         protected override void Create(StringBuilder query, GemiddeldInkomen instance)
         {
             query.Append("(Regio_Code, Perioden, Aantal_Personen, Gemiddeld_Besteedbaar_Inkomen, Rangnummer_Besteedbaar_Inkomen, Gemiddeld_Gestandaardiseerd_Inkomen, Rangnummer_Gestandaardiseerd_Inkomen, Aantal_Personen_2, In_Van_Personen_Met_En_Zonder_Inkomen, Gemiddeld_Persoonlijk_Inkomen, Rangnummer_Persoonlijk_Inkomen, Gemiddeld_Besteedbaar_Inkomen_2, Rangnummer_Besteedbaar_Inkomen_2)");
-            query.Append("VALUES (");
+            query.Append(" VALUES (");
             query.Append("'" + instance.RegioCode + "', ");
             query.Append("'" + instance.Perioden + "', ");
             query.Append("'" + instance.AantalPersonen + "', ");

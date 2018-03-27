@@ -76,9 +76,9 @@ namespace ProjectData {
         ///   Looks up a localized string similar to &quot;ID&quot;;&quot;RegioS&quot;;&quot;Perioden&quot;;&quot;AantalPersonen_1&quot;;&quot;GemiddeldBesteedbaarInkomen_2&quot;;&quot;RangnummerBesteedbaarInkomen_3&quot;;&quot;GemiddeldGestandaardiseerdInkomen_4&quot;;&quot;RangnummerGestandaardiseerdInkomen_5&quot;;&quot;AantalPersonen_6&quot;;&quot;InVanPersonenMetEnZonderInkomen_7&quot;;&quot;GemiddeldPersoonlijkInkomen_8&quot;;&quot;RangnummerPersoonlijkInkomen_9&quot;;&quot;GemiddeldBesteedbaarInkomen_10&quot;;&quot;RangnummerBesteedbaarInkomen_11&quot;
         ///&quot;66&quot;;&quot;PV20  &quot;;&quot;2005JJ00&quot;;&quot;   574.0&quot;;&quot;    11.5&quot;;&quot;      11&quot;;&quot;    18.2&quot;;&quot;      12&quot;;&quot;   384.2&quot;;&quot;      67&quot;;&quot;    23.2&quot;;&quot;      12&quot;;&quot;    16.4&quot;;&quot;   [rest of string was truncated]&quot;;.
         /// </summary>
-        public static string Gemiddeld_Inkomen {
+        public static string Dataset_Gemiddeld_Inkomen {
             get {
-                return ResourceManager.GetString("Gemiddeld_Inkomen", resourceCulture);
+                return ResourceManager.GetString("Dataset_Gemiddeld_Inkomen", resourceCulture);
             }
         }
         

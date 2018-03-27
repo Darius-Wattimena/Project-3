@@ -18,6 +18,7 @@ namespace ProjectData
         private static readonly int MYSQL_ERROR = 101;
 
         private RegioDao regioDao = new RegioDao();
+        private DiefstalDao diefstalDao = new DiefstalDao();
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = false)]
         private static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr w, IntPtr l);
@@ -102,6 +103,17 @@ namespace ProjectData
                     if (regioDao.FindAll().Count == 0)
                     {
                         ConverterUtil.ConvertRegio();
+                    }
+
+                    WinForm.Execute(() =>
+                    {
+                        SetSubLabelText("Loading diefstallen");
+                        UpdateProgressBar(26);
+                    });
+
+                    if (diefstalDao.FindAll().Count == 0)
+                    {
+                        ConverterUtil.ConvertDiefstal();
                     }
                 }
                 catch (MySqlException ex)

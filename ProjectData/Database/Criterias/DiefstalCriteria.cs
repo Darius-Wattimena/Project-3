@@ -16,7 +16,7 @@ namespace ProjectData.Database.Criterias
         {
             if (!string.IsNullOrEmpty(Regios))
             {
-                query.Append("AND RegioS = '" + Regios + "' ");
+                query.Append("AND Regio_Code = '" + Regios + "' ");
             }
 
             if (!(Perioden.Count == 0))
@@ -41,17 +41,17 @@ namespace ProjectData.Database.Criterias
 
             if (!string.IsNullOrEmpty(Gebruikgeweld))
             {
-                query.Append("AND GebruikVanGeweld = " + Gebruikgeweld + " ");
+                query.Append("AND Gebruik_Van_Geweld = " + Gebruikgeweld + " ");
             }
 
             if (!string.IsNullOrEmpty(Soortdiefstal))
             {
-                query.Append("AND SoortDiefstal = " + Soortdiefstal + " ");
+                query.Append("AND Soort_Diefstal = " + Soortdiefstal + " ");
             }
 
             if (!string.IsNullOrEmpty(Totaaldiefstal))
             {
-                query.Append("AND TotaalGeregistreerdeDiefstallen_1 = " + Totaaldiefstal + " ");
+                query.Append("AND Totaal_Geregistreerde_Diefstallen = " + Totaaldiefstal + " ");
             }
         }
     }

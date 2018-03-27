@@ -117,14 +117,14 @@ namespace ProjectData
                 dcriteria.Soortdiefstal = "00";
                 dcriteria.Gebruikgeweld = "0";
                 List<Diefstal> lijstd = ddao.FindByCriteria(dcriteria);
-                List<Diefstal> slijstd = lijstd.OrderBy(o => o.Totaaldiefstal).ToList();
+                List<Diefstal> slijstd = lijstd.OrderBy(o => o.TotaalGeregistreerdeDiefstallen).ToList();
                 foreach (Diefstal element in slijstd)
                 {
                     foreach (Preventie pelement in lijstp)
                     {
-                        if (element.Perioden == pelement.Perioden && element.Regios.Trim() == pelement.Regios.Trim())
+                        if (element.Perioden == pelement.Perioden && element.RegioCode.Trim() == pelement.Regios.Trim())
                         {
-                            this.preventie.Series["Series1"].Points.AddXY(element.Totaaldiefstal, pelement.LichtAfwezig);
+                            this.preventie.Series["Series1"].Points.AddXY(element.TotaalGeregistreerdeDiefstallen, pelement.LichtAfwezig);
                         }
                     }
                 }

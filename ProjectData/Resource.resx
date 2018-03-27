@@ -121,7 +121,7 @@
   <data name="Dataset_Diefstallen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Dataset_Diefstallen.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="Gemiddeld_Inkomen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Dataset_Gemiddeld_Inkomen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Gemiddeld_Inkomen.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="MainMenuBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">

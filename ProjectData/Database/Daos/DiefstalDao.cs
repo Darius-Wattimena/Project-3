@@ -8,13 +8,18 @@ namespace ProjectData.Database.Daos
     {
         protected override void Create(StringBuilder query, Diefstal instance)
         {
-            query.Append("(GebruikVanGeweld, SoortDiefstal, Regios, Perioden, TotaalGeregistreerdeDiefstallen_1) ");
-            query.Append("VALUES (");
-            query.Append("'" + instance.Gebruikgeweld + "', ");
-            query.Append("'" + instance.Soortdiefstal + "', ");
-            query.Append("'" + instance.Regios + "', ");
+            query.Append("(Gebruik_Van_Geweld, Soort_Diefstal, Regio_Code, Perioden, Totaal_Geregistreerde_Diefstallen, Geregistreerde_Diefstallen_Relatief, Geregistreerde_Diefstallen_Per1000_Inw, Totaal_Opgehelderde_Diefstallen, Opgehelderde_Diefstallen_Relatief, Registraties_Van_Verdachten)");
+            query.Append(" VALUES (");
+            query.Append("'" + instance.GebruikVanGeweld + "', ");
+            query.Append("'" + instance.SoortDiefstal + "', ");
+            query.Append("'" + instance.RegioCode + "', ");
             query.Append("'" + instance.Perioden + "', ");
-            query.Append("'" + instance.Totaaldiefstal + "'");
+            query.Append("'" + instance.TotaalGeregistreerdeDiefstallen + "', ");
+            query.Append("'" + instance.GeregistreerdeDiefstallenRelatief + "', ");
+            query.Append("'" + instance.GeregistreerdeDiefstallenPer1000Inw + "', ");
+            query.Append("'" + instance.TotaalOpgehelderdeDiefstallen + "', ");
+            query.Append("'" + instance.OpgehelderdeDiefstallenRelatief + "', ");
+            query.Append("'" + instance.RegistratiesVanVerdachten + "'");
             query.Append(")");
         }
 

@@ -25,6 +25,17 @@ namespace ProjectData.Converter
             }
         }
 
+        public static void ConvertDiefstal()
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+            var stream = assembly.GetManifestResourceStream("ProjectData.Resources.Dataset_Diefstallen.csv");
+
+            var lines = ReadLines(() => stream, Encoding.UTF8).ToList().Select(a => a.Split(';'));
+            var linesList = lines.ToList();
+
+            ReadDataDiefstal(linesList);
+        }
+
         public static void ConvertRegio()
         {
             var assembly = Assembly.GetExecutingAssembly();
@@ -40,7 +51,7 @@ namespace ProjectData.Converter
             var replacableDirectory = FindAllReplacableLines(linesList);
 
             linesList = ReplaceLines(lines, linesList, replacableDirectory);
-            ReadData(linesList);
+            ReadDataRegio(linesList);
         }
 
         private static List<string[]> RemoveUnneededLines(IEnumerable<string[]> lines, List<string[]> linesList)
@@ -111,7 +122,40 @@ namespace ProjectData.Converter
             return linesList;
         }
 
-        private static void ReadData(List<string[]> linesList)
+        private static void ReadDataDiefstal(List<string[]> linesList)
+        {
+            var dao = new DiefstalDao();
+            var i = 0;
+            foreach (var line in linesList)
+            {
+                if (i >= 1)
+                {
+                    var lineArray = line.ToArray();
+                    var GDPer1000Inw = lineArray[7].Replace("\"", string.Empty);
+                    var ODRelatief = lineArray[9].Replace("\"", string.Empty);
+
+                    var diefstal = new Diefstal
+                    {
+                        GebruikVanGeweld = lineArray[1].Replace("\"", string.Empty),
+                        SoortDiefstal = lineArray[2].Replace("\"", string.Empty),
+                        RegioCode = lineArray[3].Replace("\"", string.Empty),
+                        Perioden = lineArray[4].Replace("\"", string.Empty),
+                        TotaalGeregistreerdeDiefstallen = lineArray[5].Replace("\"", string.Empty),
+                        GeregistreerdeDiefstallenRelatief = lineArray[6].Replace("\"", string.Empty),
+                        TotaalOpgehelderdeDiefstallen = lineArray[8].Replace("\"", string.Empty),
+                        RegistratiesVanVerdachten = lineArray[10].Replace("\"", string.Empty)
+                    };
+
+                    diefstal.GeregistreerdeDiefstallenPer1000Inw = !string.IsNullOrEmpty(GDPer1000Inw) && GDPer1000Inw.Any(char.IsDigit) ? decimal.Parse(GDPer1000Inw) : decimal.Zero;
+                    diefstal.OpgehelderdeDiefstallenRelatief = !string.IsNullOrEmpty(ODRelatief) && GDPer1000Inw.Any(char.IsDigit) ? decimal.Parse(ODRelatief) : decimal.Zero;
+
+                    dao.Save(diefstal);
+                }
+                i++;
+            }
+        }
+
+        private static void ReadDataRegio(List<string[]> linesList)
         {
 
             var dao = new RegioDao();

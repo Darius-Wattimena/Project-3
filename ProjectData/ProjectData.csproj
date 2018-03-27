@@ -149,6 +149,8 @@
     <EmbeddedResource Include="Resources\Dataset_Diefstallen.csv" />
     <EmbeddedResource Include="Resources\Metadata.csv" />
     <None Include="Resources\Gemiddeld_Inkomen.csv" />
+    <Compile Include="Database\Entities\Veiligheid.cs" />
+    <Compile Include="Database\Daos\VeiligheidDao.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

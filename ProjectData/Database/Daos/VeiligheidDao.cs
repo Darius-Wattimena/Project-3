@@ -10,9 +10,9 @@ namespace ProjectData.Database.Daos
         {
             query.Append("(Marges, ) ");
             query.Append("VALUES (");
-            query.Append("'" + instance.Regios + "', ");
-            query.Append("'" + instance.Perioden + "', ");
-            query.Append("'" + instance.LichtAfwezig + "'");
+            //query.Append("'" + instance.Regios + "', ");
+            //query.Append("'" + instance.Perioden + "', ");
+            //query.Append("'" + instance.LichtAfwezig + "'");
             query.Append(")");
         }
 

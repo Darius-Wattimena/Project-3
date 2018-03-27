@@ -57,11 +57,12 @@
     <Compile Include="Database\Criterias\ICriteria.cs" />
     <Compile Include="Database\Criterias\PreventieCriteria.cs" />
     <Compile Include="Database\Criterias\RegioCriteria.cs" />
-    <Compile Include="Daos\Dao.cs" />
-    <Compile Include="Daos\DiefstalDao.cs" />
-    <Compile Include="Daos\GemiddeldInkomenDao.cs" />
-    <Compile Include="Daos\PreventieDao.cs" />
-    <Compile Include="Daos\RegioDao.cs" />
+    <Compile Include="Database\Criterias\VeiligheidCriteria.cs" />
+    <Compile Include="Database\Daos\Dao.cs" />
+    <Compile Include="Database\Daos\DiefstalDao.cs" />
+    <Compile Include="Database\Daos\GemiddeldInkomenDao.cs" />
+    <Compile Include="Database\Daos\PreventieDao.cs" />
+    <Compile Include="Database\Daos\RegioDao.cs" />
     <Compile Include="Database\Database.cs" />
     <Compile Include="Database\DatabaseUtil.cs" />
     <Compile Include="Database\Entities\Diefstal.cs" />

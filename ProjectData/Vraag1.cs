@@ -42,6 +42,8 @@ namespace ProjectData
         {
             var SoortDiefstal = comboBoxSoortDiefstal.GetItemText(comboBoxSoortDiefstal.SelectedItem);
 
+            chart1.Series[0].Points.Add(100);
+            chart1.Series[1].Points.Add(200);
         }
     }
 }

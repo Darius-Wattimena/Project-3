@@ -118,13 +118,22 @@ namespace ProjectData
                 dcriteria.Gebruikgeweld = "0";
                 List<Diefstal> lijstd = ddao.FindByCriteria(dcriteria);
                 List<Diefstal> slijstd = lijstd.OrderBy(o => o.TotaalGeregistreerdeDiefstallen).ToList();
+                int x = 1;
+                Debug.Write(slijstd.ElementAt(9).Perioden);
+
+                Debug.Write(slijstd.ElementAt(9).RegioCode);
+                Debug.Write(lijstp.ElementAt(9).Perioden);
+
+                Debug.Write(lijstp.ElementAt(9).RegioCode);
                 foreach (Diefstal element in slijstd)
                 {
                     foreach (Preventie pelement in lijstp)
                     {
-                        if (element.Perioden == pelement.Perioden && element.RegioCode.Trim() == pelement.Regios.Trim())
+                        if (element.Perioden == pelement.Perioden && element.RegioCode.Trim() == pelement.RegioCode.Trim())
                         {
-                            this.preventie.Series["Series1"].Points.AddXY(element.TotaalGeregistreerdeDiefstallen, pelement.LichtAfwezig);
+                            Debug.Write(x);
+                            this.preventie.Series["Series1"].Points.AddXY(Convert.ToInt32(element.TotaalGeregistreerdeDiefstallen), pelement.LichtBijAfwezigheid);
+                            x++;
                         }
                     }
                 }

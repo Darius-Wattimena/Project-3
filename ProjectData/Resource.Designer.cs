@@ -113,5 +113,16 @@ namespace ProjectData {
                 return ResourceManager.GetString("Metadata", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;ID&quot;;&quot;Marges&quot;;&quot;RegioS&quot;;&quot;Perioden&quot;;&quot;SAvondsLichtBrandenBijAfwezigheid_1&quot;;&quot;FietsInBewaakteFietsenstalling_2&quot;;&quot;WaardevolleSpullenMeenemenUitAuto_3&quot;;&quot;WaardevolleSpullenThuisLaten_4&quot;;&quot;SociaalPreventiefGedragSchaalscore_5&quot;;&quot;ExtraVeiligheidsslotenOpBuitendeuren_6&quot;;&quot;RolluikenVoorRamenEnOfDeuren_7&quot;;&quot;Buitenverlichting_8&quot;;&quot;Alarminstallatie_9&quot;;&quot;PreventieInRondWoningSomscore_10&quot;
+        ///&quot;30&quot;;&quot;1 &quot;;&quot;PV20   &quot;;&quot;2012JJ00&quot;;&quot;34.1&quot;;&quot;28.3&quot;;&quot;59.4&quot;;&quot;29.9&quot;;&quot;1.5&quot;;&quot;60.6&quot;;&quot;9.1&quot;;&quot;76&quot;;&quot;9.2&quot;;&quot;1.5&quot;
+        ///&quot;31&quot;;&quot;1 &quot;;&quot;PV20   &quot;;&quot;2013JJ00&quot;;&quot;33.4&quot;;&quot;28.1&quot;;&quot; [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string preventie {
+            get {
+                return ResourceManager.GetString("preventie", resourceCulture);
+            }
+        }
     }
 }

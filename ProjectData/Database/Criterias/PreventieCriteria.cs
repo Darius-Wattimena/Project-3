@@ -41,6 +41,7 @@ namespace ProjectData.Database.Criterias
             if (!string.IsNullOrEmpty(LichtAfwezig)) {
                 query.Append("AND SAvondsLichtBrandenBijAfwezigheid_1 = " + LichtAfwezig + " ");
             }
+            query.Append("AND SAvondsLichtBrandenBijAfwezigheid_1 >= 10 ");
         }
     }
 }

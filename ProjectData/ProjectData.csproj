@@ -149,17 +149,12 @@
     </Compile>
     <EmbeddedResource Include="Resources\Dataset_Diefstallen.csv" />
     <EmbeddedResource Include="Resources\Metadata.csv" />
-    <None Include="Resources\Gemiddeld_Inkomen.csv" />
-    <Compile Include="Database\Entities\Veiligheid.cs" />
-    <Compile Include="Database\Daos\VeiligheidDao.cs" />
+    <EmbeddedResource Include="Resources\preventie.csv" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="Resources\MainMenuBackground.png" />
-    <Content Include="Resources\MainMenuBackgroundNoText.png" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

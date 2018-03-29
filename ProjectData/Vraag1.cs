@@ -36,6 +36,24 @@ namespace ProjectData
         private void buttonResetFilter_Click(object sender, EventArgs e)
         {
             //TODO reset all the checkboxes and comboboxes
+
+            checkBoxDrenthe.Checked = false;
+            checkBoxFlevoland.Checked = false;
+            checkBoxFriesland.Checked = false;
+            checkBoxGelderland.Checked = false;
+            checkBoxGroningen.Checked = false;
+            checkBoxLimburg.Checked = false;
+            checkBoxNoordBrabant.Checked = false;
+            checkBoxNoordholland.Checked = false;
+            checkBoxOverijssel.Checked = false;
+            checkBoxUtrecht.Checked = false;
+            checkBoxZeeland.Checked = false;
+            checkBoxZuidholland.Checked = false;
+
+            comboBoxJaartal.SelectedIndex = -1;
+            comboBoxSoortDiefstal.SelectedIndex = -1;
+
+            
         }
 
         private void buttonZoekFilter_Click(object sender, EventArgs e)

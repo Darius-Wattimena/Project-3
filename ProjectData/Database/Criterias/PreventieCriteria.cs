@@ -6,13 +6,13 @@ namespace ProjectData.Database.Criterias
 {
     public class PreventieCriteria : Criteria<Preventie>
     {
-        public string Regios { get; set; }
+        public List<string> Regios { get; set; }
         public List<string> Perioden { get; set; }
         public string LichtAfwezig { get; set; }
 
         public override void Build(StringBuilder query)
         {
-            if (!string.IsNullOrEmpty(Regios))
+            if (Regios.Count != 0)
             {
                 QueryBuilder.Append("RegioS", Regios);
             }

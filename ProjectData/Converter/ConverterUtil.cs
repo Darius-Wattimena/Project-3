@@ -7,7 +7,6 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Globalization;
-using System.Diagnostics;
 
 namespace ProjectData.Converter
 {
@@ -72,10 +71,6 @@ namespace ProjectData.Converter
         public static void ConvertPreventie()
         {
             var assembly = Assembly.GetExecutingAssembly();
-            var iets = assembly.GetManifestResourceNames();
-            foreach (string str in iets) {
-                Debug.Write(str);
-            }
             var stream = assembly.GetManifestResourceStream("ProjectData.Resources.preventie.csv");
 
             var lines = ReadLines(() => stream, Encoding.UTF8).ToList().Select(a => a.Split(';'));
@@ -281,7 +276,7 @@ namespace ProjectData.Converter
                     preventie.Buitenverlichting = !string.IsNullOrEmpty(Buitenverlichting) && Buitenverlichting.Any(char.IsDigit) ? decimal.Parse(Buitenverlichting) : decimal.Zero;
                     preventie.Alarm = !string.IsNullOrEmpty(Alarm) && Alarm.Any(char.IsDigit) ? decimal.Parse(Alarm) : decimal.Zero;
                     preventie.PreventieSomscore = !string.IsNullOrEmpty(PreventieSom) && PreventieSom.Any(char.IsDigit) ? decimal.Parse(PreventieSom) : decimal.Zero;
-                    // , CultureInfo.InvariantCulture Debug.Write(preventie.LichtBijAfwezigheid);
+                    
                     dao.Save(preventie);
                 }
                 i++;

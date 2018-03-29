@@ -35,25 +35,15 @@ namespace ProjectData
 
         private void buttonResetFilter_Click(object sender, EventArgs e)
         {
-            //TODO reset all the checkboxes and comboboxes
+            resetCheckBoxes();
+            resetComboBoxes();
+            buttonZoekFilter_Click(sender, e);
+        }
 
-            checkBoxDrenthe.Checked = false;
-            checkBoxFlevoland.Checked = false;
-            checkBoxFriesland.Checked = false;
-            checkBoxGelderland.Checked = false;
-            checkBoxGroningen.Checked = false;
-            checkBoxLimburg.Checked = false;
-            checkBoxNoordBrabant.Checked = false;
-            checkBoxNoordholland.Checked = false;
-            checkBoxOverijssel.Checked = false;
-            checkBoxUtrecht.Checked = false;
-            checkBoxZeeland.Checked = false;
-            checkBoxZuidholland.Checked = false;
-
-            comboBoxJaartal.SelectedIndex = -1;
-            comboBoxSoortDiefstal.SelectedIndex = -1;
-
-            
+        private void buttonResetProvincies_Click(object sender, EventArgs e)
+        {
+            resetCheckBoxes();
+            buttonZoekFilter_Click(sender, e);
         }
 
         private void buttonZoekFilter_Click(object sender, EventArgs e)
@@ -102,9 +92,7 @@ namespace ProjectData
 
             foreach (var diefstal in diefstallen)
             {
-                if (diefstal.RegioCode == EnumUtil.GetEnumDescription(RegioCode.NietInTeDelen)) continue;
-
-                if (!string.IsNullOrEmpty(diefstal.TotaalGeregistreerdeDiefstallen))
+                if (!string.IsNullOrEmpty(diefstal.TotaalGeregistreerdeDiefstallen) && !diefstal.RegioCode.Contains(EnumUtil.GetEnumDescription(RegioCode.NietInTeDelen)))
                 {
                     //Add the diefstallen to the chart
                     chart1.Series[0].Points.Add(int.Parse(diefstal.TotaalGeregistreerdeDiefstallen));
@@ -118,10 +106,11 @@ namespace ProjectData
 
             foreach (var gemiddeldInkomen in gemiddeldInkomens)
             {
-                if (gemiddeldInkomen.RegioCode == EnumUtil.GetEnumDescription(RegioCode.NietInTeDelen)) continue;
-
-                var value = Convert.ToInt32(gemiddeldInkomen.GemiddeldPersoonlijkInkomen * 100);
-                chart1.Series[1].Points.Add(value);
+                if (!gemiddeldInkomen.RegioCode.Contains(EnumUtil.GetEnumDescription(RegioCode.NietInTeDelen)))
+                {
+                    var value = Convert.ToInt32(gemiddeldInkomen.GemiddeldPersoonlijkInkomen * 100);
+                    chart1.Series[1].Points.Add(value);
+                }
             }
         }
 
@@ -205,6 +194,28 @@ namespace ProjectData
             }
 
             return DiefstalSoort.AlleDiefstallen;
+        }
+
+        private void resetCheckBoxes()
+        {
+            checkBoxDrenthe.Checked = false;
+            checkBoxFlevoland.Checked = false;
+            checkBoxFriesland.Checked = false;
+            checkBoxGelderland.Checked = false;
+            checkBoxGroningen.Checked = false;
+            checkBoxLimburg.Checked = false;
+            checkBoxNoordBrabant.Checked = false;
+            checkBoxNoordholland.Checked = false;
+            checkBoxOverijssel.Checked = false;
+            checkBoxUtrecht.Checked = false;
+            checkBoxZeeland.Checked = false;
+            checkBoxZuidholland.Checked = false;
+        }
+
+        private void resetComboBoxes()
+        {
+            comboBoxJaartal.SelectedIndex = -1;
+            comboBoxSoortDiefstal.SelectedIndex = -1;
         }
     }
 }

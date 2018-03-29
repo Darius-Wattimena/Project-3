@@ -60,6 +60,7 @@
             this.buttonZoekFilter = new System.Windows.Forms.Button();
             this.comboBoxSoortDiefstal = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.buttonResetProvincies = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -113,11 +114,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(72)))), ((int)(((byte)(81)))));
-            this.label2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(283, 20);
+            this.label2.Location = new System.Drawing.Point(239, 23);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(629, 14);
+            this.label2.Size = new System.Drawing.Size(717, 15);
             this.label2.TabIndex = 9;
             this.label2.Text = "Is het zo dat in de Nederlandse provincies het gemiddelde inkomen het aantal dief" +
     "stallen beïnvloed en verandert dit over de jaren?";
@@ -146,7 +147,7 @@
             // 
             // chart1
             // 
-            this.chart1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(72)))), ((int)(((byte)(81)))));
+            this.chart1.BackColor = System.Drawing.Color.Transparent;
             this.chart1.BorderlineColor = System.Drawing.Color.Empty;
             chartArea1.BorderColor = System.Drawing.Color.White;
             chartArea1.CursorX.LineColor = System.Drawing.Color.DarkRed;
@@ -179,7 +180,7 @@
             series2.Name = "Gemiddeld inkomen";
             this.chart1.Series.Add(series1);
             this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(674, 346);
+            this.chart1.Size = new System.Drawing.Size(835, 346);
             this.chart1.TabIndex = 12;
             this.chart1.Text = "Vraag 1";
             // 
@@ -349,13 +350,14 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.buttonResetProvincies);
             this.panel1.Controls.Add(this.buttonResetFilter);
             this.panel1.Controls.Add(this.comboBoxJaartal);
             this.panel1.Controls.Add(this.buttonZoekFilter);
             this.panel1.Controls.Add(this.comboBoxSoortDiefstal);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(442, 74);
+            this.panel1.Location = new System.Drawing.Point(273, 56);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(355, 168);
             this.panel1.TabIndex = 28;
@@ -365,13 +367,13 @@
             this.buttonResetFilter.BackColor = System.Drawing.Color.DarkGray;
             this.buttonResetFilter.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
             this.buttonResetFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonResetFilter.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonResetFilter.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonResetFilter.ForeColor = System.Drawing.Color.White;
-            this.buttonResetFilter.Location = new System.Drawing.Point(118, 120);
+            this.buttonResetFilter.Location = new System.Drawing.Point(133, 120);
             this.buttonResetFilter.Name = "buttonResetFilter";
             this.buttonResetFilter.Size = new System.Drawing.Size(104, 30);
             this.buttonResetFilter.TabIndex = 31;
-            this.buttonResetFilter.Text = "Reset Filter";
+            this.buttonResetFilter.Text = "Reset Alles";
             this.buttonResetFilter.UseVisualStyleBackColor = false;
             this.buttonResetFilter.Click += new System.EventHandler(this.buttonResetFilter_Click);
             // 
@@ -394,13 +396,13 @@
             this.buttonZoekFilter.BackColor = System.Drawing.Color.DarkGray;
             this.buttonZoekFilter.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
             this.buttonZoekFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonZoekFilter.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonZoekFilter.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonZoekFilter.ForeColor = System.Drawing.Color.White;
-            this.buttonZoekFilter.Location = new System.Drawing.Point(228, 120);
+            this.buttonZoekFilter.Location = new System.Drawing.Point(243, 120);
             this.buttonZoekFilter.Name = "buttonZoekFilter";
-            this.buttonZoekFilter.Size = new System.Drawing.Size(104, 30);
+            this.buttonZoekFilter.Size = new System.Drawing.Size(89, 30);
             this.buttonZoekFilter.TabIndex = 29;
-            this.buttonZoekFilter.Text = "Zoek Filter\r\n";
+            this.buttonZoekFilter.Text = "Zoeken";
             this.buttonZoekFilter.UseVisualStyleBackColor = false;
             this.buttonZoekFilter.Click += new System.EventHandler(this.buttonZoekFilter_Click);
             // 
@@ -445,6 +447,21 @@
             this.label5.Size = new System.Drawing.Size(81, 15);
             this.label5.TabIndex = 6;
             this.label5.Text = "Soort Diefstal";
+            // 
+            // buttonResetProvincies
+            // 
+            this.buttonResetProvincies.BackColor = System.Drawing.Color.DarkGray;
+            this.buttonResetProvincies.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
+            this.buttonResetProvincies.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonResetProvincies.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonResetProvincies.ForeColor = System.Drawing.Color.White;
+            this.buttonResetProvincies.Location = new System.Drawing.Point(14, 120);
+            this.buttonResetProvincies.Name = "buttonResetProvincies";
+            this.buttonResetProvincies.Size = new System.Drawing.Size(113, 30);
+            this.buttonResetProvincies.TabIndex = 32;
+            this.buttonResetProvincies.Text = "Reset Provincies";
+            this.buttonResetProvincies.UseVisualStyleBackColor = false;
+            this.buttonResetProvincies.Click += new System.EventHandler(this.buttonResetProvincies_Click);
             // 
             // Vraag1
             // 
@@ -513,5 +530,6 @@
         private System.Windows.Forms.Button buttonZoekFilter;
         private System.Windows.Forms.ComboBox comboBoxJaartal;
         private System.Windows.Forms.Button buttonResetFilter;
+        private System.Windows.Forms.Button buttonResetProvincies;
     }
 }

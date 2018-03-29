@@ -48,14 +48,14 @@
             this.checkBoxLimburg = new System.Windows.Forms.CheckBox();
             this.checkBoxFlevoland = new System.Windows.Forms.CheckBox();
             this.checkBoxGelderland = new System.Windows.Forms.CheckBox();
-            this.checkBox = new System.Windows.Forms.CheckBox();
+            this.checkBoxNoordBrabant = new System.Windows.Forms.CheckBox();
             this.checkBoxOverijssel = new System.Windows.Forms.CheckBox();
             this.checkBoxDrenthe = new System.Windows.Forms.CheckBox();
             this.checkBoxZeeland = new System.Windows.Forms.CheckBox();
             this.labelNoordholland = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxJaartal = new System.Windows.Forms.ComboBox();
             this.button4 = new System.Windows.Forms.Button();
             this.comboBoxSoortDiefstal = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -278,17 +278,17 @@
             this.checkBoxGelderland.Text = "Gelderland";
             this.checkBoxGelderland.UseVisualStyleBackColor = false;
             // 
-            // checkBox
+            // checkBoxNoordBrabant
             // 
-            this.checkBox.AutoSize = true;
-            this.checkBox.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
-            this.checkBox.Location = new System.Drawing.Point(936, 470);
-            this.checkBox.Name = "checkBox";
-            this.checkBox.Size = new System.Drawing.Size(111, 19);
-            this.checkBox.TabIndex = 21;
-            this.checkBox.Text = "Noord-Braband";
-            this.checkBox.UseVisualStyleBackColor = false;
+            this.checkBoxNoordBrabant.AutoSize = true;
+            this.checkBoxNoordBrabant.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxNoordBrabant.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
+            this.checkBoxNoordBrabant.Location = new System.Drawing.Point(936, 470);
+            this.checkBoxNoordBrabant.Name = "checkBoxNoordBrabant";
+            this.checkBoxNoordBrabant.Size = new System.Drawing.Size(111, 19);
+            this.checkBoxNoordBrabant.TabIndex = 21;
+            this.checkBoxNoordBrabant.Text = "Noord-Braband";
+            this.checkBoxNoordBrabant.UseVisualStyleBackColor = false;
             // 
             // checkBoxOverijssel
             // 
@@ -348,7 +348,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.comboBoxJaartal);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.comboBoxSoortDiefstal);
             this.panel1.Controls.Add(this.label5);
@@ -358,19 +358,19 @@
             this.panel1.Size = new System.Drawing.Size(355, 168);
             this.panel1.TabIndex = 28;
             // 
-            // comboBox1
+            // comboBoxJaartal
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.comboBoxJaartal.FormattingEnabled = true;
+            this.comboBoxJaartal.Items.AddRange(new object[] {
             "2010",
             "2011",
             "2012",
             "2013",
             "2014"});
-            this.comboBox1.Location = new System.Drawing.Point(14, 72);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(318, 23);
-            this.comboBox1.TabIndex = 30;
+            this.comboBoxJaartal.Location = new System.Drawing.Point(14, 72);
+            this.comboBoxJaartal.Name = "comboBoxJaartal";
+            this.comboBoxJaartal.Size = new System.Drawing.Size(318, 23);
+            this.comboBoxJaartal.TabIndex = 30;
             // 
             // button4
             // 
@@ -440,7 +440,7 @@
             this.Controls.Add(this.checkBoxZeeland);
             this.Controls.Add(this.checkBoxDrenthe);
             this.Controls.Add(this.checkBoxOverijssel);
-            this.Controls.Add(this.checkBox);
+            this.Controls.Add(this.checkBoxNoordBrabant);
             this.Controls.Add(this.checkBoxGelderland);
             this.Controls.Add(this.checkBoxFlevoland);
             this.Controls.Add(this.checkBoxLimburg);
@@ -485,7 +485,7 @@
         private System.Windows.Forms.CheckBox checkBoxLimburg;
         private System.Windows.Forms.CheckBox checkBoxFlevoland;
         private System.Windows.Forms.CheckBox checkBoxGelderland;
-        private System.Windows.Forms.CheckBox checkBox;
+        private System.Windows.Forms.CheckBox checkBoxNoordBrabant;
         private System.Windows.Forms.CheckBox checkBoxOverijssel;
         private System.Windows.Forms.CheckBox checkBoxDrenthe;
         private System.Windows.Forms.CheckBox checkBoxZeeland;
@@ -495,6 +495,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBoxSoortDiefstal;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxJaartal;
     }
 }

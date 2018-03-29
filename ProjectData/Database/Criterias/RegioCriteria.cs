@@ -3,21 +3,21 @@ using ProjectData.Database.Entities;
 
 namespace ProjectData.Database.Criterias
 {
-    public class RegioCriteria : ICriteria<Regio>
+    public class RegioCriteria : Criteria<Regio>
     {
         public string Code { get; set; }
         public string Name { get; set; }
 
-        public void Build(StringBuilder query)
+        public override void Build(StringBuilder query)
         {
             if (!string.IsNullOrEmpty(Name))
             {
-                query.Append("AND Name = '" + Name + "' ");
+                QueryBuilder.Append("Name", Name);
             }
 
             if (!string.IsNullOrEmpty(Code))
             {
-                query.Append("AND Code = '" + Code + "' ");
+                QueryBuilder.Append("Code", Code);
             }
         }
     }

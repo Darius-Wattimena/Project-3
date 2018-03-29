@@ -77,6 +77,14 @@ namespace ProjectData.Database.Daos
             return ExecuteQuery(query);
         }
 
+        public List<T> FindByNewCriteria(Criteria<T> criteria)
+        {
+            StringBuilder query = new StringBuilder("SELECT * FROM " + _tableName);
+            query.Append(" WHERE 1=1 ");
+            criteria.GetQuery(query);
+            return ExecuteQuery(query.ToString());
+        }
+
         public List<T> FindByCriteria(U criteria)
         {
             StringBuilder query = new StringBuilder("SELECT * FROM " + _tableName);

@@ -16,9 +16,9 @@ namespace ProjectData.Database.Daos
             query.Append("'" + instance.Perioden + "', ");
             query.Append("'" + instance.TotaalGeregistreerdeDiefstallen + "', ");
             query.Append("'" + instance.GeregistreerdeDiefstallenRelatief + "', ");
-            query.Append("'" + instance.GeregistreerdeDiefstallenPer1000Inw + "', ");
+            query.Append("'" + instance.GeregistreerdeDiefstallenPer1000Inw.ToString().Replace(",", ".") + "', ");
             query.Append("'" + instance.TotaalOpgehelderdeDiefstallen + "', ");
-            query.Append("'" + instance.OpgehelderdeDiefstallenRelatief + "', ");
+            query.Append("'" + instance.OpgehelderdeDiefstallenRelatief.ToString().Replace(",", ".") + "', ");
             query.Append("'" + instance.RegistratiesVanVerdachten + "'");
             query.Append(")");
         }

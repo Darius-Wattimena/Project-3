@@ -6,14 +6,31 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using ProjectData.Util;
 using System.Globalization;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace ProjectData.Converter
 {
     public class ConverterUtil
     {
+        public static string[] _items;
+
+        public static void SetItems(string[] items)
+        {
+            _items = items;
+        }
+
+        public static string GetItem(int i)
+        {
+            return _items[i].Replace("\"", string.Empty);
+        }
+
+        public static decimal GetDecimal(string value)
+        {
+            return !string.IsNullOrEmpty(value) && value.Any(char.IsDigit) ? Convert.ToDecimal(value, new CultureInfo("en-US")) : decimal.Zero;
+        }
+
         public static IEnumerable<string> ReadLines(Func<Stream> streamProvider, Encoding encoding)
         {
             using (var stream = streamProvider())
@@ -25,6 +42,16 @@ namespace ProjectData.Converter
                     yield return line;
                 }
             }
+        }
+
+        public static void ConvertGemiddeldInkomen()
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+            var stream = assembly.GetManifestResourceStream("ProjectData.Resources.Gemiddeld_Inkomen.csv");
+
+            var lines = ReadLines(() => stream, Encoding.UTF8).ToList().Select(a => a.Split(';'));
+            var linesList = lines.ToList();
+            ReadDataGemiddeldInkomen(linesList);
         }
 
         public static void ConvertDiefstal()
@@ -139,6 +166,39 @@ namespace ProjectData.Converter
             return linesList;
         }
 
+        private static void ReadDataGemiddeldInkomen(List<string[]> linesList)
+        {
+            var dao = new GemiddeldInkomenDao();
+            var i = 0;
+            foreach (var line in linesList)
+            {
+                if (i >= 1)
+                {
+                    var lineArray = line.ToArray();
+                    SetItems(lineArray);
+
+                    var inkomen = new GemiddeldInkomen
+                    {
+                        RegioCode = GetItem(1),
+                        Perioden = GetItem(2),
+                        AantalPersonen = GetDecimal(GetItem(3)),
+                        GemiddeldBesteedbaarInkomen = GetDecimal(GetItem(4)),
+                        RangnummerBesteedbaarInkomen = int.Parse(GetItem(5)),
+                        GemiddeldGestandaardiseerdInkomen = GetDecimal(GetItem(6)),
+                        RangnummerGestandaardiseerdInkomen = int.Parse(GetItem(7)),
+                        AantalPersonen_2 = GetDecimal(GetItem(8)),
+                        InVanPersonenMetEnZonderInkomen = int.Parse(GetItem(9)),
+                        GemiddeldPersoonlijkInkomen = GetDecimal(GetItem(10)),
+                        RangnummerPersoonlijkInkomen = int.Parse(GetItem(11)),
+                        GemiddeldBesteedbaarInkomen_2 = GetDecimal(GetItem(12)),
+                        RangnummerBesteedbaarInkomen_2 = int.Parse(GetItem(13))
+                    };
+
+                    dao.Save(inkomen);
+                }
+            }
+        }
+
         private static void ReadDataDiefstal(List<string[]> linesList)
         {
             var dao = new DiefstalDao();
@@ -148,23 +208,21 @@ namespace ProjectData.Converter
                 if (i >= 1) 
                 {
                     var lineArray = line.ToArray();
-                    var GDPer1000Inw = lineArray[7].Replace("\"", string.Empty);
-                    var ODRelatief = lineArray[9].Replace("\"", string.Empty);
+                    SetItems(lineArray);
 
                     var diefstal = new Diefstal
                     {
-                        GebruikVanGeweld = lineArray[1].Replace("\"", string.Empty),
-                        SoortDiefstal = lineArray[2].Replace("\"", string.Empty),
-                        RegioCode = lineArray[3].Replace("\"", string.Empty),
-                        Perioden = lineArray[4].Replace("\"", string.Empty),
-                        TotaalGeregistreerdeDiefstallen = lineArray[5].Replace("\"", string.Empty),
-                        GeregistreerdeDiefstallenRelatief = lineArray[6].Replace("\"", string.Empty),
-                        TotaalOpgehelderdeDiefstallen = lineArray[8].Replace("\"", string.Empty),
-                        RegistratiesVanVerdachten = lineArray[10].Replace("\"", string.Empty)
+                        GebruikVanGeweld = GetItem(1),
+                        SoortDiefstal = GetItem(2),
+                        RegioCode = GetItem(3),
+                        Perioden = GetItem(4),
+                        TotaalGeregistreerdeDiefstallen = GetItem(5),
+                        GeregistreerdeDiefstallenRelatief = GetItem(6),
+                        GeregistreerdeDiefstallenPer1000Inw = GetDecimal(GetItem(7)),
+                        TotaalOpgehelderdeDiefstallen = GetItem(8),
+                        OpgehelderdeDiefstallenRelatief = GetDecimal(GetItem(9)),
+                        RegistratiesVanVerdachten = GetItem(10)
                     };
-
-                    diefstal.GeregistreerdeDiefstallenPer1000Inw = !string.IsNullOrEmpty(GDPer1000Inw) && GDPer1000Inw.Any(char.IsDigit) ? decimal.Parse(GDPer1000Inw) : decimal.Zero;
-                    diefstal.OpgehelderdeDiefstallenRelatief = !string.IsNullOrEmpty(ODRelatief) && GDPer1000Inw.Any(char.IsDigit) ? decimal.Parse(ODRelatief) : decimal.Zero;
 
                     dao.Save(diefstal);
                 }

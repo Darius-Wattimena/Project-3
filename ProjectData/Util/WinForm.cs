@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace ProjectData.Util
@@ -55,6 +54,27 @@ namespace ProjectData.Util
                     method();
                 }
             }
+        }
+
+        public static void ClearChart(System.Windows.Forms.DataVisualization.Charting.Chart chart)
+        {
+            foreach (var serie in chart.Series)
+            {
+                serie.Points.Clear();
+            }
+
+            foreach (var chartArea in chart.ChartAreas)
+            {
+                foreach (var axes in chartArea.Axes)
+                {
+                    axes.CustomLabels.Clear();
+                }
+            }
+        }
+
+        public static void ClearChartFull(System.Windows.Forms.DataVisualization.Charting.Chart chart)
+        {
+            chart.Series.Clear();
         }
     }
 }

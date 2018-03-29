@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using ProjectData.Converter;
 using ProjectData.Database;
+using ProjectData.Database.Criterias;
 using ProjectData.Database.Daos;
 using ProjectData.Util;
 
@@ -100,6 +101,9 @@ namespace ProjectData
                         SetSubLabelText("Check the current data");
                         UpdateProgressBar(20);
                     });
+                    var criteria = new RegioCriteria();
+                    criteria.Name = "TEST123";
+                    regioDao.FindByNewCriteria(criteria);
 
                     if (regioDao.FindAll().Count == 0)
                     {

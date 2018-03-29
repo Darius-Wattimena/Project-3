@@ -51,7 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Chart\CustomSeries.cs" />
     <Compile Include="Converter\ConverterUtil.cs" />
+    <Compile Include="Database\Criterias\Criteria.cs" />
     <Compile Include="Database\Criterias\DiefstalCriteria.cs" />
     <Compile Include="Database\Criterias\GemiddeldInkomenCriteria.cs" />
     <Compile Include="Database\Criterias\ICriteria.cs" />
@@ -72,6 +74,7 @@
     <Compile Include="Database\Entities\Preventie.cs" />
     <Compile Include="Database\Entities\Regio.cs" />
     <Compile Include="Database\Entities\Veiligheid.cs" />
+    <Compile Include="Database\QueryBuilder.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,7 +94,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
+    <Compile Include="Util\DiefstalUtil.cs" />
+    <Compile Include="Util\EnumUtil.cs" />
+    <Compile Include="Util\GemiddeldInkomenUtil.cs" />
+    <Compile Include="Util\JaartalUtil.cs" />
     <Compile Include="Util\Log.cs" />
+    <Compile Include="Util\RegioUtil.cs" />
     <Compile Include="Util\WinForm.cs" />
     <Compile Include="Vraag1.cs">
       <SubType>Form</SubType>
@@ -152,11 +160,15 @@
     <EmbeddedResource Include="Resources\Dataset_Diefstallen.csv" />
     <EmbeddedResource Include="Resources\Metadata.csv" />
     <EmbeddedResource Include="Resources\preventie.csv" />
+    <None Include="Resources\Gemiddeld_Inkomen.csv" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\MainMenuBackground.png" />
+    <Content Include="Resources\MainMenuBackgroundNoText.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

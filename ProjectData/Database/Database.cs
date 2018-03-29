@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 using System.Text;
 using MySql.Data.MySqlClient;
 using ProjectData.Database.Criterias;
@@ -58,12 +59,18 @@ namespace ProjectData.Database
 
         public void OpenConnection()
         {
-            _connection.Open();
+            if (_connection.State == ConnectionState.Closed)
+            {
+                _connection.Open();
+            }
         }
 
         public void CloseConnection()
         {
-            _connection.Close();
+            if (_connection.State == ConnectionState.Open)
+            {
+                _connection.Close();
+            }
         }
 
         public MySqlConnection GetConnection()

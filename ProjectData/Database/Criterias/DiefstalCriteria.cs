@@ -1,78 +1,61 @@
 ﻿using System.Text;
 using ProjectData.Database.Entities;
 using System.Collections.Generic;
+using System.Windows.Forms.VisualStyles;
 
 namespace ProjectData.Database.Criterias
 {
-    public class DiefstalCriteria : ICriteria<Diefstal>
+    public class DiefstalCriteria : Criteria<Diefstal>
     {
         public string Regios { get; set; }
         public List<string> RegioList { get; set; }
+        public string Periode { get; set; }
         public List<string> Perioden { get; set; }
         public string Gebruikgeweld { get; set; }
         public string Soortdiefstal { get; set; }
         public string Totaaldiefstal { get; set; }
+        public bool NoEmptyValues { get; set; }
 
-        public void Build(StringBuilder query)
+        public override void Build(StringBuilder query)
         {
+            if (NoEmptyValues)
+            {
+                QueryBuilder.AppendCustom("AND Totaal_Geregistreerde_Diefstallen <> ''");
+            }
+
             if (!string.IsNullOrEmpty(Regios))
             {
-                query.Append("AND Regio_Code = '" + Regios + "' ");
+                QueryBuilder.Append("Regio_Code", Regios);
             }
 
-            if (RegioList != null && !(RegioList.Count == 0))
+            if (RegioList != null && RegioList.Count != 0)
             {
-                string MySqlQuery = "";
-                for (int i = 0; i < RegioList.Count; i++)
-                {
-                    if (i == 0)
-                    {
-                        MySqlQuery = "AND (Regio_Code = '" + RegioList[i] + "' ";
-                    }
-                    else
-                    {
-                        MySqlQuery += "OR Regio_Code = '" + RegioList[i] + "' ";
-                    }
-
-                }
-                MySqlQuery += ")";
-
-                query.Append(MySqlQuery);
+                QueryBuilder.Append("Regio_Code", RegioList);
             }
 
-            if (Perioden != null && !(Perioden.Count == 0))
+            if (!string.IsNullOrEmpty(Periode))
             {
-                string MySqlQuery = "";
-                for (int i = 0; i < Perioden.Count; i++)
-                {
-                    if (i == 0)
-                    {
-                        MySqlQuery = "AND (Perioden = '" + Perioden[i] + "' ";
-                    }
-                    else
-                    {
-                        MySqlQuery += "OR Perioden = '" + Perioden[i] + "' ";
-                    }
+                QueryBuilder.Append("Perioden", Periode);
+            }
 
-                }
-                MySqlQuery += ")";
-
-                query.Append(MySqlQuery);
+            if (Perioden != null && Perioden.Count != 0)
+            {
+                QueryBuilder.Append("Perioden", Perioden);
             }
 
             if (!string.IsNullOrEmpty(Gebruikgeweld))
             {
-                query.Append("AND Gebruik_Van_Geweld = " + Gebruikgeweld + " ");
+                QueryBuilder.Append("Gebruik_Van_Geweld", Gebruikgeweld);
             }
 
             if (!string.IsNullOrEmpty(Soortdiefstal))
             {
-                query.Append("AND Soort_Diefstal = " + Soortdiefstal + " ");
+                QueryBuilder.Append("Soort_Diefstal", Soortdiefstal);
             }
 
             if (!string.IsNullOrEmpty(Totaaldiefstal))
             {
-                query.Append("AND Totaal_Geregistreerde_Diefstallen = " + Totaaldiefstal + " ");
+                QueryBuilder.Append("Totaal_Geregistreerde_Diefstallen", Totaaldiefstal);
             }
         }
     }

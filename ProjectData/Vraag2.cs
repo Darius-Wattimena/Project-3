@@ -116,7 +116,7 @@ namespace ProjectData
                 dcriteria.Perioden = perioden;
                 dcriteria.Soortdiefstal = "00";
                 dcriteria.Gebruikgeweld = "0";
-                List<Diefstal> lijstd = ddao.FindByCriteria(dcriteria);
+                List<Diefstal> lijstd = ddao.FindByNewCriteria(dcriteria);
                 List<Diefstal> slijstd = lijstd.OrderBy(o => o.TotaalGeregistreerdeDiefstallen).ToList();
                 int x = 1;
                 Debug.Write(slijstd.ElementAt(9).Perioden);

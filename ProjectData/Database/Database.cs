@@ -15,10 +15,10 @@ namespace ProjectData.Database
 
         private readonly MySqlConnection _connection;
 
-        private const string SERVER = "localhost";
-        private const string DATABASE = "project3";
-        private const string USER = "root";
-        private const string PASSWORD = "admin";
+        private static readonly string SERVER = Properties.Settings.Default.Database_Host;
+        private static readonly string DATABASE = Properties.Settings.Default.Database_Table;
+        private static readonly string USER = Properties.Settings.Default.Database_Username;
+        private static readonly string PASSWORD = Properties.Settings.Default.Database_Password;
 
         public static Database GetInstance()
         {

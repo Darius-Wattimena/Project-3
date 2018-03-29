@@ -5,26 +5,25 @@ namespace ProjectData.Util
 {
     public class WinForm
     {
-        public static Form current;
+        public static Form Current;
 
         /// <summary>
         /// Opens a new Form on the location of the current one and closes the old one.
         /// </summary>
         /// <typeparam name="T">Instance of Form</typeparam>
-        /// <param name="currentForm">The current form that is open</param>
         /// <returns>The new open form</returns>
         public static T OpenForm<T>() where T : Form, new()
         {
             T result = new T
             {
-                Location = current.Location,
+                Location = Current.Location,
                 StartPosition = FormStartPosition.Manual
             };
 
             result.Show();
-            current.Hide();
+            Current.Hide();
 
-            current = result;
+            Current = result;
 
             return result;
         }
@@ -36,12 +35,12 @@ namespace ProjectData.Util
         public static void Execute(params Action[] methods)
         {
             // Check if we are not on the main thread
-            if (current.InvokeRequired)
+            if (Current.InvokeRequired)
             {
-                current.Invoke((MethodInvoker)delegate ()
+                Current.Invoke((MethodInvoker)delegate ()
                 {
                     //Execute on main thread
-                    foreach(Action method in methods)
+                    foreach(var method in methods)
                     {
                         method();
                     }
@@ -49,13 +48,17 @@ namespace ProjectData.Util
             }
             else
             {
-                foreach (Action method in methods)
+                foreach (var method in methods)
                 {
                     method();
                 }
             }
         }
 
+        /// <summary>
+        /// Clears a chart his points and custom labels.
+        /// </summary>
+        /// <param name="chart">The chart.</param>
         public static void ClearChart(System.Windows.Forms.DataVisualization.Charting.Chart chart)
         {
             foreach (var serie in chart.Series)
@@ -70,11 +73,6 @@ namespace ProjectData.Util
                     axes.CustomLabels.Clear();
                 }
             }
-        }
-
-        public static void ClearChartFull(System.Windows.Forms.DataVisualization.Charting.Chart chart)
-        {
-            chart.Series.Clear();
         }
     }
 }

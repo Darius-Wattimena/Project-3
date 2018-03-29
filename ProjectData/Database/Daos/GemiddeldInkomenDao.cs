@@ -12,16 +12,16 @@ namespace ProjectData.Database.Daos
             query.Append(" VALUES (");
             query.Append("'" + instance.RegioCode + "', ");
             query.Append("'" + instance.Perioden + "', ");
-            query.Append("'" + instance.AantalPersonen + "', ");
-            query.Append("'" + instance.GemiddeldBesteedbaarInkomen + "', ");
+            query.Append("'" + instance.AantalPersonen.ToString().Replace(",", ".") + "', ");
+            query.Append("'" + instance.GemiddeldBesteedbaarInkomen.ToString().Replace(",", ".") + "', ");
             query.Append("'" + instance.RangnummerBesteedbaarInkomen + "', ");
-            query.Append("'" + instance.GemiddeldGestandaardiseerdInkomen + "', ");
+            query.Append("'" + instance.GemiddeldGestandaardiseerdInkomen.ToString().Replace(",", ".") + "', ");
             query.Append("'" + instance.RangnummerGestandaardiseerdInkomen + "', ");
-            query.Append("'" + instance.AantalPersonen_2 + "', ");
+            query.Append("'" + instance.AantalPersonen_2.ToString().Replace(",", ".") + "', ");
             query.Append("'" + instance.InVanPersonenMetEnZonderInkomen + "', ");
-            query.Append("'" + instance.GemiddeldPersoonlijkInkomen + "', ");
+            query.Append("'" + instance.GemiddeldPersoonlijkInkomen.ToString().Replace(",", ".") + "', ");
             query.Append("'" + instance.RangnummerPersoonlijkInkomen + "', ");
-            query.Append("'" + instance.GemiddeldBesteedbaarInkomen_2 + "', ");
+            query.Append("'" + instance.GemiddeldBesteedbaarInkomen_2.ToString().Replace(",", ".") + "', ");
             query.Append("'" + instance.RangnummerBesteedbaarInkomen_2 + "'");
             query.Append(")");
         }

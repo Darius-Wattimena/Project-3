@@ -8,6 +8,7 @@ namespace ProjectData.Database.Criterias
     {
         public string Regios { get; set; }
         public List<string> RegioList { get; set; }
+        public string Periode { get; set; }
         public List<string> Perioden { get; set; }
 
         public override void Build(StringBuilder query)
@@ -20,6 +21,11 @@ namespace ProjectData.Database.Criterias
             if (RegioList != null && RegioList.Count != 0)
             {
                 QueryBuilder.Append("Regio_Code", RegioList);
+            }
+
+            if (!string.IsNullOrEmpty(Periode))
+            {
+                QueryBuilder.Append("Perioden", Periode);
             }
 
             if (Perioden != null && Perioden.Count != 0)

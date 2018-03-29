@@ -6,7 +6,12 @@ namespace ProjectData.Util
 {
     public class GemiddeldInkomenUtil
     {
-        public static List<GemiddeldInkomen> SumDiefstallenForeachRegio(List<GemiddeldInkomen> inkomens)
+        /// <summary>
+        /// Get the average of the GemiddeldInkomen grouped by each Regio.
+        /// </summary>
+        /// <param name="inkomens">A list of GemiddeldInkomens.</param>
+        /// <returns>A list of GemiddeldInkomens only with one GemiddeldInkomen for every regio.</returns>
+        public static List<GemiddeldInkomen> ParInkomenForeachRegio(List<GemiddeldInkomen> inkomens)
         {
             var sums = new Dictionary<string, GemiddeldInkomen>();
             foreach (var inkomen in inkomens)
@@ -15,10 +20,10 @@ namespace ProjectData.Util
                 if (sums.ContainsKey(key))
                 {
                     var newInkomen = inkomen;
-                    var value = inkomen.GemiddeldBesteedbaarInkomen;
-                    var oldValue = sums[key].GemiddeldBesteedbaarInkomen;
+                    var value = inkomen.GemiddeldPersoonlijkInkomen;
+                    var oldValue = sums[key].GemiddeldPersoonlijkInkomen;
 
-                    newInkomen.GemiddeldBesteedbaarInkomen = value + oldValue;
+                    newInkomen.GemiddeldPersoonlijkInkomen = (value + oldValue) / 2;
                     sums[key] = newInkomen;
                 }
                 else

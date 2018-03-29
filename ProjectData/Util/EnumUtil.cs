@@ -7,6 +7,11 @@ namespace ProjectData.Util
 {
     public class EnumUtil
     {
+        /// <summary>
+        /// Find the index number of the given enum.
+        /// </summary>
+        /// <param name="value">The enum you want to receive the Index from.</param>
+        /// <returns>An int value with the index number of the enum.</returns>
         public static int GetIndex(Enum value)
         {
             return Array.IndexOf(Enum.GetValues(value.GetType()), value);

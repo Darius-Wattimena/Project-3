@@ -18,9 +18,10 @@ namespace ProjectData
         private static readonly int SUCCESS = 0;
         private static readonly int MYSQL_ERROR = 101;
 
-        private RegioDao regioDao = new RegioDao();
-        private DiefstalDao diefstalDao = new DiefstalDao();
-        private PreventieDao preventieDao = new PreventieDao();
+        private readonly RegioDao _regioDao = new RegioDao();
+        private readonly DiefstalDao _diefstalDao = new DiefstalDao();
+        private readonly PreventieDao _preventieDao = new PreventieDao();
+        private readonly GemiddeldInkomenDao _inkomenDao = new GemiddeldInkomenDao();
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = false)]
         private static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr w, IntPtr l);
@@ -81,8 +82,8 @@ namespace ProjectData
 
         private int BackgroundOperation(BackgroundWorker bw)
         {
-            int result = -1;
-            bool exit = false;
+            var result = -1;
+            var exit = false;
 
             while (!bw.CancellationPending)
             {
@@ -94,18 +95,14 @@ namespace ProjectData
                         UpdateProgressBar(5);
                     });
                     DatabaseUtil.TestConnection();
-                    Thread.Sleep(200);
                     
                     WinForm.Execute(() => 
                     {
                         SetSubLabelText("Check the current data");
                         UpdateProgressBar(20);
                     });
-                    var criteria = new RegioCriteria();
-                    criteria.Name = "TEST123";
-                    regioDao.FindByNewCriteria(criteria);
 
-                    if (regioDao.FindAll().Count == 0)
+                    if (_regioDao.CountAll() == 0)
                     {
                         ConverterUtil.ConvertRegio();
                     }
@@ -116,7 +113,7 @@ namespace ProjectData
                         UpdateProgressBar(26);
                     });
 
-                    if (diefstalDao.FindAll().Count == 0)
+                    if (_diefstalDao.CountAll() == 0)
                     {
                         ConverterUtil.ConvertDiefstal();
                     }
@@ -124,12 +121,23 @@ namespace ProjectData
                     WinForm.Execute(() =>
                     {
                         SetSubLabelText("Loading preventiedata");
-                        UpdateProgressBar(32);
+                        UpdateProgressBar(42);
                     });
 
-                    if (preventieDao.FindAll().Count == 0)
+                    if (_preventieDao.CountAll() == 0)
                     {
                         ConverterUtil.ConvertPreventie();
+                    }
+
+                    WinForm.Execute(() =>
+                    {
+                        SetSubLabelText("Loading gemiddeld inkomen");
+                        UpdateProgressBar(58);
+                    });
+
+                    if (_inkomenDao.CountAll() == 0)
+                    {
+                        ConverterUtil.ConvertGemiddeldInkomen();
                     }
                 }
                 catch (MySqlException ex)
@@ -145,15 +153,9 @@ namespace ProjectData
                     SetSubLabelText("Almost done");
                     UpdateProgressBar(90);
                 });
-                Thread.Sleep(1000);
 
                 result = SUCCESS;
-                exit = true;
-
-                if (exit)
-                {
-                    break;
-                }
+                break;
             }
 
             return result;

@@ -9,6 +9,11 @@ namespace ProjectData.Util
 {
     public class RegioUtil
     {
+        /// <summary>
+        /// Get a regio name from the given regio code.
+        /// </summary>
+        /// <param name="code">A string value of an Regio code.</param>
+        /// <returns>An readable name of the regio.</returns>
         public static string GetRegioName(string code)
         {
             var regioCode = EnumUtil.GetEnumFormDescription<RegioCode>(code.Replace(" ", string.Empty));

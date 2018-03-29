@@ -13,7 +13,7 @@ namespace ProjectData.Database
 
         public QueryBuilder AppendCustom(string query)
         {
-            _queryBuilder.Append(query);
+            _queryBuilder.Append(query + " ");
             return this;
         }
 

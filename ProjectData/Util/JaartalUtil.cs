@@ -2,6 +2,11 @@
 {
     public class JaartalUtil
     {
+        /// <summary>
+        /// Get a jaartal code from the given number.
+        /// </summary>
+        /// <param name="jaartal">A number of a year.</param>
+        /// <returns>It gives you a year code of the given jaartal.</returns>
         public static string GetJaartalCode(int jaartal)
         {
             switch (jaartal)
@@ -27,6 +32,11 @@
             }
         }
 
+        /// <summary>
+        /// Parse the given string to a number and a jaartal code from the given number.
+        /// </summary>
+        /// <param name="jaartal">A string of a year.</param>
+        /// <returns>It gives you a year code of the given jaartal.</returns>
         public static string GetJaartalCode(string jaartal)
         {
             if (string.IsNullOrEmpty(jaartal))

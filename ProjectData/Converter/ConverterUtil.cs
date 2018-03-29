@@ -8,7 +8,6 @@ using System.Reflection;
 using System.Text;
 using System.Globalization;
 using System.Diagnostics;
-using System.Runtime.CompilerServices;
 
 namespace ProjectData.Converter
 {
@@ -19,6 +18,11 @@ namespace ProjectData.Converter
         public static void SetItems(string[] items)
         {
             _items = items;
+        }
+
+        public static int Parse(string item)
+        {
+            return int.TryParse(item, out var result) ? result : 0;
         }
 
         public static string GetItem(int i)
@@ -47,7 +51,7 @@ namespace ProjectData.Converter
         public static void ConvertGemiddeldInkomen()
         {
             var assembly = Assembly.GetExecutingAssembly();
-            var stream = assembly.GetManifestResourceStream("ProjectData.Resources.Gemiddeld_Inkomen.csv");
+            var stream = assembly.GetManifestResourceStream("ProjectData.Resources.Dataset_Gemiddeld_Inkomen.csv");
 
             var lines = ReadLines(() => stream, Encoding.UTF8).ToList().Select(a => a.Split(';'));
             var linesList = lines.ToList();
@@ -176,26 +180,37 @@ namespace ProjectData.Converter
                 {
                     var lineArray = line.ToArray();
                     SetItems(lineArray);
-
-                    var inkomen = new GemiddeldInkomen
+                    GemiddeldInkomen inkomen = null;
+                    try
                     {
-                        RegioCode = GetItem(1),
-                        Perioden = GetItem(2),
-                        AantalPersonen = GetDecimal(GetItem(3)),
-                        GemiddeldBesteedbaarInkomen = GetDecimal(GetItem(4)),
-                        RangnummerBesteedbaarInkomen = int.Parse(GetItem(5)),
-                        GemiddeldGestandaardiseerdInkomen = GetDecimal(GetItem(6)),
-                        RangnummerGestandaardiseerdInkomen = int.Parse(GetItem(7)),
-                        AantalPersonen_2 = GetDecimal(GetItem(8)),
-                        InVanPersonenMetEnZonderInkomen = int.Parse(GetItem(9)),
-                        GemiddeldPersoonlijkInkomen = GetDecimal(GetItem(10)),
-                        RangnummerPersoonlijkInkomen = int.Parse(GetItem(11)),
-                        GemiddeldBesteedbaarInkomen_2 = GetDecimal(GetItem(12)),
-                        RangnummerBesteedbaarInkomen_2 = int.Parse(GetItem(13))
-                    };
+                        inkomen = new GemiddeldInkomen
+                        {
+                            RegioCode = GetItem(1),
+                            Perioden = GetItem(2),
+                            AantalPersonen = GetDecimal(GetItem(3)),
+                            GemiddeldBesteedbaarInkomen = GetDecimal(GetItem(4)),
+                            RangnummerBesteedbaarInkomen = Parse(GetItem(5)),
+                            GemiddeldGestandaardiseerdInkomen = GetDecimal(GetItem(6)),
+                            RangnummerGestandaardiseerdInkomen = Parse(GetItem(7)),
+                            AantalPersonen_2 = GetDecimal(GetItem(8)),
+                            InVanPersonenMetEnZonderInkomen = Parse(GetItem(9)),
+                            GemiddeldPersoonlijkInkomen = GetDecimal(GetItem(10)),
+                            RangnummerPersoonlijkInkomen = Parse(GetItem(11)),
+                            GemiddeldBesteedbaarInkomen_2 = GetDecimal(GetItem(12)),
+                            RangnummerBesteedbaarInkomen_2 = Parse(GetItem(13))
+                        };
+                    }
+                    catch (Exception)
+                    {
+                        // ignored
+                    }
 
-                    dao.Save(inkomen);
+                    if (inkomen != null)
+                    {
+                        dao.Save(inkomen);
+                    }
                 }
+                i++;
             }
         }
 

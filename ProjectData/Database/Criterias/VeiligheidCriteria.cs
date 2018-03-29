@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace ProjectData.Database.Criterias
 {
-    public class VeiligheidCriteria : ICriteria<Veiligheid>
+    public class VeiligheidCriteria : Criteria<Veiligheid>
     {
-        public void Build(StringBuilder query)
+        public override void Build(StringBuilder query)
         {
 
         }

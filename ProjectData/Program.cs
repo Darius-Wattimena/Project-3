@@ -16,7 +16,7 @@ namespace ProjectData
             Application.SetCompatibleTextRenderingDefault(false);
 
             Form1 form = new Form1();
-            WinForm.current = form;
+            WinForm.Current = form;
             Application.Run(form);
         }
     }

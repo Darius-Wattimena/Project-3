@@ -4,6 +4,7 @@ using MySql.Data.MySqlClient;
 using ProjectData.Database.Entities;
 using ProjectData.Database.Criterias;
 using ProjectData.Util;
+using System;
 
 namespace ProjectData.Database.Daos
 {
@@ -33,6 +34,26 @@ namespace ProjectData.Database.Daos
             return ExecuteQuery(command);
         }
 
+        public int ExecuteQueryCount(string query)
+        {
+            MySqlCommand command = new MySqlCommand(query, _database.GetConnection());
+            return ExecuteQueryCount(command);
+        }
+
+        private int ExecuteQueryCount(MySqlCommand command)
+        {
+            Log.Info("Query Executed | " + command.CommandText);
+            _database.OpenConnection();
+            MySqlDataReader reader = command.ExecuteReader();
+            var result = 0;
+            while (reader.Read())
+            {
+                result = reader.GetInt32(0);
+            }
+            _database.CloseConnection();
+            return result;
+        }
+
         private void ExecuteQueryNoResult(MySqlCommand command)
         {
             Log.Info("Query Executed | " + command.CommandText);
@@ -53,6 +74,12 @@ namespace ProjectData.Database.Daos
             {
                 Create(instance);
             }
+        }
+
+        public int CountAll()
+        {
+            string query = "SELECT COUNT(*) FROM " + _tableName;
+            return ExecuteQueryCount(query);
         }
 
         public List<T> Find(Dictionary<string, object> parameters)
@@ -85,6 +112,7 @@ namespace ProjectData.Database.Daos
             return ExecuteQuery(query.ToString());
         }
 
+        [Obsolete("FindByCriteria is deprecated, please use FindByNewCriteria instead.")]
         public List<T> FindByCriteria(U criteria)
         {
             StringBuilder query = new StringBuilder("SELECT * FROM " + _tableName);

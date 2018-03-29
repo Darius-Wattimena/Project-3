@@ -7,25 +7,25 @@ namespace ProjectData.Util
     /// </summary>
     public class Log
     {
-        private static readonly string FATAL_PREFIX = "[FATAL] : ";
-        private static readonly string ERROR_PREFIX = "[ERROR] : ";
-        private static readonly string INFO_PREFIX = "[INFO] : ";
-        private static readonly string DEBUG_PREFIX = "[DEBUG] : ";
+        private const string FATAL_PREFIX = "[FATAL] : ";
+        private const string ErrorPrefix = "[ERROR] : ";
+        private const string INFO_PREFIX = "[INFO] : ";
+        private const string DEBUG_PREFIX = "[DEBUG] : ";
 
         public static void Logging(string message, LogLevel logLevel)
         {
             switch (logLevel)
             {
-                case LogLevel.FATAL:
+                case LogLevel.Fatal:
                     Fatal(message);
                     break;
-                case LogLevel.ERROR:
+                case LogLevel.Error:
                     Error(message);
                     break;
-                case LogLevel.INFO:
+                case LogLevel.Info:
                     Info(message);
                     break;
-                case LogLevel.DEBUG:
+                case LogLevel.Debug:
                     Debug(message);
                     break;
             }
@@ -38,7 +38,7 @@ namespace ProjectData.Util
 
         public static void Error(string message)
         {
-            Console.WriteLine(ERROR_PREFIX + message);
+            Console.WriteLine(ErrorPrefix + message);
         }
 
         public static void Info(string message)
@@ -54,9 +54,9 @@ namespace ProjectData.Util
 
     public enum LogLevel
     {
-        FATAL,
-        ERROR,
-        INFO,
-        DEBUG
+        Fatal,
+        Error,
+        Info,
+        Debug
     }
 }

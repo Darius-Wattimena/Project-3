@@ -6,6 +6,11 @@ namespace ProjectData.Util
 {
     public class DiefstalUtil
     {
+        /// <summary>
+        /// Sum all the geregistreerde diefstallen and group them for every Regio.
+        /// </summary>
+        /// <param name="diefstalen">A list of Diefstallen.</param>
+        /// <returns>A list of Diefstallen only with one Diefstal for every Regio.</returns>
         public static List<Diefstal> SumDiefstallenForeachRegio(List<Diefstal> diefstalen)
         {
             var sums = new Dictionary<string, Diefstal>();

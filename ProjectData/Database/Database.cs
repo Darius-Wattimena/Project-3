@@ -9,11 +9,11 @@ using ProjectData.Util;
 
 namespace ProjectData.Database
 {
-    class Database
+    internal class Database
     {
         private static Database _instance;
 
-        private MySqlConnection _connection;
+        private readonly MySqlConnection _connection;
 
         private const string SERVER = "localhost";
         private const string DATABASE = "project3";
@@ -36,17 +36,6 @@ namespace ProjectData.Database
             Log.Info(connectionString.ToString());
 
             _connection = new MySqlConnection(connectionString.ToString());
-        }
-
-        public List<E> ExecuteRaw<T, E, C>(string query, T dao) 
-            where E : IEntity
-            where C : ICriteria<E>
-            where T : Dao<E, C>
-        {
-            OpenConnection();
-            List<E> result = dao.ExecuteQuery(query);
-            CloseConnection();
-            return result;
         }
 
         public void TestConnection()

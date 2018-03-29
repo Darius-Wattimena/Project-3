@@ -25,31 +25,28 @@ namespace ProjectData
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonQuestion2_Click(object sender, EventArgs e)
         {
             WinForm.OpenForm<Vraag2>();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonQuestion3_Click(object sender, EventArgs e)
         {
             WinForm.OpenForm<Vraag3>();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void buttonBack_Click(object sender, EventArgs e)
         {
             WinForm.OpenForm<Form2>();
         }
 
-        private void Vraag1_Load(object sender, EventArgs e)
+        private void buttonResetFilter_Click(object sender, EventArgs e)
         {
-
+            //TODO reset all the checkboxes and comboboxes
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void buttonZoekFilter_Click(object sender, EventArgs e)
         {
-            //Clear the chart
-            WinForm.ClearChart(chart1);
-
             //Get the soort diefstal from the combobox and get the enum value
             var soortDiefstal = GetDiefstalSoort(comboBoxSoortDiefstal.GetItemText(comboBoxSoortDiefstal.SelectedItem));
             var soortDiefstalNumber = EnumUtil.GetIndex(soortDiefstal);
@@ -72,21 +69,39 @@ namespace ProjectData
 
             //Setup gemiddeld inkomen criteria
             var gemiddeldInkomenCriteria = new GemiddeldInkomenCriteria();
+            gemiddeldInkomenCriteria.RegioList = regios;
+            gemiddeldInkomenCriteria.Periode = jaartal;
 
             var diefstallen = _diefstalDao.FindByNewCriteria(diefstalCriteria);
-            var gemiddeldInkomens = _gemiddeldInkomenDao.FindByNewCriteria(gemiddeldInkomenCriteria);
-
-            double i = 0.5;
-
             diefstallen = DiefstalUtil.SumDiefstallenForeachRegio(diefstallen);
+
+            var gemiddeldInkomens = _gemiddeldInkomenDao.FindByNewCriteria(gemiddeldInkomenCriteria);
+            gemiddeldInkomens = GemiddeldInkomenUtil.ParInkomenForeachRegio(gemiddeldInkomens);
+
+            LoadChart(diefstallen, gemiddeldInkomens);
+        }
+
+        private void LoadChart(List<Diefstal> diefstallen, List<GemiddeldInkomen> gemiddeldInkomens)
+        {
+            //Clear the chart
+            WinForm.ClearChart(chart1);
+
+            //Define the label position of the regio names
+            var labelPosition = 0.5d;
+
             foreach (var diefstal in diefstallen)
             {
+                if (diefstal.RegioCode == EnumUtil.GetEnumDescription(RegioCode.NietInTeDelen)) continue;
+
                 if (!string.IsNullOrEmpty(diefstal.TotaalGeregistreerdeDiefstallen))
                 {
+                    //Add the diefstallen to the chart
                     chart1.Series[0].Points.Add(int.Parse(diefstal.TotaalGeregistreerdeDiefstallen));
+
+                    //Get the regio name and place it on the chart
                     var regioName = RegioUtil.GetRegioName(diefstal.RegioCode);
-                    chart1.ChartAreas["ChartArea1"].AxisX.CustomLabels.Add(i, i + 1d, regioName);
-                    i++;
+                    chart1.ChartAreas[0].AxisX.CustomLabels.Add(labelPosition, labelPosition + 1d, regioName);
+                    labelPosition++;
                 }
                 else
                 {
@@ -94,11 +109,12 @@ namespace ProjectData
                 }
             }
 
-            gemiddeldInkomens = GemiddeldInkomenUtil.SumDiefstallenForeachRegio(gemiddeldInkomens);
-
             foreach (var gemiddeldInkomen in gemiddeldInkomens)
             {
-                chart1.Series[1].Points.Add((int) Math.Truncate(gemiddeldInkomen.GemiddeldBesteedbaarInkomen));
+                if (gemiddeldInkomen.RegioCode == EnumUtil.GetEnumDescription(RegioCode.NietInTeDelen)) continue;
+
+                var value = Convert.ToInt32(gemiddeldInkomen.GemiddeldPersoonlijkInkomen * 100);
+                chart1.Series[1].Points.Add(value);
             }
         }
 

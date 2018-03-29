@@ -33,9 +33,9 @@
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Vraag1));
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonBack = new System.Windows.Forms.Button();
+            this.buttonQuestion3 = new System.Windows.Forms.Button();
+            this.buttonQuestion2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -55,58 +55,59 @@
             this.labelNoordholland = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonResetFilter = new System.Windows.Forms.Button();
             this.comboBoxJaartal = new System.Windows.Forms.ComboBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.buttonZoekFilter = new System.Windows.Forms.Button();
             this.comboBoxSoortDiefstal = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button3
+            // buttonBack
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(103)))), ((int)(((byte)(92)))));
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
-            this.button3.Location = new System.Drawing.Point(45, 170);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(160, 62);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "Back";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.buttonBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(103)))), ((int)(((byte)(92)))));
+            this.buttonBack.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
+            this.buttonBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBack.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
+            this.buttonBack.Location = new System.Drawing.Point(45, 170);
+            this.buttonBack.Name = "buttonBack";
+            this.buttonBack.Size = new System.Drawing.Size(160, 62);
+            this.buttonBack.TabIndex = 7;
+            this.buttonBack.Text = "Back";
+            this.buttonBack.UseVisualStyleBackColor = false;
+            this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
-            // button2
+            // buttonQuestion3
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(103)))), ((int)(((byte)(92)))));
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
-            this.button2.Location = new System.Drawing.Point(45, 102);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(160, 62);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Question 3";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.buttonQuestion3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(103)))), ((int)(((byte)(92)))));
+            this.buttonQuestion3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
+            this.buttonQuestion3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonQuestion3.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonQuestion3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
+            this.buttonQuestion3.Location = new System.Drawing.Point(45, 102);
+            this.buttonQuestion3.Name = "buttonQuestion3";
+            this.buttonQuestion3.Size = new System.Drawing.Size(160, 62);
+            this.buttonQuestion3.TabIndex = 6;
+            this.buttonQuestion3.Text = "Question 3";
+            this.buttonQuestion3.UseVisualStyleBackColor = false;
+            this.buttonQuestion3.Click += new System.EventHandler(this.buttonQuestion3_Click);
             // 
-            // button1
+            // buttonQuestion2
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(103)))), ((int)(((byte)(92)))));
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
-            this.button1.Location = new System.Drawing.Point(45, 34);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(160, 62);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Question 2";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonQuestion2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(103)))), ((int)(((byte)(92)))));
+            this.buttonQuestion2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
+            this.buttonQuestion2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonQuestion2.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonQuestion2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
+            this.buttonQuestion2.Location = new System.Drawing.Point(45, 34);
+            this.buttonQuestion2.Name = "buttonQuestion2";
+            this.buttonQuestion2.Size = new System.Drawing.Size(160, 62);
+            this.buttonQuestion2.TabIndex = 5;
+            this.buttonQuestion2.Text = "Question 2";
+            this.buttonQuestion2.UseVisualStyleBackColor = false;
+            this.buttonQuestion2.Click += new System.EventHandler(this.buttonQuestion2_Click);
             // 
             // label2
             // 
@@ -348,8 +349,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.buttonResetFilter);
             this.panel1.Controls.Add(this.comboBoxJaartal);
-            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.buttonZoekFilter);
             this.panel1.Controls.Add(this.comboBoxSoortDiefstal);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label1);
@@ -357,6 +359,21 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(355, 168);
             this.panel1.TabIndex = 28;
+            // 
+            // buttonResetFilter
+            // 
+            this.buttonResetFilter.BackColor = System.Drawing.Color.DarkGray;
+            this.buttonResetFilter.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
+            this.buttonResetFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonResetFilter.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonResetFilter.ForeColor = System.Drawing.Color.White;
+            this.buttonResetFilter.Location = new System.Drawing.Point(118, 120);
+            this.buttonResetFilter.Name = "buttonResetFilter";
+            this.buttonResetFilter.Size = new System.Drawing.Size(104, 30);
+            this.buttonResetFilter.TabIndex = 31;
+            this.buttonResetFilter.Text = "Reset Filter";
+            this.buttonResetFilter.UseVisualStyleBackColor = false;
+            this.buttonResetFilter.Click += new System.EventHandler(this.buttonResetFilter_Click);
             // 
             // comboBoxJaartal
             // 
@@ -372,20 +389,20 @@
             this.comboBoxJaartal.Size = new System.Drawing.Size(318, 23);
             this.comboBoxJaartal.TabIndex = 30;
             // 
-            // button4
+            // buttonZoekFilter
             // 
-            this.button4.BackColor = System.Drawing.Color.DarkGray;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(228, 120);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(104, 30);
-            this.button4.TabIndex = 29;
-            this.button4.Text = "Zoek filter\r\n";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.buttonZoekFilter.BackColor = System.Drawing.Color.DarkGray;
+            this.buttonZoekFilter.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
+            this.buttonZoekFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonZoekFilter.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonZoekFilter.ForeColor = System.Drawing.Color.White;
+            this.buttonZoekFilter.Location = new System.Drawing.Point(228, 120);
+            this.buttonZoekFilter.Name = "buttonZoekFilter";
+            this.buttonZoekFilter.Size = new System.Drawing.Size(104, 30);
+            this.buttonZoekFilter.TabIndex = 29;
+            this.buttonZoekFilter.Text = "Zoek Filter\r\n";
+            this.buttonZoekFilter.UseVisualStyleBackColor = false;
+            this.buttonZoekFilter.Click += new System.EventHandler(this.buttonZoekFilter_Click);
             // 
             // comboBoxSoortDiefstal
             // 
@@ -453,13 +470,12 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonBack);
+            this.Controls.Add(this.buttonQuestion3);
+            this.Controls.Add(this.buttonQuestion2);
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Vraag1";
-            this.Load += new System.EventHandler(this.Vraag1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -470,9 +486,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonBack;
+        private System.Windows.Forms.Button buttonQuestion3;
+        private System.Windows.Forms.Button buttonQuestion2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -494,7 +510,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBoxSoortDiefstal;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button buttonZoekFilter;
         private System.Windows.Forms.ComboBox comboBoxJaartal;
+        private System.Windows.Forms.Button buttonResetFilter;
     }
 }

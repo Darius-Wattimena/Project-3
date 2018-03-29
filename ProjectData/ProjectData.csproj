@@ -160,8 +160,8 @@
     <EmbeddedResource Include="Resources\Metadata.csv" />
     <EmbeddedResource Include="Resources\preventie.csv" />
     <EmbeddedResource Include="Resources\Dataset_Gemiddeld_Inkomen.csv" />
-    <None Include="Resources\Veiligheidsbeleving Metadata.csv" />
-    <None Include="Resources\Veiligheidsbeleving.csv" />
+    <EmbeddedResource Include="Resources\Veiligheidsbeleving Metadata.csv" />
+    <EmbeddedResource Include="Resources\Veiligheidsbeleving.csv" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

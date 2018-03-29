@@ -51,7 +51,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Chart\CustomSeries.cs" />
     <Compile Include="Converter\ConverterUtil.cs" />
     <Compile Include="Database\Criterias\Criteria.cs" />
     <Compile Include="Database\Criterias\DiefstalCriteria.cs" />
@@ -161,6 +160,8 @@
     <EmbeddedResource Include="Resources\Metadata.csv" />
     <EmbeddedResource Include="Resources\preventie.csv" />
     <EmbeddedResource Include="Resources\Dataset_Gemiddeld_Inkomen.csv" />
+    <None Include="Resources\Veiligheidsbeleving Metadata.csv" />
+    <None Include="Resources\Veiligheidsbeleving.csv" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

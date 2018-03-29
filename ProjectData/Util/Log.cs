@@ -8,7 +8,7 @@ namespace ProjectData.Util
     public class Log
     {
         private const string FATAL_PREFIX = "[FATAL] : ";
-        private const string ErrorPrefix = "[ERROR] : ";
+        private const string ERROR_PREFIX = "[ERROR] : ";
         private const string INFO_PREFIX = "[INFO] : ";
         private const string DEBUG_PREFIX = "[DEBUG] : ";
 
@@ -38,7 +38,7 @@ namespace ProjectData.Util
 
         public static void Error(string message)
         {
-            Console.WriteLine(ErrorPrefix + message);
+            Console.WriteLine(ERROR_PREFIX + message);
         }
 
         public static void Info(string message)

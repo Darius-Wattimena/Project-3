@@ -33,6 +33,7 @@
             this.subLabel = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.retryButton = new System.Windows.Forms.Button();
+            this.quitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // mainLabel
@@ -92,6 +93,23 @@
             this.retryButton.Visible = false;
             this.retryButton.Click += new System.EventHandler(this.retryButton_Click);
             // 
+            // quitButton
+            // 
+            this.quitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(103)))), ((int)(((byte)(92)))));
+            this.quitButton.Enabled = false;
+            this.quitButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
+            this.quitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.quitButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quitButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
+            this.quitButton.Location = new System.Drawing.Point(577, 457);
+            this.quitButton.Name = "quitButton";
+            this.quitButton.Size = new System.Drawing.Size(120, 36);
+            this.quitButton.TabIndex = 4;
+            this.quitButton.Text = "Quit";
+            this.quitButton.UseVisualStyleBackColor = false;
+            this.quitButton.Visible = false;
+            this.quitButton.Click += new System.EventHandler(this.quitButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -99,6 +117,7 @@
             this.BackgroundImage = global::ProjectData.Resource.MainMenuBackground;
             this.ClientSize = new System.Drawing.Size(1280, 720);
             this.ControlBox = false;
+            this.Controls.Add(this.quitButton);
             this.Controls.Add(this.retryButton);
             this.Controls.Add(this.subLabel);
             this.Controls.Add(this.progressBar);
@@ -119,6 +138,7 @@
         private System.Windows.Forms.Button subLabel;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button retryButton;
+        private System.Windows.Forms.Button quitButton;
     }
 }
 

@@ -55,14 +55,14 @@ namespace ProjectData
                 WinForm.Execute(() =>
                 {
                     SetSubLabelColor(Color.Red);
-                    SetSubLabelText("MySQL Error please check your database server!");
+                    SetSubLabelText("MySQL Error please check your database server and/or your config file!");
                     UpdateProgressBarColor(2);
                 });
             }
 
             if (bw.CancellationPending)
             {
-                WinForm.Execute(() => FlipRetryButton());
+                WinForm.Execute(() => FlipRetryAndQuitButton());
                 e.Cancel = true;
             }
             
@@ -76,8 +76,13 @@ namespace ProjectData
                 UpdateProgressBarColor(1);
                 SetSubLabelText("Retrying");
                 backgroundWorker1.RunWorkerAsync();
-                FlipRetryButton();
+                FlipRetryAndQuitButton();
             });
+        }
+        
+        private void quitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
         private int BackgroundOperation(BackgroundWorker bw)
@@ -166,10 +171,13 @@ namespace ProjectData
             WinForm.OpenForm<Form2>();
         }
 
-        private void FlipRetryButton()
+        private void FlipRetryAndQuitButton()
         {
             retryButton.Enabled = !retryButton.Enabled;
             retryButton.Visible = !retryButton.Visible;
+
+            quitButton.Enabled = !quitButton.Enabled;
+            quitButton.Visible = !quitButton.Visible;
         }
 
         private void UpdateProgressBarColor(int color)

@@ -96,6 +96,11 @@ namespace ProjectData
                 if (!string.IsNullOrEmpty(diefstal.TotaalGeregistreerdeDiefstallen) && !diefstal.RegioCode.Contains(EnumUtil.GetEnumDescription(RegioCode.NietInTeDelen)))
                 {
                     chart1.Series[0].Points.Add(int.Parse(diefstal.TotaalGeregistreerdeDiefstallen));
+
+                    var regioName = RegioUtil.GetRegioName(diefstal.RegioCode);
+                    chart1.ChartAreas[0].AxisX.CustomLabels.Add(labelPosition, labelPosition + 1d, regioName);
+                    labelPosition++;
+
                 }
             }
         }
@@ -180,6 +185,11 @@ namespace ProjectData
             }
 
             return regios;
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

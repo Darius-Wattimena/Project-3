@@ -34,8 +34,8 @@
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Vraag3));
             this.buttonBack = new System.Windows.Forms.Button();
-            this.buttonQuestion3 = new System.Windows.Forms.Button();
             this.buttonQuestion2 = new System.Windows.Forms.Button();
+            this.buttonQuestion1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -55,14 +55,14 @@
             this.labelNoordholland = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboBoxSoortVeiligheid = new System.Windows.Forms.ComboBox();
             this.buttonResetProvincies = new System.Windows.Forms.Button();
             this.buttonResetFilter = new System.Windows.Forms.Button();
             this.comboBoxJaartal = new System.Windows.Forms.ComboBox();
             this.buttonZoekFilter = new System.Windows.Forms.Button();
             this.comboBoxSoortDiefstal = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBoxSoortVeiligheid = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -82,21 +82,6 @@
             this.buttonBack.UseVisualStyleBackColor = false;
             this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
-            // buttonQuestion3
-            // 
-            this.buttonQuestion3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(103)))), ((int)(((byte)(92)))));
-            this.buttonQuestion3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
-            this.buttonQuestion3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonQuestion3.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonQuestion3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
-            this.buttonQuestion3.Location = new System.Drawing.Point(45, 102);
-            this.buttonQuestion3.Name = "buttonQuestion3";
-            this.buttonQuestion3.Size = new System.Drawing.Size(160, 62);
-            this.buttonQuestion3.TabIndex = 6;
-            this.buttonQuestion3.Text = "Question 3";
-            this.buttonQuestion3.UseVisualStyleBackColor = false;
-            this.buttonQuestion3.Click += new System.EventHandler(this.buttonQuestion3_Click);
-            // 
             // buttonQuestion2
             // 
             this.buttonQuestion2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(103)))), ((int)(((byte)(92)))));
@@ -104,13 +89,28 @@
             this.buttonQuestion2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonQuestion2.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonQuestion2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
-            this.buttonQuestion2.Location = new System.Drawing.Point(45, 34);
+            this.buttonQuestion2.Location = new System.Drawing.Point(45, 102);
             this.buttonQuestion2.Name = "buttonQuestion2";
             this.buttonQuestion2.Size = new System.Drawing.Size(160, 62);
-            this.buttonQuestion2.TabIndex = 5;
+            this.buttonQuestion2.TabIndex = 6;
             this.buttonQuestion2.Text = "Question 2";
             this.buttonQuestion2.UseVisualStyleBackColor = false;
             this.buttonQuestion2.Click += new System.EventHandler(this.buttonQuestion2_Click);
+            // 
+            // buttonQuestion1
+            // 
+            this.buttonQuestion1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(103)))), ((int)(((byte)(92)))));
+            this.buttonQuestion1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
+            this.buttonQuestion1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonQuestion1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonQuestion1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
+            this.buttonQuestion1.Location = new System.Drawing.Point(45, 34);
+            this.buttonQuestion1.Name = "buttonQuestion1";
+            this.buttonQuestion1.Size = new System.Drawing.Size(160, 62);
+            this.buttonQuestion1.TabIndex = 5;
+            this.buttonQuestion1.Text = "Question 1";
+            this.buttonQuestion1.UseVisualStyleBackColor = false;
+            this.buttonQuestion1.Click += new System.EventHandler(this.buttonQuestion1_Click);
             // 
             // label2
             // 
@@ -120,7 +120,7 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label2.Location = new System.Drawing.Point(251, 18);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(717, 15);
+            this.label2.Size = new System.Drawing.Size(1216, 24);
             this.label2.TabIndex = 9;
             this.label2.Text = "Is het zo dat in de Nederlandse provincies het gemiddelde inkomen het aantal dief" +
     "stallen beïnvloed en verandert dit over de jaren?";
@@ -132,7 +132,7 @@
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label3.Location = new System.Drawing.Point(1371, 780);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 15);
+            this.label3.Size = new System.Drawing.Size(139, 24);
             this.label3.TabIndex = 10;
             this.label3.Text = "*per provincie";
             // 
@@ -143,7 +143,7 @@
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label4.Location = new System.Drawing.Point(1371, 805);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 15);
+            this.label4.Size = new System.Drawing.Size(111, 24);
             this.label4.TabIndex = 11;
             this.label4.Text = "*per jaartal";
             // 
@@ -193,7 +193,7 @@
             this.checkBoxFriesland.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
             this.checkBoxFriesland.Location = new System.Drawing.Point(1005, 148);
             this.checkBoxFriesland.Name = "checkBoxFriesland";
-            this.checkBoxFriesland.Size = new System.Drawing.Size(78, 19);
+            this.checkBoxFriesland.Size = new System.Drawing.Size(122, 28);
             this.checkBoxFriesland.TabIndex = 13;
             this.checkBoxFriesland.Text = "Friesland";
             this.checkBoxFriesland.UseVisualStyleBackColor = false;
@@ -205,7 +205,7 @@
             this.checkBoxGroningen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
             this.checkBoxGroningen.Location = new System.Drawing.Point(1108, 104);
             this.checkBoxGroningen.Name = "checkBoxGroningen";
-            this.checkBoxGroningen.Size = new System.Drawing.Size(84, 19);
+            this.checkBoxGroningen.Size = new System.Drawing.Size(132, 28);
             this.checkBoxGroningen.TabIndex = 14;
             this.checkBoxGroningen.Text = "Groningen";
             this.checkBoxGroningen.UseVisualStyleBackColor = false;
@@ -217,7 +217,7 @@
             this.checkBoxZuidholland.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
             this.checkBoxZuidholland.Location = new System.Drawing.Point(828, 396);
             this.checkBoxZuidholland.Name = "checkBoxZuidholland";
-            this.checkBoxZuidholland.Size = new System.Drawing.Size(97, 19);
+            this.checkBoxZuidholland.Size = new System.Drawing.Size(151, 28);
             this.checkBoxZuidholland.TabIndex = 15;
             this.checkBoxZuidholland.Text = "Zuid-Holland";
             this.checkBoxZuidholland.UseVisualStyleBackColor = false;
@@ -229,7 +229,7 @@
             this.checkBoxNoordholland.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
             this.checkBoxNoordholland.Location = new System.Drawing.Point(899, 220);
             this.checkBoxNoordholland.Name = "checkBoxNoordholland";
-            this.checkBoxNoordholland.Size = new System.Drawing.Size(69, 34);
+            this.checkBoxNoordholland.Size = new System.Drawing.Size(104, 52);
             this.checkBoxNoordholland.TabIndex = 16;
             this.checkBoxNoordholland.Text = "Noord\r\nHolland\r\n";
             this.checkBoxNoordholland.UseVisualStyleBackColor = false;
@@ -241,7 +241,7 @@
             this.checkBoxUtrecht.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
             this.checkBoxUtrecht.Location = new System.Drawing.Point(927, 363);
             this.checkBoxUtrecht.Name = "checkBoxUtrecht";
-            this.checkBoxUtrecht.Size = new System.Drawing.Size(65, 19);
+            this.checkBoxUtrecht.Size = new System.Drawing.Size(103, 28);
             this.checkBoxUtrecht.TabIndex = 17;
             this.checkBoxUtrecht.Text = "Utrecht";
             this.checkBoxUtrecht.UseVisualStyleBackColor = false;
@@ -253,7 +253,7 @@
             this.checkBoxLimburg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
             this.checkBoxLimburg.Location = new System.Drawing.Point(1030, 535);
             this.checkBoxLimburg.Name = "checkBoxLimburg";
-            this.checkBoxLimburg.Size = new System.Drawing.Size(72, 19);
+            this.checkBoxLimburg.Size = new System.Drawing.Size(109, 28);
             this.checkBoxLimburg.TabIndex = 18;
             this.checkBoxLimburg.Text = "Limburg";
             this.checkBoxLimburg.UseVisualStyleBackColor = false;
@@ -265,7 +265,7 @@
             this.checkBoxFlevoland.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
             this.checkBoxFlevoland.Location = new System.Drawing.Point(988, 274);
             this.checkBoxFlevoland.Name = "checkBoxFlevoland";
-            this.checkBoxFlevoland.Size = new System.Drawing.Size(59, 34);
+            this.checkBoxFlevoland.Size = new System.Drawing.Size(95, 52);
             this.checkBoxFlevoland.TabIndex = 19;
             this.checkBoxFlevoland.Text = "Flevo-\r\nland";
             this.checkBoxFlevoland.UseVisualStyleBackColor = false;
@@ -277,7 +277,7 @@
             this.checkBoxGelderland.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
             this.checkBoxGelderland.Location = new System.Drawing.Point(1047, 363);
             this.checkBoxGelderland.Name = "checkBoxGelderland";
-            this.checkBoxGelderland.Size = new System.Drawing.Size(87, 19);
+            this.checkBoxGelderland.Size = new System.Drawing.Size(136, 28);
             this.checkBoxGelderland.TabIndex = 20;
             this.checkBoxGelderland.Text = "Gelderland";
             this.checkBoxGelderland.UseVisualStyleBackColor = false;
@@ -289,7 +289,7 @@
             this.checkBoxNoordBrabant.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
             this.checkBoxNoordBrabant.Location = new System.Drawing.Point(936, 470);
             this.checkBoxNoordBrabant.Name = "checkBoxNoordBrabant";
-            this.checkBoxNoordBrabant.Size = new System.Drawing.Size(111, 19);
+            this.checkBoxNoordBrabant.Size = new System.Drawing.Size(177, 28);
             this.checkBoxNoordBrabant.TabIndex = 21;
             this.checkBoxNoordBrabant.Text = "Noord-Braband";
             this.checkBoxNoordBrabant.UseVisualStyleBackColor = false;
@@ -301,7 +301,7 @@
             this.checkBoxOverijssel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
             this.checkBoxOverijssel.Location = new System.Drawing.Point(1108, 299);
             this.checkBoxOverijssel.Name = "checkBoxOverijssel";
-            this.checkBoxOverijssel.Size = new System.Drawing.Size(81, 19);
+            this.checkBoxOverijssel.Size = new System.Drawing.Size(129, 28);
             this.checkBoxOverijssel.TabIndex = 22;
             this.checkBoxOverijssel.Text = "Overijssel";
             this.checkBoxOverijssel.UseVisualStyleBackColor = false;
@@ -313,7 +313,7 @@
             this.checkBoxDrenthe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
             this.checkBoxDrenthe.Location = new System.Drawing.Point(1114, 205);
             this.checkBoxDrenthe.Name = "checkBoxDrenthe";
-            this.checkBoxDrenthe.Size = new System.Drawing.Size(70, 19);
+            this.checkBoxDrenthe.Size = new System.Drawing.Size(110, 28);
             this.checkBoxDrenthe.TabIndex = 23;
             this.checkBoxDrenthe.Text = "Drenthe";
             this.checkBoxDrenthe.UseVisualStyleBackColor = false;
@@ -325,7 +325,7 @@
             this.checkBoxZeeland.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
             this.checkBoxZeeland.Location = new System.Drawing.Point(748, 490);
             this.checkBoxZeeland.Name = "checkBoxZeeland";
-            this.checkBoxZeeland.Size = new System.Drawing.Size(71, 19);
+            this.checkBoxZeeland.Size = new System.Drawing.Size(111, 28);
             this.checkBoxZeeland.TabIndex = 24;
             this.checkBoxZeeland.Text = "Zeeland";
             this.checkBoxZeeland.UseVisualStyleBackColor = false;
@@ -337,7 +337,7 @@
             this.labelNoordholland.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
             this.labelNoordholland.Location = new System.Drawing.Point(896, 257);
             this.labelNoordholland.Name = "labelNoordholland";
-            this.labelNoordholland.Size = new System.Drawing.Size(0, 15);
+            this.labelNoordholland.Size = new System.Drawing.Size(0, 24);
             this.labelNoordholland.TabIndex = 27;
             // 
             // label1
@@ -345,7 +345,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(11, 94);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 15);
+            this.label1.Size = new System.Drawing.Size(74, 24);
             this.label1.TabIndex = 1;
             this.label1.Text = "Jaartal";
             // 
@@ -365,6 +365,26 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(355, 179);
             this.panel1.TabIndex = 28;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(11, 50);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(155, 24);
+            this.label6.TabIndex = 34;
+            this.label6.Text = "Soort Veiligheid";
+            // 
+            // comboBoxSoortVeiligheid
+            // 
+            this.comboBoxSoortVeiligheid.FormattingEnabled = true;
+            this.comboBoxSoortVeiligheid.Items.AddRange(new object[] {
+            "Voelt zich wel eens onveilig",
+            "Voelt zich vaak onveilig"});
+            this.comboBoxSoortVeiligheid.Location = new System.Drawing.Point(14, 68);
+            this.comboBoxSoortVeiligheid.Name = "comboBoxSoortVeiligheid";
+            this.comboBoxSoortVeiligheid.Size = new System.Drawing.Size(318, 32);
+            this.comboBoxSoortVeiligheid.TabIndex = 33;
             // 
             // buttonResetProvincies
             // 
@@ -407,7 +427,7 @@
             "2014"});
             this.comboBoxJaartal.Location = new System.Drawing.Point(14, 112);
             this.comboBoxJaartal.Name = "comboBoxJaartal";
-            this.comboBoxJaartal.Size = new System.Drawing.Size(318, 23);
+            this.comboBoxJaartal.Size = new System.Drawing.Size(318, 32);
             this.comboBoxJaartal.TabIndex = 30;
             // 
             // buttonZoekFilter
@@ -455,7 +475,7 @@
             "Diefstal en inbraak (overig)"});
             this.comboBoxSoortDiefstal.Location = new System.Drawing.Point(14, 24);
             this.comboBoxSoortDiefstal.Name = "comboBoxSoortDiefstal";
-            this.comboBoxSoortDiefstal.Size = new System.Drawing.Size(318, 23);
+            this.comboBoxSoortDiefstal.Size = new System.Drawing.Size(318, 32);
             this.comboBoxSoortDiefstal.TabIndex = 7;
             // 
             // label5
@@ -463,55 +483,13 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(11, 6);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(81, 15);
+            this.label5.Size = new System.Drawing.Size(138, 24);
             this.label5.TabIndex = 6;
             this.label5.Text = "Soort Diefstal";
             // 
-            // comboBoxSoortVeiligheid
-            // 
-            this.comboBoxSoortVeiligheid.FormattingEnabled = true;
-            this.comboBoxSoortVeiligheid.Items.AddRange(new object[] {
-            "Diefstal van fiets",
-            "Diefstal van bromfiets/snorfiets",
-            "Diefstal van motor/scooter",
-            "Diefstal van personenauto",
-            "Diefstal van vervoermiddel (overig)",
-            "Diefstal van vaartuig",
-            "Diefstal uit/vanaf personenauto",
-            "Diefstal uit/vanaf vervoermiddel(overig)",
-            "Diefstal uit/vanaf vaartuig",
-            "Diefstal van dier",
-            "Straatroof",
-            "Zakkenrollerij",
-            "Totaal diefstal uit woning/schuur/e.d.",
-            "Diefstal/inbraak uit woning",
-            "Diefstal/inbraak uit schuur/garage/e.d",
-            "Winkeldiefstal",
-            "Diefstal/inbraak uit winkel/bedrijf/e.d.",
-            "Diefstal/inbraak uit hotel/pension",
-            "Diefstal/inbraak uit school",
-            "Diefstal/inbraak uit sportcomplex",
-            "Diefstal/inbraak uit defensiecomplex",
-            "Diefstal/inbraak uit gebouw (overig)",
-            "Overval",
-            "Diefstal en inbraak (overig)"});
-            this.comboBoxSoortVeiligheid.Location = new System.Drawing.Point(14, 68);
-            this.comboBoxSoortVeiligheid.Name = "comboBoxSoortVeiligheid";
-            this.comboBoxSoortVeiligheid.Size = new System.Drawing.Size(318, 23);
-            this.comboBoxSoortVeiligheid.TabIndex = 33;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(11, 50);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(92, 15);
-            this.label6.TabIndex = 34;
-            this.label6.Text = "Soort Veiligheid";
-            // 
             // Vraag3
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1280, 720);
@@ -534,8 +512,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonBack);
-            this.Controls.Add(this.buttonQuestion3);
             this.Controls.Add(this.buttonQuestion2);
+            this.Controls.Add(this.buttonQuestion1);
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Vraag3";
@@ -550,8 +528,8 @@
         #endregion
 
         private System.Windows.Forms.Button buttonBack;
-        private System.Windows.Forms.Button buttonQuestion3;
         private System.Windows.Forms.Button buttonQuestion2;
+        private System.Windows.Forms.Button buttonQuestion1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;

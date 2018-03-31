@@ -124,5 +124,14 @@ namespace ProjectData {
                 return ResourceManager.GetString("preventie", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;ID&quot;;&quot;Marges&quot;;&quot;RegioS&quot;;&quot;Perioden&quot;;&quot;VoeltZichWelEensOnveilig_1&quot;;&quot;VoeltZichVaakOnveilig_2&quot;;&quot;VanZakkenrollerij_3&quot;;&quot;VanBerovingOpStraat_4&quot;;&quot;VanInbraakInWoning_5&quot;;&quot;VanMishandeling_6&quot;;&quot;VoeltZichWelEensOnveiligInBuurt_7&quot;;&quot;VoeltZichVaakOnveiligInBuurt_8&quot;;&quot;SAvondsOpStraatInBuurtOnveilig_9&quot;;&quot;SAvondsAlleenThuisOnveilig_10&quot;;&quot;DoetSAvondsNietOpen_11&quot;;&quot;RijdtOfLooptOm_12&quot;;&quot;BangSlachtofferCriminaliteitTeWorden_13&quot;;&quot;DenktDatErVeelCriminaliteitInBuurt_14&quot;;&quot;VindtCriminaliteitInBuurtToegenomen_15&quot;;&quot;VindtCriminaliteitInBuurtAfge [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Veiligheid {
+            get {
+                return ResourceManager.GetString("Veiligheid", resourceCulture);
+            }
+        }
     }
 }

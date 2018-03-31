@@ -25,10 +25,10 @@ namespace ProjectData.Database.Criterias
                 QueryBuilder.Append("Perioden", Periode);
             }
 
-     //     if (!string.IsNullOrEmpty( ))
-     //     {
-     //         QueryBuilder.Append("", );
-     //     }
+           if (!string.IsNullOrEmpty( ))
+           {
+               QueryBuilder.Append("", );
+           }
         }
     }
 }

@@ -68,6 +68,17 @@ namespace ProjectData.Converter
             ReadDataDiefstal(linesList);
         }
 
+        public static void ConvertVeiligheid()
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+            var stream = assembly.GetManifestResourceStream("ProjectData.Resources.Veiligheid.csv");
+
+            var lines = ReadLines(() => stream, Encoding.UTF8).ToList().Select(a => a.Split(';'));
+            var linesList = lines.ToList();
+
+            ReadDataVeiligheid(linesList);
+        }
+
         public static void ConvertPreventie()
         {
             var assembly = Assembly.GetExecutingAssembly();
@@ -236,6 +247,60 @@ namespace ProjectData.Converter
 
                     dao.Save(diefstal);
                 }
+                i++;
+            }
+        }
+
+        private static void ReadDataVeiligheid(List<string[]> linesList)
+        {
+            var dao = new VeiligheidDao();
+            var i = 0;
+            foreach (var line in linesList)
+            {
+                if (i >= 1)
+                {
+                    var lineArray = line.ToArray();
+                    SetItems(lineArray);
+
+                    var veiligheid = new Veiligheid
+                    {
+                        Marges = GetItem(1),
+                        RegioCode = GetItem(2),
+                        Perioden = GetItem(3),
+                        WelEensOnveilig = GetItem(4),
+                        VaakOnveilig = GetItem(5),
+                        Zakkenrollerij = GetItem(6),
+                        StraatBeroving = GetItem(7),
+                        WoningInbraak = GetItem(8),
+                        Mishandeling = GetItem(9),
+                        WelEensOnveiligBuurt = GetItem(10),
+                        VaakOnveiligBuurt = GetItem(11),
+                        AvondBuurt = GetItem(12),
+                        AvondAlleenThuis = GetItem(13),
+                        AvondDeurNietOpen = GetItem(14),
+                        LooptOm = GetItem(15),
+                        BangSlachtoffer = GetItem(16),
+                        CriminaliteitBuurtToe = GetItem(18),
+                        CriminaliteitBuurtAf = GetItem(19),
+                        CriminaliteitBuurtGelijk = GetItem(20),
+                        CijferVeiligheidBuurt = GetItem(21),
+                        Uitgaan = GetItem(22),
+                        Hangplekken = GetItem(23),
+                        CentrumWoonplaats = GetItem(24),
+                        Winkelgebied = GetItem(25),
+                        InOV = GetItem(26),
+                        Treinstation = GetItem(27),
+                        EigenHuis = GetItem(28),
+                        OnbekendenStraat = GetItem(29),
+                        OnbekendenOV = GetItem(30),
+                        PersoneelWinkelsBedrijven = GetItem(31),
+                        PersoneelOverheid = GetItem(32),
+                        BekendenPartnerFamilie = GetItem(33),
+                     
+                    };
+                    dao.Save(veiligheid);
+                }
+
                 i++;
             }
         }

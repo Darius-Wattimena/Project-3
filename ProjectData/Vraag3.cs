@@ -26,19 +26,36 @@ namespace ProjectData
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonQuestion2_Click(object sender, EventArgs e)
         {
-            WinForm.OpenForm<Vraag1>();
+            WinForm.OpenForm<Vraag2>();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonQuestion3_Click(object sender, EventArgs e)
         {
-           
+            WinForm.OpenForm<Vraag3>();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void buttonBack_Click(object sender, EventArgs e)
         {
             WinForm.OpenForm<Form2>();
+        }
+
+        private void buttonResetFilter_Click(object sender, EventArgs e)
+        {
+          //  resetCheckBoxes();
+           // resetComboBoxes();
+            buttonZoekFilter_Click(sender, e);
+        }
+
+        private void buttonResetProvincies_Click(object sender, EventArgs e)
+        {
+           // resetCheckBoxes();
+            buttonZoekFilter_Click(sender, e);
+        }
+
+        private void buttonZoekFilter_Click(object sender, EventArgs e)
+        {
         }
     }
 }

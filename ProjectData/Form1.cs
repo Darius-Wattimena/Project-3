@@ -22,6 +22,7 @@ namespace ProjectData
         private readonly DiefstalDao _diefstalDao = new DiefstalDao();
         private readonly PreventieDao _preventieDao = new PreventieDao();
         private readonly GemiddeldInkomenDao _inkomenDao = new GemiddeldInkomenDao();
+        private readonly VeiligheidDao _veiligheidDao = new VeiligheidDao();
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = false)]
         private static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr w, IntPtr l);
@@ -144,6 +145,18 @@ namespace ProjectData
                     {
                         ConverterUtil.ConvertGemiddeldInkomen();
                     }
+
+                    WinForm.Execute(() =>
+                    {
+                        SetSubLabelText("Loading Veiligheid data");
+                        UpdateProgressBar(72);
+                    });
+
+                    if (_veiligheidDao.CountAll() == 0)
+                    {
+                        ConverterUtil.ConvertVeiligheid();
+                    }
+
                 }
                 catch (MySqlException ex)
                 {

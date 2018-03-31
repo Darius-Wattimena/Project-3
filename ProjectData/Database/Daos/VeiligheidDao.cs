@@ -47,7 +47,7 @@ namespace ProjectData.Database.Daos
 
         protected override string SetTableName()
         {
-            return "veiligheid";
+            return "veiligheidsbeleving";
         }
     }
 }

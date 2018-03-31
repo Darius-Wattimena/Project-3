@@ -11,7 +11,6 @@ namespace ProjectData.Database.Criterias
     {
         public List<string> RegioList { get; set; }
         public string Periode { get; set; }
-        public string  { get; set; }
 
         public override void Build(StringBuilder query)
         {
@@ -24,11 +23,6 @@ namespace ProjectData.Database.Criterias
             {
                 QueryBuilder.Append("Perioden", Periode);
             }
-
-           if (!string.IsNullOrEmpty( ))
-           {
-               QueryBuilder.Append("", );
-           }
         }
     }
 }

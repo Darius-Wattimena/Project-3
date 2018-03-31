@@ -42,7 +42,7 @@ namespace ProjectData.Database.Daos
 
         private int ExecuteQueryCount(MySqlCommand command)
         {
-            Log.Info("Query Executed | " + command.CommandText);
+            Log.Debug("Query Executed | " + command.CommandText);
             _database.OpenConnection();
             MySqlDataReader reader = command.ExecuteReader();
             var result = 0;
@@ -56,7 +56,7 @@ namespace ProjectData.Database.Daos
 
         private void ExecuteQueryNoResult(MySqlCommand command)
         {
-            Log.Info("Query Executed | " + command.CommandText);
+            Log.Debug("Query Executed | " + command.CommandText);
             _database.OpenConnection();
             command.ExecuteNonQuery();
             _database.CloseConnection();

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using MySql.Data.MySqlClient;
 using ProjectData.Database.Entities;
@@ -36,7 +37,60 @@ namespace ProjectData.Database
                 return DataReaderToGemiddeldInkomen(dr) as List<T>;
             }
 
+            if (type == typeof(Veiligheid))
+            {
+                return DataReaderToVeiligheid(dr) as List<T>;
+            }
+
             return new List<T>();
+        }
+
+        private static List<Veiligheid> DataReaderToVeiligheid(MySqlDataReader dr)
+        {
+            var veiligheids = new List<Veiligheid>();
+
+            while (dr.Read())
+            {
+                var veiligheid = new Veiligheid
+                {
+                    VeiligheidsbelevingId = dr.GetInt32(0),
+                    Marges = dr.GetString(1),
+                    RegioCode = dr.GetString(2),
+                    Perioden = dr.GetString(3),
+                    WelEensOnveilig = dr.GetString(4),
+                    VaakOnveilig = dr.GetString(5),
+                    Zakkenrollerij = dr.GetString(6),
+                    StraatBeroving = dr.GetString(7),
+                    WoningInbraak = dr.GetString(8),
+                    Mishandeling = dr.GetString(9),
+                    WelEensOnveiligBuurt = dr.GetString(10),
+                    VaakOnveiligBuurt = dr.GetString(11),
+                    AvondBuurt = dr.GetString(12),
+                    AvondAlleenThuis = dr.GetString(13),
+                    AvondDeurNietOpen = dr.GetString(14),
+                    LooptOm = dr.GetString(15),
+                    BangSlachtoffer = dr.GetString(16),
+                    CriminaliteitBuurtToe = dr.GetString(17),
+                    CriminaliteitBuurtAf = dr.GetString(18),
+                    CriminaliteitBuurtGelijk = dr.GetString(19),
+                    CijferVeiligheidBuurt = dr.GetString(20),
+                    Uitgaan = dr.GetString(21),
+                    Hangplekken = dr.GetString(22),
+                    CentrumWoonplaats = dr.GetString(23),
+                    Winkelgebied = dr.GetString(24),
+                    InOV = dr.GetString(25),
+                    Treinstation = dr.GetString(26),
+                    EigenHuis = dr.GetString(27),
+                    OnbekendenStraat = dr.GetString(28),
+                    OnbekendenOV = dr.GetString(29),
+                    PersoneelWinkelsBedrijven = dr.GetString(30),
+                    PersoneelOverheid = dr.GetString(31),
+                    BekendenPartnerFamilie = dr.GetString(32)
+                };
+                veiligheids.Add(veiligheid);
+            }
+
+            return veiligheids;
         }
 
         private static List<Regio> DataReaderToRegio(IDataReader dr)

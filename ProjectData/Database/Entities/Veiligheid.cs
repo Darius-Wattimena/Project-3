@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 
 namespace ProjectData.Database.Entities
 {
@@ -75,4 +76,12 @@ namespace ProjectData.Database.Entities
             return VeiligheidsbelevingId;
         }
     }
+
+    public enum VeiligheidSoort
+    {
+        [Description("Voelt zich wel eens onveilig")] WelEensOnveilig,
+        [Description("Voelt zich vaak onveilig")] VaakOnveilig
+    }
+
 }
+

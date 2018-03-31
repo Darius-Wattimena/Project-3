@@ -16,6 +16,7 @@ using ProjectData.Database.Criterias;
 using ProjectData.Database.Daos;
 using ProjectData.Database.Entities;
 using ProjectData.Util;
+using System.Globalization;
 
 namespace ProjectData
 {
@@ -46,14 +47,14 @@ namespace ProjectData
 
         private void buttonResetFilter_Click(object sender, EventArgs e)
         {
-          //  resetCheckBoxes();
-           // resetComboBoxes();
+            ResetCheckBoxes();
+            ResetComboBoxes();
             buttonZoekFilter_Click(sender, e);
         }
 
         private void buttonResetProvincies_Click(object sender, EventArgs e)
         {
-           // resetCheckBoxes();
+            ResetCheckBoxes();
             buttonZoekFilter_Click(sender, e);
         }
 
@@ -79,28 +80,62 @@ namespace ProjectData
             diefstalCriteria.Soortdiefstal = soortDiefstalValue;
             diefstalCriteria.Periode = jaartal;
 
+            //Get diefstallen using the criteria
             var diefstallen = _diefstalDao.FindByNewCriteria(diefstalCriteria);
             diefstallen = DiefstalUtil.SumDiefstallenForeachRegio(diefstallen);
 
-            LoadChart(diefstallen);
+            //Get the picked veiligheid from the combobox
+            var pickedVeiligheid = comboBoxSoortVeiligheid.GetItemText(comboBoxSoortVeiligheid.SelectedItem);
 
+            var veiligheidCriteria = new VeiligheidCriteria();
+            veiligheidCriteria.RegioList = regios;
+            veiligheidCriteria.Periode = jaartal;
+
+            var veiligheids = _veiligheidDao.FindByNewCriteria(veiligheidCriteria);
+
+            LoadChart(diefstallen, veiligheids, pickedVeiligheid);
         }
 
-        private void LoadChart(List<Diefstal> diefstallen)
+        private void LoadChart(List<Diefstal> diefstallen, List<Veiligheid> veiligheids, string pickedVeiligheid)
         {
+            //Clear form
             WinForm.ClearChart(chart1);
+
+            //Set label position for regio names
             var labelPosition = 0.5d;
 
-            foreach (var diefstal in diefstallen)
+            //Get veiligheid soort by pickedone from combobox
+            var veiligheidSoort = VeiligheidUtil.PickVeiligheidType(pickedVeiligheid);
+
+            //Iterate over diefstallen list
+            for (int i = 0; i < diefstallen.Count; i++)
             {
+                var diefstal = diefstallen[i];
+                var veiligheid = veiligheids[i];
+
+                //Check if TotaalGeregistreerdeDiefstallen is not empty and regio is not equal to NietInTeDelen
                 if (!string.IsNullOrEmpty(diefstal.TotaalGeregistreerdeDiefstallen) && !diefstal.RegioCode.Contains(EnumUtil.GetEnumDescription(RegioCode.NietInTeDelen)))
                 {
-                    chart1.Series[0].Points.Add(int.Parse(diefstal.TotaalGeregistreerdeDiefstallen));
+                    //Get int value from the TotaalGeregistreerdeDiefstallen
+                    var totaalDiefstallen = int.Parse(diefstal.TotaalGeregistreerdeDiefstallen);
 
+                    //Add TotaalGeregistreerdeDiefstallen to first chart series
+                    chart1.Series[0].Points.Add(totaalDiefstallen);
+
+                    //Get the regio name from the code saved in diefstal and add the name using a customlabel
                     var regioName = RegioUtil.GetRegioName(diefstal.RegioCode);
                     chart1.ChartAreas[0].AxisX.CustomLabels.Add(labelPosition, labelPosition + 1d, regioName);
                     labelPosition++;
 
+                    //Get the field from veiligheid with the given enum value
+                    var item = VeiligheidUtil.GetVeiligheidValueByType(veiligheid, veiligheidSoort);
+                    var itemValue = VeiligheidUtil.GetVeiligheidValueFromString(item);
+
+                    //Recalculate the percentage so the value is visable in the chart
+                    var calculatedItemValue = (totaalDiefstallen / 100) * itemValue;
+
+                    //Add the recalculated percentage to the 2nd series
+                    chart1.Series[1].Points.Add(calculatedItemValue);
                 }
             }
         }
@@ -187,9 +222,32 @@ namespace ProjectData
             return regios;
         }
 
-        private void label8_Click(object sender, EventArgs e)
+        private void Vraag3Loaded(object sender, EventArgs e)
         {
+            comboBoxSoortVeiligheid.SelectedIndex = 0;
+        }
 
+        private void ResetCheckBoxes()
+        {
+            checkBoxDrenthe.Checked = false;
+            checkBoxFlevoland.Checked = false;
+            checkBoxFriesland.Checked = false;
+            checkBoxGelderland.Checked = false;
+            checkBoxGroningen.Checked = false;
+            checkBoxLimburg.Checked = false;
+            checkBoxNoordBrabant.Checked = false;
+            checkBoxNoordholland.Checked = false;
+            checkBoxOverijssel.Checked = false;
+            checkBoxUtrecht.Checked = false;
+            checkBoxZeeland.Checked = false;
+            checkBoxZuidholland.Checked = false;
+        }
+
+        private void ResetComboBoxes()
+        {
+            comboBoxSoortDiefstal.SelectedIndex = -1;
+            comboBoxSoortVeiligheid.SelectedIndex = 0;
+            comboBoxJaartal.SelectedIndex = -1;
         }
     }
 }

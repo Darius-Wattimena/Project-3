@@ -93,12 +93,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
     <Compile Include="Util\DiefstalUtil.cs" />
     <Compile Include="Util\EnumUtil.cs" />
     <Compile Include="Util\GemiddeldInkomenUtil.cs" />
     <Compile Include="Util\JaartalUtil.cs" />
     <Compile Include="Util\Log.cs" />
     <Compile Include="Util\RegioUtil.cs" />
+    <Compile Include="Util\VeiligheidUtil.cs" />
     <Compile Include="Util\WinForm.cs" />
     <Compile Include="Vraag1.cs">
       <SubType>Form</SubType>

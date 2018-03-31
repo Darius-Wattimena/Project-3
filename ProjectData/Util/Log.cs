@@ -48,7 +48,7 @@ namespace ProjectData.Util
 
         public static void Debug(string message)
         {
-            Console.WriteLine(DEBUG_PREFIX + message);
+            System.Diagnostics.Debug.WriteLine(DEBUG_PREFIX + message);
         }
     }
 

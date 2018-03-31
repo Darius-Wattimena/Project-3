@@ -55,12 +55,12 @@
             this.labelNoordholland = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonResetProvincies = new System.Windows.Forms.Button();
             this.buttonResetFilter = new System.Windows.Forms.Button();
             this.comboBoxJaartal = new System.Windows.Forms.ComboBox();
             this.buttonZoekFilter = new System.Windows.Forms.Button();
             this.comboBoxSoortDiefstal = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.buttonResetProvincies = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -168,6 +168,8 @@
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
             series1.ChartArea = "ChartArea1";
+            series1.Color = System.Drawing.Color.Firebrick;
+            series1.CustomProperties = "DrawingStyle=Emboss";
             series1.EmptyPointStyle.LabelForeColor = System.Drawing.Color.White;
             series1.LabelBackColor = System.Drawing.Color.White;
             series1.LabelForeColor = System.Drawing.Color.White;
@@ -175,6 +177,8 @@
             series1.Name = "Diefstal";
             series1.SmartLabelStyle.CalloutLineColor = System.Drawing.Color.White;
             series2.ChartArea = "ChartArea1";
+            series2.Color = System.Drawing.Color.SeaGreen;
+            series2.CustomProperties = "DrawingStyle=Emboss";
             series2.EmptyPointStyle.LabelForeColor = System.Drawing.Color.White;
             series2.Legend = "Legend1";
             series2.Name = "Gemiddeld inkomen";
@@ -362,6 +366,21 @@
             this.panel1.Size = new System.Drawing.Size(355, 168);
             this.panel1.TabIndex = 28;
             // 
+            // buttonResetProvincies
+            // 
+            this.buttonResetProvincies.BackColor = System.Drawing.Color.DarkGray;
+            this.buttonResetProvincies.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
+            this.buttonResetProvincies.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonResetProvincies.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonResetProvincies.ForeColor = System.Drawing.Color.White;
+            this.buttonResetProvincies.Location = new System.Drawing.Point(14, 120);
+            this.buttonResetProvincies.Name = "buttonResetProvincies";
+            this.buttonResetProvincies.Size = new System.Drawing.Size(113, 30);
+            this.buttonResetProvincies.TabIndex = 32;
+            this.buttonResetProvincies.Text = "Reset Provincies";
+            this.buttonResetProvincies.UseVisualStyleBackColor = false;
+            this.buttonResetProvincies.Click += new System.EventHandler(this.buttonResetProvincies_Click);
+            // 
             // buttonResetFilter
             // 
             this.buttonResetFilter.BackColor = System.Drawing.Color.DarkGray;
@@ -447,21 +466,6 @@
             this.label5.Size = new System.Drawing.Size(81, 15);
             this.label5.TabIndex = 6;
             this.label5.Text = "Soort Diefstal";
-            // 
-            // buttonResetProvincies
-            // 
-            this.buttonResetProvincies.BackColor = System.Drawing.Color.DarkGray;
-            this.buttonResetProvincies.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
-            this.buttonResetProvincies.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonResetProvincies.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonResetProvincies.ForeColor = System.Drawing.Color.White;
-            this.buttonResetProvincies.Location = new System.Drawing.Point(14, 120);
-            this.buttonResetProvincies.Name = "buttonResetProvincies";
-            this.buttonResetProvincies.Size = new System.Drawing.Size(113, 30);
-            this.buttonResetProvincies.TabIndex = 32;
-            this.buttonResetProvincies.Text = "Reset Provincies";
-            this.buttonResetProvincies.UseVisualStyleBackColor = false;
-            this.buttonResetProvincies.Click += new System.EventHandler(this.buttonResetProvincies_Click);
             // 
             // Vraag1
             // 

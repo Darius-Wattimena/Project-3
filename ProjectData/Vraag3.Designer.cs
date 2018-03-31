@@ -120,7 +120,7 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label2.Location = new System.Drawing.Point(251, 18);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(877, 24);
+            this.label2.Size = new System.Drawing.Size(517, 15);
             this.label2.TabIndex = 9;
             this.label2.Text = "Is er een verband tussen diefstallen en het veiligheidsgevoel in de provincies va" +
     "n Nederland?";
@@ -132,7 +132,7 @@
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label3.Location = new System.Drawing.Point(1371, 780);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(139, 24);
+            this.label3.Size = new System.Drawing.Size(82, 15);
             this.label3.TabIndex = 10;
             this.label3.Text = "*per provincie";
             // 
@@ -143,7 +143,7 @@
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label4.Location = new System.Drawing.Point(1371, 805);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(111, 24);
+            this.label4.Size = new System.Drawing.Size(67, 15);
             this.label4.TabIndex = 11;
             this.label4.Text = "*per jaartal";
             // 
@@ -171,6 +171,7 @@
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
             series1.ChartArea = "ChartArea1";
             series1.Color = System.Drawing.Color.Firebrick;
+            series1.CustomProperties = "DrawingStyle=Emboss";
             series1.EmptyPointStyle.LabelForeColor = System.Drawing.Color.White;
             series1.LabelBackColor = System.Drawing.Color.White;
             series1.LabelForeColor = System.Drawing.Color.White;
@@ -179,12 +180,13 @@
             series1.SmartLabelStyle.CalloutLineColor = System.Drawing.Color.White;
             series2.ChartArea = "ChartArea1";
             series2.Color = System.Drawing.Color.RoyalBlue;
+            series2.CustomProperties = "DrawingStyle=Emboss";
             series2.EmptyPointStyle.LabelForeColor = System.Drawing.Color.White;
             series2.Legend = "Legend1";
             series2.Name = "Veiligheid";
             this.chart1.Series.Add(series1);
             this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(835, 346);
+            this.chart1.Size = new System.Drawing.Size(777, 346);
             this.chart1.TabIndex = 12;
             this.chart1.Text = "Vraag 1";
             // 
@@ -195,7 +197,7 @@
             this.checkBoxFriesland.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
             this.checkBoxFriesland.Location = new System.Drawing.Point(1005, 148);
             this.checkBoxFriesland.Name = "checkBoxFriesland";
-            this.checkBoxFriesland.Size = new System.Drawing.Size(122, 28);
+            this.checkBoxFriesland.Size = new System.Drawing.Size(78, 19);
             this.checkBoxFriesland.TabIndex = 13;
             this.checkBoxFriesland.Text = "Friesland";
             this.checkBoxFriesland.UseVisualStyleBackColor = false;
@@ -207,7 +209,7 @@
             this.checkBoxGroningen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
             this.checkBoxGroningen.Location = new System.Drawing.Point(1108, 104);
             this.checkBoxGroningen.Name = "checkBoxGroningen";
-            this.checkBoxGroningen.Size = new System.Drawing.Size(132, 28);
+            this.checkBoxGroningen.Size = new System.Drawing.Size(84, 19);
             this.checkBoxGroningen.TabIndex = 14;
             this.checkBoxGroningen.Text = "Groningen";
             this.checkBoxGroningen.UseVisualStyleBackColor = false;
@@ -219,7 +221,7 @@
             this.checkBoxZuidholland.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
             this.checkBoxZuidholland.Location = new System.Drawing.Point(828, 396);
             this.checkBoxZuidholland.Name = "checkBoxZuidholland";
-            this.checkBoxZuidholland.Size = new System.Drawing.Size(151, 28);
+            this.checkBoxZuidholland.Size = new System.Drawing.Size(97, 19);
             this.checkBoxZuidholland.TabIndex = 15;
             this.checkBoxZuidholland.Text = "Zuid-Holland";
             this.checkBoxZuidholland.UseVisualStyleBackColor = false;
@@ -231,7 +233,7 @@
             this.checkBoxNoordholland.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
             this.checkBoxNoordholland.Location = new System.Drawing.Point(899, 220);
             this.checkBoxNoordholland.Name = "checkBoxNoordholland";
-            this.checkBoxNoordholland.Size = new System.Drawing.Size(104, 52);
+            this.checkBoxNoordholland.Size = new System.Drawing.Size(69, 34);
             this.checkBoxNoordholland.TabIndex = 16;
             this.checkBoxNoordholland.Text = "Noord\r\nHolland\r\n";
             this.checkBoxNoordholland.UseVisualStyleBackColor = false;
@@ -243,7 +245,7 @@
             this.checkBoxUtrecht.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
             this.checkBoxUtrecht.Location = new System.Drawing.Point(927, 363);
             this.checkBoxUtrecht.Name = "checkBoxUtrecht";
-            this.checkBoxUtrecht.Size = new System.Drawing.Size(103, 28);
+            this.checkBoxUtrecht.Size = new System.Drawing.Size(65, 19);
             this.checkBoxUtrecht.TabIndex = 17;
             this.checkBoxUtrecht.Text = "Utrecht";
             this.checkBoxUtrecht.UseVisualStyleBackColor = false;
@@ -255,7 +257,7 @@
             this.checkBoxLimburg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
             this.checkBoxLimburg.Location = new System.Drawing.Point(1030, 535);
             this.checkBoxLimburg.Name = "checkBoxLimburg";
-            this.checkBoxLimburg.Size = new System.Drawing.Size(109, 28);
+            this.checkBoxLimburg.Size = new System.Drawing.Size(72, 19);
             this.checkBoxLimburg.TabIndex = 18;
             this.checkBoxLimburg.Text = "Limburg";
             this.checkBoxLimburg.UseVisualStyleBackColor = false;
@@ -267,7 +269,7 @@
             this.checkBoxFlevoland.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
             this.checkBoxFlevoland.Location = new System.Drawing.Point(988, 274);
             this.checkBoxFlevoland.Name = "checkBoxFlevoland";
-            this.checkBoxFlevoland.Size = new System.Drawing.Size(95, 52);
+            this.checkBoxFlevoland.Size = new System.Drawing.Size(59, 34);
             this.checkBoxFlevoland.TabIndex = 19;
             this.checkBoxFlevoland.Text = "Flevo-\r\nland";
             this.checkBoxFlevoland.UseVisualStyleBackColor = false;
@@ -279,7 +281,7 @@
             this.checkBoxGelderland.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
             this.checkBoxGelderland.Location = new System.Drawing.Point(1047, 363);
             this.checkBoxGelderland.Name = "checkBoxGelderland";
-            this.checkBoxGelderland.Size = new System.Drawing.Size(136, 28);
+            this.checkBoxGelderland.Size = new System.Drawing.Size(87, 19);
             this.checkBoxGelderland.TabIndex = 20;
             this.checkBoxGelderland.Text = "Gelderland";
             this.checkBoxGelderland.UseVisualStyleBackColor = false;
@@ -291,7 +293,7 @@
             this.checkBoxNoordBrabant.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
             this.checkBoxNoordBrabant.Location = new System.Drawing.Point(936, 470);
             this.checkBoxNoordBrabant.Name = "checkBoxNoordBrabant";
-            this.checkBoxNoordBrabant.Size = new System.Drawing.Size(177, 28);
+            this.checkBoxNoordBrabant.Size = new System.Drawing.Size(111, 19);
             this.checkBoxNoordBrabant.TabIndex = 21;
             this.checkBoxNoordBrabant.Text = "Noord-Braband";
             this.checkBoxNoordBrabant.UseVisualStyleBackColor = false;
@@ -303,7 +305,7 @@
             this.checkBoxOverijssel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
             this.checkBoxOverijssel.Location = new System.Drawing.Point(1108, 299);
             this.checkBoxOverijssel.Name = "checkBoxOverijssel";
-            this.checkBoxOverijssel.Size = new System.Drawing.Size(129, 28);
+            this.checkBoxOverijssel.Size = new System.Drawing.Size(81, 19);
             this.checkBoxOverijssel.TabIndex = 22;
             this.checkBoxOverijssel.Text = "Overijssel";
             this.checkBoxOverijssel.UseVisualStyleBackColor = false;
@@ -315,7 +317,7 @@
             this.checkBoxDrenthe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
             this.checkBoxDrenthe.Location = new System.Drawing.Point(1114, 205);
             this.checkBoxDrenthe.Name = "checkBoxDrenthe";
-            this.checkBoxDrenthe.Size = new System.Drawing.Size(110, 28);
+            this.checkBoxDrenthe.Size = new System.Drawing.Size(70, 19);
             this.checkBoxDrenthe.TabIndex = 23;
             this.checkBoxDrenthe.Text = "Drenthe";
             this.checkBoxDrenthe.UseVisualStyleBackColor = false;
@@ -327,7 +329,7 @@
             this.checkBoxZeeland.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
             this.checkBoxZeeland.Location = new System.Drawing.Point(748, 490);
             this.checkBoxZeeland.Name = "checkBoxZeeland";
-            this.checkBoxZeeland.Size = new System.Drawing.Size(111, 28);
+            this.checkBoxZeeland.Size = new System.Drawing.Size(71, 19);
             this.checkBoxZeeland.TabIndex = 24;
             this.checkBoxZeeland.Text = "Zeeland";
             this.checkBoxZeeland.UseVisualStyleBackColor = false;
@@ -339,7 +341,7 @@
             this.labelNoordholland.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(163)))), ((int)(((byte)(161)))));
             this.labelNoordholland.Location = new System.Drawing.Point(896, 257);
             this.labelNoordholland.Name = "labelNoordholland";
-            this.labelNoordholland.Size = new System.Drawing.Size(0, 24);
+            this.labelNoordholland.Size = new System.Drawing.Size(0, 15);
             this.labelNoordholland.TabIndex = 27;
             // 
             // label1
@@ -347,7 +349,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(11, 94);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 24);
+            this.label1.Size = new System.Drawing.Size(44, 15);
             this.label1.TabIndex = 1;
             this.label1.Text = "Jaartal";
             // 
@@ -373,7 +375,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(11, 50);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(155, 24);
+            this.label6.Size = new System.Drawing.Size(92, 15);
             this.label6.TabIndex = 34;
             this.label6.Text = "Soort Veiligheid";
             // 
@@ -385,7 +387,7 @@
             "Voelt zich vaak onveilig"});
             this.comboBoxSoortVeiligheid.Location = new System.Drawing.Point(14, 68);
             this.comboBoxSoortVeiligheid.Name = "comboBoxSoortVeiligheid";
-            this.comboBoxSoortVeiligheid.Size = new System.Drawing.Size(318, 32);
+            this.comboBoxSoortVeiligheid.Size = new System.Drawing.Size(318, 23);
             this.comboBoxSoortVeiligheid.TabIndex = 33;
             // 
             // buttonResetProvincies
@@ -430,7 +432,7 @@
             "2017"});
             this.comboBoxJaartal.Location = new System.Drawing.Point(14, 112);
             this.comboBoxJaartal.Name = "comboBoxJaartal";
-            this.comboBoxJaartal.Size = new System.Drawing.Size(318, 32);
+            this.comboBoxJaartal.Size = new System.Drawing.Size(318, 23);
             this.comboBoxJaartal.TabIndex = 30;
             // 
             // buttonZoekFilter
@@ -478,7 +480,7 @@
             "Diefstal en inbraak (overig)"});
             this.comboBoxSoortDiefstal.Location = new System.Drawing.Point(14, 24);
             this.comboBoxSoortDiefstal.Name = "comboBoxSoortDiefstal";
-            this.comboBoxSoortDiefstal.Size = new System.Drawing.Size(318, 32);
+            this.comboBoxSoortDiefstal.Size = new System.Drawing.Size(318, 23);
             this.comboBoxSoortDiefstal.TabIndex = 7;
             // 
             // label5
@@ -486,13 +488,13 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(11, 6);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(138, 24);
+            this.label5.Size = new System.Drawing.Size(81, 15);
             this.label5.TabIndex = 6;
             this.label5.Text = "Soort Diefstal";
             // 
             // Vraag3
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1280, 720);

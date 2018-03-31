@@ -170,6 +170,7 @@
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
             series1.ChartArea = "ChartArea1";
+            series1.Color = System.Drawing.Color.Firebrick;
             series1.EmptyPointStyle.LabelForeColor = System.Drawing.Color.White;
             series1.LabelBackColor = System.Drawing.Color.White;
             series1.LabelForeColor = System.Drawing.Color.White;
@@ -177,6 +178,7 @@
             series1.Name = "Diefstal";
             series1.SmartLabelStyle.CalloutLineColor = System.Drawing.Color.White;
             series2.ChartArea = "ChartArea1";
+            series2.Color = System.Drawing.Color.RoyalBlue;
             series2.EmptyPointStyle.LabelForeColor = System.Drawing.Color.White;
             series2.Legend = "Legend1";
             series2.Name = "Veiligheid";

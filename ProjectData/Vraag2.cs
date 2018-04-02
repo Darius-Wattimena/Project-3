@@ -42,7 +42,7 @@ namespace ProjectData
 
         private void updatechart_Click(object sender, EventArgs e)
         {
-            this.preventie.Series["Series1"].Points.Clear();
+            this.preventie.Series[0].Points.Clear();
             var selected = aantalsoort(combobox.GetItemText(combobox.SelectedItem));
             if (CheckYears().Count() == 0)
             {

@@ -312,6 +312,9 @@ namespace ProjectData.Converter
             {
                 if (i >= 1)
                 {
+                    var lineArray = line.ToArray();
+                    SetItems(lineArray);
+
                     var preventie = new Preventie
                     {
                         RegioCode = GetItem(2),

@@ -12,16 +12,16 @@ namespace ProjectData.Database.Daos
             query.Append("VALUES (");
             query.Append("'" + instance.RegioCode + "', ");
             query.Append("'" + instance.Perioden + "', ");
-            query.Append("'" + instance.LichtBijAfwezigheid + "', ");
-            query.Append("'" + instance.FietsInStalling + "', ");
-            query.Append("'" + instance.SpullenUitAuto + "', ");
-            query.Append("'" + instance.SpullenThuisLaten + "', ");
-            query.Append("'" + instance.SociaalPreventiefGedragscore + "', ");
-            query.Append("'" + instance.ExtraSlotenDeur + "', ");
-            query.Append("'" + instance.Rolluiken + "', ");
-            query.Append("'" + instance.Buitenverlichting + "', ");
-            query.Append("'" + instance.Alarm + "', ");
-            query.Append("'" + instance.PreventieSomscore + "'");
+            query.Append("'" + instance.LichtBijAfwezigheid.ToString().Replace(",", ".") + "', ");
+            query.Append("'" + instance.FietsInStalling.ToString().Replace(",", ".") + "', ");
+            query.Append("'" + instance.SpullenUitAuto.ToString().Replace(",", ".") + "', ");
+            query.Append("'" + instance.SpullenThuisLaten.ToString().Replace(",", ".") + "', ");
+            query.Append("'" + instance.SociaalPreventiefGedragscore.ToString().Replace(",", ".") + "', ");
+            query.Append("'" + instance.ExtraSlotenDeur.ToString().Replace(",", ".") + "', ");
+            query.Append("'" + instance.Rolluiken.ToString().Replace(",", ".") + "', ");
+            query.Append("'" + instance.Buitenverlichting.ToString().Replace(",", ".") + "', ");
+            query.Append("'" + instance.Alarm.ToString().Replace(",", ".") + "', ");
+            query.Append("'" + instance.PreventieSomscore.ToString().Replace(",", ".") + "'");
             query.Append(")");
         }
 

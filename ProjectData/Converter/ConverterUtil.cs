@@ -317,15 +317,15 @@ namespace ProjectData.Converter
                         RegioCode = GetItem(2),
                         Perioden = GetItem(3),
                         LichtBijAfwezigheid = GetDecimal(GetItem(4)),
-                        FietsInStalling = GetDecimal(GetItem(4)),
-                        SpullenUitAuto = GetDecimal(GetItem(4)),
-                        SpullenThuisLaten = GetDecimal(GetItem(4)),
-                        SociaalPreventiefGedragscore = GetDecimal(GetItem(4)),
-                        ExtraSlotenDeur = GetDecimal(GetItem(4)),
-                        Rolluiken = GetDecimal(GetItem(4)),
-                        Buitenverlichting = GetDecimal(GetItem(4)),
-                        Alarm = GetDecimal(GetItem(4)),
-                        PreventieSomscore = GetDecimal(GetItem(4))
+                        FietsInStalling = GetDecimal(GetItem(5)),
+                        SpullenUitAuto = GetDecimal(GetItem(6)),
+                        SpullenThuisLaten = GetDecimal(GetItem(7)),
+                        SociaalPreventiefGedragscore = GetDecimal(GetItem(8)),
+                        ExtraSlotenDeur = GetDecimal(GetItem(9)),
+                        Rolluiken = GetDecimal(GetItem(10)),
+                        Buitenverlichting = GetDecimal(GetItem(11)),
+                        Alarm = GetDecimal(GetItem(12)),
+                        PreventieSomscore = GetDecimal(GetItem(13))
 
                 };
 

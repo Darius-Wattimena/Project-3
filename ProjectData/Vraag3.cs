@@ -17,6 +17,7 @@ using ProjectData.Database.Daos;
 using ProjectData.Database.Entities;
 using ProjectData.Util;
 using System.Globalization;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace ProjectData
 {
@@ -132,10 +133,10 @@ namespace ProjectData
                     var itemValue = VeiligheidUtil.GetVeiligheidValueFromString(item);
 
                     //Recalculate the percentage so the value is visable in the chart
-                    var calculatedItemValue = (totaalDiefstallen / 100) * itemValue;
+                    //var calculatedItemValue = (totaalDiefstallen / 100) * itemValue;
 
                     //Add the recalculated percentage to the 2nd series
-                    chart1.Series[1].Points.Add(calculatedItemValue);
+                    chart1.Series[1].Points.Add(itemValue);
                 }
             }
         }
@@ -225,6 +226,12 @@ namespace ProjectData
         private void Vraag3Loaded(object sender, EventArgs e)
         {
             comboBoxSoortVeiligheid.SelectedIndex = 0;
+            chart1.ChartAreas[0].AxisY2.Enabled = AxisEnabled.True;
+            chart1.ChartAreas[0].AxisY2.LabelStyle.Format = "{0.00} %";
+            chart1.Series[1].YAxisType = AxisType.Secondary;
+            chart1.ChartAreas[0].AxisX.MajorGrid.LineWidth = 0;
+            chart1.ChartAreas[0].AxisY.MajorGrid.LineWidth = 0;
+            chart1.ChartAreas[0].AxisY2.MajorGrid.LineWidth = 0;
         }
 
         private void ResetCheckBoxes()

@@ -105,10 +105,12 @@ namespace ProjectData
                         {
                             if (element.Perioden == pelement.Perioden && element.RegioCode.Trim() == pelement.RegioCode.Trim())
                             {
-                                this.preventie.Series["Series1"].Points.AddXY(Convert.ToInt32(element.TotaalGeregistreerdeDiefstallen), pelement.LichtBijAfwezigheid);
+                                this.preventie.Series["Relatie preventie en diefstal"].Points.AddXY(Convert.ToInt32(element.TotaalGeregistreerdeDiefstallen), pelement.LichtBijAfwezigheid);
                             }
                         }
                     }
+                    this.preventie.ChartAreas[0].AxisX.Title = "Aantal diefstallen";
+                    this.preventie.ChartAreas[0].AxisY.Title = "Percentage van preventiefgedrag";
                 } else if (selected == 2) {
                     slijst = lijstd.OrderBy(o => o.GeregistreerdeDiefstallenPer1000Inw).ToList();
                     foreach (Diefstal element in slijst)
@@ -117,10 +119,12 @@ namespace ProjectData
                         {
                             if (element.Perioden == pelement.Perioden && element.RegioCode.Trim() == pelement.RegioCode.Trim())
                             {
-                                this.preventie.Series["Series1"].Points.AddXY(Convert.ToInt32(element.GeregistreerdeDiefstallenPer1000Inw), pelement.LichtBijAfwezigheid);
+                                this.preventie.Series["Relatie preventie en diefstal"].Points.AddXY(Convert.ToInt32(element.GeregistreerdeDiefstallenPer1000Inw), pelement.LichtBijAfwezigheid);
                             }
                         }
                     }
+                    this.preventie.ChartAreas[0].AxisX.Title = "Aantal diefstallen per 1000 inwoners";
+                    this.preventie.ChartAreas[0].AxisY.Title = "Percentage van preventiefgedrag";
                 } 
                 
             }

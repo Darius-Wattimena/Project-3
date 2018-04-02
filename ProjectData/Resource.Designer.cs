@@ -103,6 +103,26 @@ namespace ProjectData {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap MainMenuBackgroundNoTextV2 {
+            get {
+                object obj = ResourceManager.GetObject("MainMenuBackgroundNoTextV2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap MainMenuBackgroundV2 {
+            get {
+                object obj = ResourceManager.GetObject("MainMenuBackgroundV2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &quot;TableInfos&quot;
         ///&quot;ID&quot;;&quot;Title&quot;;&quot;ShortTitle&quot;;&quot;Identifier&quot;;&quot;Summary&quot;;&quot;Modified&quot;;&quot;ReasonDelivery&quot;;&quot;ExplanatoryText&quot;;&quot;Language&quot;;&quot;Catalog&quot;;&quot;Frequency&quot;;&quot;Period&quot;;&quot;ShortDescription&quot;;&quot;Description&quot;;&quot;DefaultPresentation&quot;;&quot;DefaultSelection&quot;;&quot;GraphTypes&quot;;&quot;OutputStatus&quot;;&quot;Source&quot;;&quot;MetaDataModified&quot;;&quot;SearchPriority&quot;
         ///&quot;0&quot;;&quot;Geregistreerde diefstallen; diefstallen en verdachten, regio&quot;;&quot;Geregistreerde diefstallen, regio&quot;;&quot;83651NED&quot;;&quot;Geregistreerde en opgehelderde diefstallen; geregistreerde verdachten

@@ -114,11 +114,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(72)))), ((int)(((byte)(81)))));
-            this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label2.Location = new System.Drawing.Point(239, 23);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(717, 15);
+            this.label2.Size = new System.Drawing.Size(738, 15);
             this.label2.TabIndex = 9;
             this.label2.Text = "Is het zo dat in de Nederlandse provincies het gemiddelde inkomen het aantal dief" +
     "stallen beïnvloed en verandert dit over de jaren?";
@@ -174,7 +174,7 @@
             series1.LabelBackColor = System.Drawing.Color.White;
             series1.LabelForeColor = System.Drawing.Color.White;
             series1.Legend = "Legend1";
-            series1.Name = "Diefstallen";
+            series1.Name = "Aantal diefstallen";
             series1.SmartLabelStyle.CalloutLineColor = System.Drawing.Color.White;
             series2.ChartArea = "ChartArea1";
             series2.Color = System.Drawing.Color.SeaGreen;
@@ -184,7 +184,7 @@
             series2.Name = "Gemiddeld inkomen";
             this.chart1.Series.Add(series1);
             this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(835, 346);
+            this.chart1.Size = new System.Drawing.Size(808, 346);
             this.chart1.TabIndex = 12;
             this.chart1.Text = "Vraag 1";
             // 

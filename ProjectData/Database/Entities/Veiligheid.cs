@@ -80,7 +80,12 @@ namespace ProjectData.Database.Entities
     public enum VeiligheidSoort
     {
         [Description("Voelt zich wel eens onveilig")] WelEensOnveilig,
-        [Description("Voelt zich vaak onveilig")] VaakOnveilig
+        [Description("Voelt zich vaak onveilig")] VaakOnveilig,
+        [Description("Denkt dat de kans groot is slachtoffer te worden van zakkenrollerij")] Zakkenrollerij,
+        [Description("Denkt dat de kans groot is slachtoffer te worden van een beroving op straat")] StraatBeroving,
+        [Description("Denkt dat de kans groot is slachtoffer te worden van een inbraak in de woning")] WoningInbraak,
+        [Description("Is bang om slachtoffer te worden van criminaliteit")] BangSlachtoffer,
+        [Description("Ziet respectloos gedrag op straat plaatsvinden")] OnbekendenStraat
     }
 
 }

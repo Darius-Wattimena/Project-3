@@ -176,17 +176,17 @@
             series1.LabelBackColor = System.Drawing.Color.White;
             series1.LabelForeColor = System.Drawing.Color.White;
             series1.Legend = "Legend1";
-            series1.Name = "Diefstal";
+            series1.Name = "Diefstallen";
             series1.SmartLabelStyle.CalloutLineColor = System.Drawing.Color.White;
             series2.ChartArea = "ChartArea1";
             series2.Color = System.Drawing.Color.RoyalBlue;
             series2.CustomProperties = "DrawingStyle=Emboss";
             series2.EmptyPointStyle.LabelForeColor = System.Drawing.Color.White;
             series2.Legend = "Legend1";
-            series2.Name = "Veiligheid";
+            series2.Name = "(On)veiligheid beleving";
             this.chart1.Series.Add(series1);
             this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(777, 346);
+            this.chart1.Size = new System.Drawing.Size(851, 346);
             this.chart1.TabIndex = 12;
             this.chart1.Text = "Vraag 1";
             // 

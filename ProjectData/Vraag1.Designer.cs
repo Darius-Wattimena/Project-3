@@ -174,7 +174,7 @@
             series1.LabelBackColor = System.Drawing.Color.White;
             series1.LabelForeColor = System.Drawing.Color.White;
             series1.Legend = "Legend1";
-            series1.Name = "Diefstal";
+            series1.Name = "Diefstallen";
             series1.SmartLabelStyle.CalloutLineColor = System.Drawing.Color.White;
             series2.ChartArea = "ChartArea1";
             series2.Color = System.Drawing.Color.SeaGreen;

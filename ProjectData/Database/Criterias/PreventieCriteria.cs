@@ -27,7 +27,7 @@ namespace ProjectData.Database.Criterias
                 QueryBuilder.Append("SAvondsLichtBrandenBijAfwezigheid_1", LichtAfwezig);
             }
 
-            QueryBuilder.AppendCustom("AND SAvondsLichtBrandenBijAfwezigheid_1 >= 10");
+            QueryBuilder.AppendCustom("AND SAvondsLichtBrandenBijAfwezigheid_1 >= 30");
         }
     }
 }

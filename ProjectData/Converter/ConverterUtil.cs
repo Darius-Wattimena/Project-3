@@ -312,36 +312,23 @@ namespace ProjectData.Converter
             {
                 if (i >= 1)
                 {
-                    var lineArray = line.ToArray();
-                    var LichtAf = lineArray[4].Replace("\"", string.Empty);
-                    var FietsStal = lineArray[5].Replace("\"", string.Empty);
-                    var SpullenAuto = lineArray[6].Replace("\"", string.Empty);
-                    var SpullenThuis = lineArray[7].Replace("\"", string.Empty);
-                    var SociaalPrev = lineArray[8].Replace("\"", string.Empty);
-                    var ExtraSloten = lineArray[9].Replace("\"", string.Empty);
-                    var Rolluiken = lineArray[10].Replace("\"", string.Empty);
-                    var Buitenverlichting = lineArray[11].Replace("\"", string.Empty);
-                    var Alarm = lineArray[12].Replace("\"", string.Empty);
-                    var PreventieSom = lineArray[13].Replace("\"", string.Empty);
-
                     var preventie = new Preventie
                     {
-                        RegioCode = lineArray[2].Replace("\"", string.Empty),
-                        Perioden = lineArray[3].Replace("\"", string.Empty),
-                        
-                    };
+                        RegioCode = GetItem(2),
+                        Perioden = GetItem(3),
+                        LichtBijAfwezigheid = GetDecimal(GetItem(4)),
+                        FietsInStalling = GetDecimal(GetItem(4)),
+                        SpullenUitAuto = GetDecimal(GetItem(4)),
+                        SpullenThuisLaten = GetDecimal(GetItem(4)),
+                        SociaalPreventiefGedragscore = GetDecimal(GetItem(4)),
+                        ExtraSlotenDeur = GetDecimal(GetItem(4)),
+                        Rolluiken = GetDecimal(GetItem(4)),
+                        Buitenverlichting = GetDecimal(GetItem(4)),
+                        Alarm = GetDecimal(GetItem(4)),
+                        PreventieSomscore = GetDecimal(GetItem(4))
 
-                    preventie.LichtBijAfwezigheid = !string.IsNullOrEmpty(LichtAf) && LichtAf.Any(char.IsDigit) ? decimal.Parse(LichtAf) : decimal.Zero;
-                    preventie.FietsInStalling = !string.IsNullOrEmpty(FietsStal) && FietsStal.Any(char.IsDigit) ? decimal.Parse(FietsStal) : decimal.Zero;
-                    preventie.SpullenUitAuto = !string.IsNullOrEmpty(SpullenAuto) && SpullenAuto.Any(char.IsDigit) ? decimal.Parse(SpullenAuto) : decimal.Zero;
-                    preventie.SpullenThuisLaten = !string.IsNullOrEmpty(SpullenThuis) && SpullenThuis.Any(char.IsDigit) ? decimal.Parse(SpullenThuis) : decimal.Zero;
-                    preventie.SociaalPreventiefGedragscore = !string.IsNullOrEmpty(SociaalPrev) && SociaalPrev.Any(char.IsDigit) ? decimal.Parse(SociaalPrev) : decimal.Zero;
-                    preventie.ExtraSlotenDeur = !string.IsNullOrEmpty(ExtraSloten) && ExtraSloten.Any(char.IsDigit) ? decimal.Parse(ExtraSloten) : decimal.Zero;
-                    preventie.Rolluiken = !string.IsNullOrEmpty(Rolluiken) && Rolluiken.Any(char.IsDigit) ? decimal.Parse(Rolluiken) : decimal.Zero;
-                    preventie.Buitenverlichting = !string.IsNullOrEmpty(Buitenverlichting) && Buitenverlichting.Any(char.IsDigit) ? decimal.Parse(Buitenverlichting) : decimal.Zero;
-                    preventie.Alarm = !string.IsNullOrEmpty(Alarm) && Alarm.Any(char.IsDigit) ? decimal.Parse(Alarm) : decimal.Zero;
-                    preventie.PreventieSomscore = !string.IsNullOrEmpty(PreventieSom) && PreventieSom.Any(char.IsDigit) ? decimal.Parse(PreventieSom) : decimal.Zero;
-                    
+                };
+
                     dao.Save(preventie);
                 }
                 i++;

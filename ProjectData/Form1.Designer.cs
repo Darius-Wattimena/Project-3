@@ -114,7 +114,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::ProjectData.Resource.MainMenuBackground;
+            this.BackgroundImage = global::ProjectData.Resource.MainMenuBackgroundV2;
             this.ClientSize = new System.Drawing.Size(1280, 720);
             this.ControlBox = false;
             this.Controls.Add(this.quitButton);

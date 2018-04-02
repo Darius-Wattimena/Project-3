@@ -171,6 +171,8 @@
   <ItemGroup>
     <Content Include="Resources\MainMenuBackground.png" />
     <Content Include="Resources\MainMenuBackgroundNoText.png" />
+    <Content Include="Resources\MainMenuBackgroundV2.png" />
+    <Content Include="Resources\MainMenuBackgroundNoTextV2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
